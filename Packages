@@ -1,0 +1,870 @@
+Package: busybox
+Version: 1.36.1-1
+Depends: libc, libssp, librt, libpthread
+Provides: busybox-any
+Source: feeds/base/utils/busybox
+SourceName: busybox
+License: GPL-2.0
+Section: utils
+SourceDateEpoch: 1771513164
+URL: https://busybox.net/
+Architecture: armv7-softfp
+Installed-Size: 1054720
+Description:  BusyBox 1.36.1 with EE71-customized .config.
+ OpenWrt patches for DHCP, DNS, crypt, and security fixes.
+ Dynamic linking against device glibc 2.17.
+Filename: busybox_1.36.1-1_armv7-softfp.ipk
+Size: 613491
+MD5Sum: d8f5fe158eccf4e03693e9c5b2139115
+
+Package: ca-bundle
+Version: 20250419-2
+Depends: libc, libssp, librt, libpthread
+Provides: ca-bundle-any, ca-certs, ca-certificates-any
+Source: feeds/base/system/ca-certificates
+SourceName: ca-certificates
+License: GPL-2.0-or-later MPL-2.0
+LicenseFiles: debian/copyright
+Section: base
+SourceDateEpoch: 1771513164
+Architecture: all
+Installed-Size: 235520
+Description:  System CA certificates as a bundle
+Filename: ca-bundle_20250419-2_all.ipk
+Size: 131038
+MD5Sum: f830b14ea9e752cf936b6aa95f010976
+
+Package: curl
+Version: 7.88.1-1
+Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
+Provides: curl-any
+Source: feeds/rctphone//feeds/rctphone/net/curl
+SourceName: curl
+License: MIT
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://curl.se/
+Architecture: armv7-softfp
+Installed-Size: 337920
+Description:  curl CLI + libcurl (HTTP/HTTPS only)
+Filename: curl_7.88.1-1_armv7-softfp.ipk
+Size: 170088
+MD5Sum: b6ef5b0dd0fb11e04b89478f9b966377
+
+Package: dnsmasq
+Version: 2.90-1
+Depends: libc, libssp, librt, libpthread
+Provides: dnsmasq-any
+Source: feeds/base/network/services/dnsmasq
+SourceName: dnsmasq
+License: GPL-2.0-or-later
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://thekelleys.org.uk/dnsmasq/
+Architecture: armv7-softfp
+Installed-Size: 256000
+Description:  DNS/DHCP server (embedded build)
+Filename: dnsmasq_2.90-1_armv7-softfp.ipk
+Size: 135145
+MD5Sum: 0cf9fbe169a1f3022784646a452b9f28
+
+Package: dropbear
+Version: 2025.89-1
+Depends: libc, libssp, librt, libpthread, zlib
+Provides: dropbear-any
+Source: feeds/base/network/services/dropbear
+SourceName: dropbear
+License: MIT
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://matt.ucc.asn.au/dropbear/dropbear.html
+Architecture: armv7-softfp
+Installed-Size: 256000
+Description:  Lightweight SSH server with hardened localoptions.h:
+ ed25519+RSA only, no forwarding, no 3DES/CBC/GCM,
+ DH group16 (4096-bit), ssh-audit compliant.
+Filename: dropbear_2025.89-1_armv7-softfp.ipk
+Size: 132658
+MD5Sum: 0d66c58fb9a42df4ffd2cfd3931dd51d
+
+Package: ee71-apn-ru
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-apn-ru-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-apn-ru
+SourceName: ee71-apn-ru
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  APN match profiles for Russian mobile operators:
+ MTS, Yota, Tele2, Beeline, MOTIV, Rostelecom, Tinkoff.
+Filename: ee71-apn-ru_1.0.0-1_armv7-softfp.ipk
+Size: 1145
+MD5Sum: 5ba92554d3876ba2ed30d9f1b6a013f2
+
+Package: ee71-ipv6
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-ipv6-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
+SourceName: ee71-ipv6
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  IPv6 support bundle for EE71:
+ - ip6tables INPUT DROP firewall (mirrors IPv4 whitelist, runs before QCMAP)
+ - Conditional dnsmasq AAAA filter (filter-AAAA when no WAN IPv6)
+ - Router Advertisement init for periodic RA relay to LAN clients
+Filename: ee71-ipv6_1.0.0-1_armv7-softfp.ipk
+Size: 3278
+MD5Sum: 403bf9ef08d642df6cd930810bc6b3a2
+
+Package: ee71-kmod-amneziawg
+Version: 1.0.20220627-1
+Depends: libc, libssp, librt, libpthread, ee71-kmod-tun
+Provides: ee71-kmod-amneziawg-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-amneziawg
+SourceName: ee71-kmod-amneziawg
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 153600
+Description:  AmneziaWG VPN kernel module for kernel 3.10.49.
+ WireGuard variant with anti-DPI obfuscation.
+ Pre-built with Linaro GCC 4.9 using compat layer.
+Filename: ee71-kmod-amneziawg_1.0.20220627-1_armv7-softfp.ipk
+Size: 55860
+MD5Sum: 942a39d5abd8d1181cd84c29e12d374e
+
+Package: ee71-kmod-tun
+Version: 3.10.49-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-kmod-tun-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-tun
+SourceName: ee71-kmod-tun
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  TUN/TAP network device kernel module for kernel 3.10.49.
+ Pre-built with Linaro GCC 4.9 (required for this kernel).
+Filename: ee71-kmod-tun_3.10.49-1_armv7-softfp.ipk
+Size: 12307
+MD5Sum: 4187bd4fe1bcea0c49a2be94650380be
+
+Package: ee71-kmod-wireguard
+Version: 1.0.20220627-1
+Depends: libc, libssp, librt, libpthread, ee71-kmod-tun
+Provides: ee71-kmod-wireguard-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-wireguard
+SourceName: ee71-kmod-wireguard
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 143360
+Description:  WireGuard VPN kernel module for kernel 3.10.49.
+ Pre-built with Linaro GCC 4.9 using compat layer.
+Filename: ee71-kmod-wireguard_1.0.20220627-1_armv7-softfp.ipk
+Size: 50826
+MD5Sum: 19857d46cdd936df6ed2fca578b96f55
+
+Package: ee71-optimize
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-optimize-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
+SourceName: ee71-optimize
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  EE71 performance optimization — all phases from optimization design doc.
+ 
+ Phase 1 (oem_watch cleanup):
+ - Remove drop_caches anti-pattern (7 occurrences, destroyed page cache)
+ - Remove sysrq-trigger memory dumps
+ - Skip sqlite3_integrity_check on boot
+ - Increase oem_watch sleep from 15s to 60s
+ 
+ Phase 1 (init script cleanup):
+ - Disable bootlogd (debug only)
+ - Disable hwclock.sh (no RTC hardware)
+ - Disable start_alx_le (Atheros ethernet, no hardware)
+ - Disable eMBMs_TunnelingModule (LTE broadcast, unused)
+ - Disable start_subsystem_ramdump (debug only)
+ - Disable stop-bootlogd
+ - Reduce misc-daemon modem timeout 10s to 3s
+ 
+ Phase 2 (service cleanup):
+ - Right-size tmpfs (203MB to 100MB: /run 4m, /var/volatile 48m, /media/ram 48m)
+ - Disable getty on ttyHSL0 (serial console)
+ - Disable nbnsd (NetBIOS, QCMAP-respawned — rename binary)
+ 
+ Phase 2 (filesystem):
+ - Remount all UBIFS with noatime (20-30% write savings)
+ - Rootfs noatime (kernel initial mount workaround)
+ 
+ Phase 2 (memory):
+ - Sysctl: swappiness=0, vfs_cache_pressure=50, min_free_kbytes=4096
+ - Sysctl: dirty_ratio=10, dirty_background_ratio=5, overcommit_memory=1
+ - Sysctl: dirty_expire_centisecs=1500, dirty_writeback_centisecs=500
+ - Sysctl: printk=3 3 3 3, panic=10
+ 
+ Phase 2 (storage cleanup):
+ - Remove Bluetooth tools (btmon, hci*, sdptool)
+ - Remove QMI test/ping utilities
+ - Remove audio tools (amix, aplay, arec)
+ - Remove keyboard tools (dumpkeys, loadkeys, setfont)
+ - Remove testCne
+ 
+ Phase 2 (firewall):
+ - LAN firewall accept rule (bridge0 INPUT)
+ - Disable dbus-daemon (no clients found on audit)
+ 
+ Phase 3 (boot parallelization):
+ - parallel_boot: backgrounds dropbear, syslog, thermal-engine, lan_accept, chgrp-diag
+ - Keeps modem stack sequential: qmuxd -> netmgrd -> QCMAP -> qti -> core_app
+ 
+ Phase 4 (runtime):
+ - qcmap_renice: renices QCMAP busy-loop threads to priority 19
+Filename: ee71-optimize_1.0.0-1_armv7-softfp.ipk
+Size: 6363
+MD5Sum: c63793ccd47c6cf510b87a56061a1d63
+
+Package: ee71-qcmap-fix
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-qcmap-fix-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-fix
+SourceName: ee71-qcmap-fix
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  Patches QCMAP_ConnectionManager binary to fix infinite busy loop
+ caused by zero-length netlink TLV attributes. 12-byte ARM32 patch
+ at vaddr 0x244C4 adds a zero-step guard in the attribute parser.
+ Includes Python patcher script and init script that applies patch
+ on boot (backs up original, verifies before patching).
+Filename: ee71-qcmap-fix_1.0.0-1_armv7-softfp.ipk
+Size: 4301
+MD5Sum: 44175d153e52d2d1057541979ab141c5
+
+Package: ee71-sms-watchd
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-sms-watchd-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-watchd
+SourceName: ee71-sms-watchd
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  Watches /jrd-resource/resource/sqlite3/ for changes to user_info.db3
+ (core_app sets new_sms_flag=1 on SMS arrival). On change, debounces
+ and fork/execs /usr/sbin/sms_notify to read SMS via WebAPI and send
+ Telegram notifications.
+Filename: ee71-sms-watchd_1.0.0-1_armv7-softfp.ipk
+Size: 4018
+MD5Sum: ad7d8a1b0327acb021b9390c80c15591
+
+Package: ee71-traffic-stats
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-traffic-stats-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-traffic-stats
+SourceName: ee71-traffic-stats
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  Reads /proc/net/nf_conntrack every 3s, aggregates per-LAN-host
+ byte counters, computes speeds, stores in 4-level ring buffers,
+ writes JSON to /tmp/traffic_stats.json.
+Filename: ee71-traffic-stats_1.0.0-1_armv7-softfp.ipk
+Size: 6655
+MD5Sum: c309d89c22139210458cd6e429f66db8
+
+Package: ee71-ttl-fix
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-ttl-fix-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ttl-fix
+SourceName: ee71-ttl-fix
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 10240
+Description:  Sets outgoing TTL (IPv4) and Hop Limit (IPv6) on cellular
+ interfaces (rmnet+) via iptables/ip6tables mangle rules.
+ Configurable TTL value via /etc/rcS.d/ttl file (default 64).
+ Excludes ICMPv6 to avoid breaking NDP/RA/PMTU.
+Filename: ee71-ttl-fix_1.0.0-1_armv7-softfp.ipk
+Size: 2372
+MD5Sum: 77265ef7312b76e8f0c790dd2eb859bc
+
+Package: ee71-usb-adb
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread, busybox
+Provides: ee71-usb-adb-any
+Source: feeds/rctphone//feeds/rctphone/utils/ee71-usb-adb
+SourceName: ee71-usb-adb
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 10240
+Description:  Patches the kernel jrd_usb_configs_tab in RAM via /dev/kmem on every
+ boot to add ADB (FunctionFS), DIAG, and Serial to all USB host
+ compositions (Mac, Windows, Linux).
+Filename: ee71-usb-adb_1.0.0-1_armv7-softfp.ipk
+Size: 3295
+MD5Sum: 0a809f7adffa74ac41250f3fbdd60552
+
+Package: ee71-webs-csp
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-webs-csp-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webs-csp
+SourceName: ee71-webs-csp
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 10240
+Description:  Patches the GoAhead webs binary Content-Security-Policy string
+ in-place to allow iframe embedding and inline scripts/styles.
+ Original CSP is very restrictive; replaced with permissive policy.
+ Backs up original binary before patching.
+Filename: ee71-webs-csp_1.0.0-1_armv7-softfp.ipk
+Size: 1674
+MD5Sum: 021ae11e85e5b22094ca574640ba65ad
+
+Package: ee71-webui
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-watchd, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-tun, wireguard-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd
+Provides: ee71-webui-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
+SourceName: ee71-webui
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 573440
+Description:  Single-page web interface for the EE71 router.
+ Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
+ VPN enforcement, SMS forwarding, and signal monitoring.
+ 
+ Runtime dependencies:
+ - webs CSP patch (iframe/inline support for GoAhead)
+ - TTL/HL normalization (iptables mangle rules)
+ - IPv6 support (firewall + dnsmasq AAAA filter + RA)
+ - QCMAP binary fix (zero-length netlink attribute)
+ - Performance optimizations (tmpfs, daemons, sysctl)
+ - USB ADB kernel patch (/dev/kmem)
+ - WireGuard (kernel module + wg/wg-quick userspace)
+ - ShadowSocks (ss-redir, ss-tunnel)
+ - curl, busybox, dropbear, dnsmasq, iperf3
+ - miniupnpd, sqlite3, hostapd
+Filename: ee71-webui_1.0.0-1_armv7-softfp.ipk
+Size: 282940
+MD5Sum: d9744792997175330a0a34ddd6b29f87
+
+Package: hostapd
+Version: 2.11-1
+Depends: libc, libssp, librt, libpthread, libnl
+Provides: hostapd-any
+Source: feeds/base/network/services/hostapd
+SourceName: hostapd
+License: BSD-3-Clause
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://w1.fi/hostapd/
+Architecture: armv7-softfp
+Installed-Size: 1003520
+Description:  hostapd 2.11 for EE71.
+ Uses internal TLS (no OpenSSL dependency).
+ Includes 802.11r/w, WPS, nl80211 support.
+ (wpa_supplicant not included — separate tarball)
+Filename: hostapd_2.11-1_armv7-softfp.ipk
+Size: 483617
+MD5Sum: b6a22f88ccd221fc9f7017276ea4d42b
+
+Package: iperf3
+Version: 3.20-1
+Depends: libc, libssp, librt, libpthread, openssl, libatomic
+Provides: iperf3-any, iperf3-ssl
+Source: feeds/rctphone//feeds/rctphone/net/iperf3
+SourceName: iperf3
+License: BSD-3-Clause
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://software.es.net/iperf/
+Architecture: armv7-softfp
+Installed-Size: 122880
+Description:  Network bandwidth measurement tool
+Filename: iperf3_3.20-1_armv7-softfp.ipk
+Size: 52973
+MD5Sum: c32301c14a7979f168aeb48fdef40a63
+
+Package: iptables
+Version: 1.4.21-5
+Depends: libc, libssp, librt, libpthread
+Provides: iptables-any
+Alternatives: 200:/usr/bin/iptables-xml:/usr/sbin/xtables-multi, 200:/usr/sbin/iptables:/usr/sbin/xtables-multi, 200:/usr/sbin/iptables-restore:/usr/sbin/xtables-multi, 200:/usr/sbin/iptables-save:/usr/sbin/xtables-multi, 200:/usr/sbin/ip6tables:/usr/sbin/xtables-multi, 200:/usr/sbin/ip6tables-restore:/usr/sbin/xtables-multi, 200:/usr/sbin/ip6tables-save:/usr/sbin/xtables-multi
+Source: feeds/base/network/utils/iptables
+SourceName: iptables
+License: GPL-2.0
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://netfilter.org/
+CPE-ID: cpe:/a:netfilter:iptables
+Architecture: armv7-softfp
+Installed-Size: 430080
+Description:  IP firewall administration tool.
+ 
+ Matches:
+ - icmp
+ - tcp
+ - udp
+ - comment
+ - conntrack
+ - limit
+ - mac
+ - mark
+ - multiport
+ - set
+ - state
+ - time
+ 
+ Targets:
+ - ACCEPT
+ - CT
+ - DNAT
+ - DROP
+ - REJECT
+ - LOG
+ - MARK
+ - MASQUERADE
+ - REDIRECT
+ - SET
+ - SNAT
+ - TCPMSS
+ 
+ Tables:
+ - filter
+ - mangle
+ - nat
+ - raw
+ 
+Filename: iptables_1.4.21-5_armv7-softfp.ipk
+Size: 148415
+MD5Sum: 77a2a735cd6f7f8f02a57c0157abb899
+
+Package: libatomic
+Version: 13.4.0-12
+Depends: libgcc
+Provides: libatomic-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  Atomic support library
+Filename: libatomic_13.4.0-12_armv7-softfp.ipk
+Size: 7046
+MD5Sum: 4e7e6f89b19f9dc345a83c9af437b854
+
+Package: libc
+Version: 2.17-12
+Depends: libgcc
+Provides: libc-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.gnu.org/software/libc/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 2273280
+Description:  C library
+Filename: libc_2.17-12_armv7-softfp.ipk
+Size: 1128035
+MD5Sum: 2af012e8a4ce53c90fbd2066051d16a8
+
+Package: libgcc
+Version: 13.4.0-12
+Provides: libgcc-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 51200
+Description:  GCC support library
+Filename: libgcc_13.4.0-12_armv7-softfp.ipk
+Size: 22221
+MD5Sum: ae84ccd0fc80a171aa1271c37fe34627
+
+Package: libmnl
+Version: 1.0.5-1
+Depends: libc, libssp, librt, libpthread
+Provides: libmnl-any
+Source: feeds/base/libs/libmnl
+SourceName: libmnl
+License: LGPL-2.1+
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.netfilter.org/projects/libmnl/
+CPE-ID: cpe:/a:netfilter:libmnl
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  libmnl is a minimalistic user-space library oriented to Netlink developers.
+ There are a lot of common tasks in parsing, validating, constructing of
+ both the Netlink header and TLVs that are repetitive and easy to get wrong.
+ This library aims to provide simple helpers that allows you to re-use code
+ and to avoid re-inventing the wheel. The main features of this library are:
+ .
+ * Small: the shared library requires around 30KB for an x86-based computer.
+ .
+ * Simple: this library avoids complexity and elaborated abstractions that
+ tend to hide Netlink details.
+ .
+ * Easy to use: the library simplifies the work for Netlink-wise developers.
+ It provides functions to make socket handling, message building, validating,
+ parsing and sequence tracking, easier.
+ .
+ * Easy to re-use: you can use the library to build your own abstraction layer
+ on top of this library.
+ .
+ * Decoupling: the interdependency of the main bricks that compose the library
+ is reduced, i.e. the library provides many helpers, but the programmer is not
+ forced to use them.
+Filename: libmnl_1.0.5-1_armv7-softfp.ipk
+Size: 6933
+MD5Sum: 66319819cc375a4f88bdea8193e50205
+
+Package: libnetfilter-conntrack
+Version: 1.1.0-1
+Depends: libc, libssp, librt, libpthread, libnfnetlink, libmnl
+Provides: libnetfilter-conntrack-any
+Source: feeds/base/libs/libnetfilter-conntrack
+SourceName: libnetfilter_conntrack
+License: GPL-2.0-or-later
+LicenseFiles: COPYING
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.netfilter.org/projects/libnetfilter_conntrack/
+CPE-ID: cpe:/a:netfilter:libnetfilter_conntrack
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: armv7-softfp
+Installed-Size: 92160
+Description:  libnetfilter_conntrack is a userspace library providing a programming
+ interface (API) to the in-kernel connection tracking state table. The
+ library libnetfilter_conntrack has been previously known as
+ libnfnetlink_conntrack and libctnetlink. This library is currently
+ used by conntrack-tools among many other applications.
+Filename: libnetfilter-conntrack_1.1.0-1_armv7-softfp.ipk
+Size: 32657
+MD5Sum: 62e3c1d0b15f7220336eed9612a9a767
+
+Package: libnfnetlink
+Version: 1.0.2-1
+Depends: libc, libssp, librt, libpthread
+Provides: libnfnetlink-any
+Source: feeds/base/libs/libnfnetlink
+SourceName: libnfnetlink
+License: GPL-2.0+
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://netfilter.org/projects/libnfnetlink/
+CPE-ID: cpe:/a:netfilter:libnfnetlink
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  libnfnetlink is is the low-level library for netfilter related kernel/userspace communication.
+ It provides a generic messaging infrastructure for in-kernel netfilter subsystems
+ (such as nfnetlink_log, nfnetlink_queue, nfnetlink_conntrack) and their respective users
+ and/or management tools in userspace.
+Filename: libnfnetlink_1.0.2-1_armv7-softfp.ipk
+Size: 10586
+MD5Sum: 4d369d1d4280de560db5bc95782f9362
+
+Package: libnl
+Version: 3.10.0-1
+Depends: libc, libssp, librt, libpthread, libpthread
+Provides: libnl-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.infradead.org/~tgr/libnl/
+Architecture: armv7-softfp
+Installed-Size: 614400
+Description:  Netlink protocol library suite
+Filename: libnl_3.10.0-1_armv7-softfp.ipk
+Size: 235063
+MD5Sum: 600844dffdd6586c2927e4f83a18ec36
+
+Package: libpthread
+Version: 2.17-12
+Depends: libgcc
+Provides: libpthread-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.gnu.org/software/libc/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 92160
+Description:  POSIX thread library
+Filename: libpthread_2.17-12_armv7-softfp.ipk
+Size: 37014
+MD5Sum: 89efc852ea10a0fc9172bcaf36358d27
+
+Package: librt
+Version: 2.17-12
+Depends: libpthread
+Provides: librt-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.gnu.org/software/libc/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  POSIX.1b RealTime extension library
+Filename: librt_2.17-12_armv7-softfp.ipk
+Size: 12634
+MD5Sum: 7219dcb5801c36a2a62af940537eca21
+
+Package: libssp
+Version: 13.4.0-12
+Provides: libssp-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  GCC support library
+Filename: libssp_13.4.0-12_armv7-softfp.ipk
+Size: 3611
+MD5Sum: 10c011fed4d48f2cc47f68e894aa5056
+
+Package: libstdcpp
+Version: 13.4.0-12
+Provides: libstdcpp-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 1638400
+Description:  GNU Standard C++ Library v3
+Filename: libstdcpp_13.4.0-12_armv7-softfp.ipk
+Size: 591354
+MD5Sum: 31ddb53b7fde3c6977fd0bc732931c22
+
+Package: libxml2
+Version: 2.9.14-1
+Depends: libc, libssp, librt, libpthread, zlib
+Provides: libxml2-any
+Source: feeds/base/libs/libxml2
+SourceName: libxml2
+License: MIT
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://xmlsoft.org/
+Architecture: armv7-softfp
+Installed-Size: 1003520
+Description:  libxml2 XML parser library
+Filename: libxml2_2.9.14-1_armv7-softfp.ipk
+Size: 453383
+MD5Sum: 4bc5ac1c1b1f1a03aa7c94073f7b9be0
+
+Package: miniupnpd
+Version: 2.3.9-1
+Depends: libc, libssp, librt, libpthread, iptables, libnfnetlink, libnetfilter-conntrack
+Provides: miniupnpd-any, miniupnpd-iptables
+Source: feeds/rctphone//feeds/rctphone/net/miniupnpd
+SourceName: miniupnpd
+License: BSD-3-Clause
+Section: net
+SourceDateEpoch: 1771513164
+URL: http://miniupnp.free.fr/
+Architecture: armv7-softfp
+Installed-Size: 143360
+Description:  UPnP/NAT-PMP/PCP daemon
+Filename: miniupnpd_2.3.9-1_armv7-softfp.ipk
+Size: 66252
+MD5Sum: 7c186de5652b8688047607d9e6ba5b6f
+
+Package: openssl
+Version: 1.1.1w-1
+Depends: libc, libssp, librt, libpthread
+Provides: openssl-any, libopenssl, libopenssl-conf, libopenssl-legacy, openssl-util
+Source: feeds/base/libs/openssl
+SourceName: openssl
+License: OpenSSL
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.openssl.org/
+Architecture: armv7-softfp
+Installed-Size: 3072000
+Description:  OpenSSL 1.1.1w with ChaCha20 preference, small footprint.
+ ABI-compatible with stock OEM binaries (core_app, webs, config_manager).
+Filename: openssl_1.1.1w-1_armv7-softfp.ipk
+Size: 1552946
+MD5Sum: 473cd4d4f6a7bbab67ee3afb4ae2bc91
+
+Package: opkg
+Version: 2025.11.05~80503d94-1
+Provides: opkg-any
+Source: feeds/base/system/opkg
+SourceName: opkg
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: base
+SourceDateEpoch: 1771513164
+URL: https://git.openwrt.org/project/opkg-lede.git
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: armv7-softfp
+Installed-Size: 788480
+Description:  Lightweight package management system
+ opkg is the opkg Package Management System, for handling
+ installation and removal of packages on a system. It can
+ recursively follow dependencies and download all packages
+ necessary to install a particular package.
+ 
+ opkg knows how to install both .ipk and .deb packages.
+Filename: opkg_2025.11.05~80503d94-1_armv7-softfp.ipk
+Size: 385904
+MD5Sum: 50faf00f483cd18d197cd49f67b419f6
+
+Package: ppp
+Version: 2.4.9-1
+Depends: libc, libssp, librt, libpthread, libopenssl
+Provides: ppp-any
+Source: feeds/base/network/services/ppp
+SourceName: ppp
+License: BSD-4-Clause
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://ppp.samba.org/
+Architecture: armv7-softfp
+Installed-Size: 266240
+Description:  PPP daemon 2.4.9 with OpenWrt patches.
+ CVE-2020-8597 fix (critical unauthenticated RCE).
+Filename: ppp_2.4.9-1_armv7-softfp.ipk
+Size: 127862
+MD5Sum: f754a46b7da4c7f63e5edc4553b68320
+
+Package: shadowsocks-libev
+Version: 3.3.5-1
+Depends: libc, libssp, librt, libpthread, libpthread
+Provides: shadowsocks-libev-any
+Source: feeds/rctphone//feeds/rctphone/net/shadowsocks-libev
+SourceName: shadowsocks-libev
+License: GPL-3.0
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://github.com/shadowsocks/shadowsocks-libev
+Architecture: armv7-softfp
+Installed-Size: 1013760
+Description:  Lightweight SOCKS5 proxy with encrypted tunnel.
+ All dependencies (libev, libsodium, c-ares, mbedTLS, PCRE)
+ are downloaded and statically linked at build time.
+Filename: shadowsocks-libev_3.3.5-1_armv7-softfp.ipk
+Size: 492623
+MD5Sum: 9a632dea19fcc74e9c84d9bdf27bee1c
+
+Package: sqlite3
+Version: 3.44.2-1
+Depends: libc, libssp, librt, libpthread, libpthread
+Provides: sqlite3-any, libsqlite3, sqlite3-cli
+Source: feeds/rctphone//feeds/rctphone/libs/sqlite3
+SourceName: sqlite3
+License: Public-Domain
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.sqlite.org/
+Architecture: armv7-softfp
+Installed-Size: 1935360
+Description:  SQLite3 database engine
+Filename: sqlite3_3.44.2-1_armv7-softfp.ipk
+Size: 1068472
+MD5Sum: c758524df0f85c5967f29f2cb83e6949
+
+Package: terminfo
+Version: 6.4-3
+Depends: libc, libssp, librt, libpthread
+Provides: terminfo-any
+Source: feeds/base/libs/ncurses
+SourceName: ncurses
+License: MIT
+LicenseFiles: README
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.gnu.org/software/ncurses/
+CPE-ID: cpe:/a:gnu:ncurses
+Architecture: armv7-softfp
+Installed-Size: 71680
+Description:  Terminal Info Database (ncurses)
+Filename: terminfo_6.4-3_armv7-softfp.ipk
+Size: 9664
+MD5Sum: 90873816f7eb6b0f63045fb4d6352a3e
+
+Package: wireguard-tools
+Version: 1.0.20210914-1
+Depends: libc, libssp, librt, libpthread
+Provides: wireguard-tools-any
+Source: feeds/base/network/utils/wireguard-tools
+SourceName: wireguard-tools
+License: GPL-2.0
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://www.wireguard.com/
+Architecture: armv7-softfp
+Installed-Size: 71680
+Description:  WireGuard userspace tools (wg + wg-quick)
+Filename: wireguard-tools_1.0.20210914-1_armv7-softfp.ipk
+Size: 28641
+MD5Sum: 2e5d3f18c05d0e5445aa02f433872df4
+
+Package: zlib
+Version: 1.2.13-1
+Depends: libc, libssp, librt, libpthread
+Provides: zlib-any
+Source: feeds/base/libs/zlib
+SourceName: zlib
+License: Zlib
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://zlib.net/
+Architecture: armv7-softfp
+Installed-Size: 81920
+Description:  zlib compression library
+Filename: zlib_1.2.13-1_armv7-softfp.ipk
+Size: 38393
+MD5Sum: f5b9c3c033c0d1aa54cf2db2244ddbb3
+
