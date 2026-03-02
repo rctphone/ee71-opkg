@@ -206,13 +206,13 @@ SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 30720
 Description:  EE71 performance optimization — all phases from optimization design doc.
- .
+  .
  Phase 1 (oem_watch cleanup):
  - Remove drop_caches anti-pattern (7 occurrences, destroyed page cache)
  - Remove sysrq-trigger memory dumps
  - Skip sqlite3_integrity_check on boot
  - Increase oem_watch sleep from 15s to 60s
- .
+  .
  Phase 1 (init script cleanup):
  - Disable bootlogd (debug only)
  - Disable hwclock.sh (no RTC hardware)
@@ -221,37 +221,37 @@ Description:  EE71 performance optimization — all phases from optimization des
  - Disable start_subsystem_ramdump (debug only)
  - Disable stop-bootlogd
  - Reduce misc-daemon modem timeout 10s to 3s
- .
+  .
  Phase 2 (service cleanup):
  - Right-size tmpfs (203MB to 100MB: /run 4m, /var/volatile 48m, /media/ram 48m)
  - Disable getty on ttyHSL0 (serial console)
  - Disable nbnsd (NetBIOS, QCMAP-respawned — rename binary)
- .
+  .
  Phase 2 (filesystem):
  - Remount all UBIFS with noatime (20-30% write savings)
  - Rootfs noatime (kernel initial mount workaround)
- .
+  .
  Phase 2 (memory):
  - Sysctl: swappiness=0, vfs_cache_pressure=50, min_free_kbytes=4096
  - Sysctl: dirty_ratio=10, dirty_background_ratio=5, overcommit_memory=1
  - Sysctl: dirty_expire_centisecs=1500, dirty_writeback_centisecs=500
  - Sysctl: printk=3 3 3 3, panic=10
- .
+  .
  Phase 2 (storage cleanup):
  - Remove Bluetooth tools (btmon, hci*, sdptool)
  - Remove QMI test/ping utilities
  - Remove audio tools (amix, aplay, arec)
  - Remove keyboard tools (dumpkeys, loadkeys, setfont)
  - Remove testCne
- .
+  .
  Phase 2 (firewall):
  - LAN firewall accept rule (bridge0 INPUT)
  - Disable dbus-daemon (no clients found on audit)
- .
+  .
  Phase 3 (boot parallelization):
  - parallel_boot: backgrounds dropbear, syslog, thermal-engine, lan_accept, chgrp-diag
  - Keeps modem stack sequential: qmuxd -> netmgrd -> QCMAP -> qti -> core_app
- .
+  .
  Phase 4 (runtime):
  - qcmap_renice: renices QCMAP busy-loop threads to priority 19
 Filename: ee71-optimize_1.0.0-1_armv7-softfp.ipk
@@ -378,7 +378,7 @@ Installed-Size: 552960
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
- .
+  .
  Runtime dependencies:
  - webs CSP patch (iframe/inline support for GoAhead)
  - TTL/HL normalization (iptables mangle rules)
@@ -394,6 +394,36 @@ Description:  Single-page web interface for the EE71 router.
 Filename: ee71-webui_1.0.0-1_armv7-softfp.ipk
 Size: 279646
 MD5Sum: e7e7d2a66aa436d29e88e42f0c484b72
+
+Package: ee71-webui
+Version: 1.0.0-2
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-watchd, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd
+Provides: ee71-webui-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
+SourceName: ee71-webui
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 931840
+Description:  Single-page web interface for the EE71 router.
+ Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
+ VPN enforcement, SMS forwarding, and signal monitoring.
+  .
+ Runtime dependencies:
+ - webs CSP patch (iframe/inline support for GoAhead)
+ - TTL/HL normalization (iptables mangle rules)
+ - IPv6 support (firewall + dnsmasq AAAA filter + RA)
+ - QCMAP binary fix (zero-length netlink attribute)
+ - Performance optimizations (tmpfs, daemons, sysctl)
+ - USB ADB kernel patch (/dev/kmem)
+ - WireGuard (kernel module + wg userspace)
+ - AmneziaWG (kernel module + awg userspace)
+ - ShadowSocks (ss-redir, ss-tunnel)
+ - curl, busybox, dropbear, dnsmasq, iperf3
+ - miniupnpd, sqlite3, hostapd
+Filename: ee71-webui_1.0.0-2_armv7-softfp.ipk
+Size: 358315
+MD5Sum: 6d2de97a49a74f091359569383bcae01
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
@@ -467,7 +497,7 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 440320
 Description:  IP firewall administration tool.
- .
+  .
  Matches:
  - icmp
  - tcp
@@ -481,7 +511,7 @@ Description:  IP firewall administration tool.
  - set
  - state
  - time
- .
+  .
  Targets:
  - ACCEPT
  - CT
@@ -495,13 +525,13 @@ Description:  IP firewall administration tool.
  - SET
  - SNAT
  - TCPMSS
- .
+  .
  Tables:
  - filter
  - mangle
  - nat
  - raw
- .
+  .
 Filename: iptables_1.4.21-6_armv7-softfp.ipk
 Size: 149496
 MD5Sum: 50a148e2b41c7f0d9b33d84de4bd3bf2
@@ -858,7 +888,7 @@ Description:  Lightweight package management system
  installation and removal of packages on a system. It can
  recursively follow dependencies and download all packages
  necessary to install a particular package.
- .
+  .
  opkg knows how to install both .ipk and .deb packages.
 Filename: opkg_2025.11.05~80503d94-1_armv7-softfp.ipk
 Size: 386162
@@ -958,7 +988,7 @@ Description:  WireGuard is a novel VPN that runs inside the Linux Kernel and uti
  be considerably more performant than OpenVPN.  WireGuard is designed as a
  general purpose VPN for running on embedded interfaces and super computers
  alike, fit for many different circumstances. It uses UDP.
- .
+  .
  This package provides the userspace control program for WireGuard, wg(8).
 Filename: wireguard-tools_1.0.20250521-1_armv7-softfp.ipk
 Size: 24354
