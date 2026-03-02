@@ -990,8 +990,8 @@ Description:  Lightweight package management system
  
  opkg knows how to install both .ipk and .deb packages.
 Filename: opkg_2025.11.05~80503d94-1_armv7-softfp.ipk
-Size: 386082
-MD5Sum: 09d65ec2f5495b3fbd60749038ba9f36
+Size: 386162
+MD5Sum: 34cf849bfb0efa3d5b0f825ced2e4817
 
 Package: ppp
 Version: 2.4.8_git20201003-3
