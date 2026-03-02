@@ -95,6 +95,23 @@ Filename: dropbear_2025.89-1_armv7-softfp.ipk
 Size: 95395
 MD5Sum: c4ee2405bfa6069d9d9eacd2b8a3d8a3
 
+Package: ee71-amneziawg-tools
+Version: 1.0.20220627-1
+Depends: libc, libssp, librt, libpthread, ee71-kmod-amneziawg
+Provides: ee71-amneziawg-tools-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-amneziawg-tools
+SourceName: ee71-amneziawg-tools
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 71680
+Description:  AmneziaWG userspace control program (awg) for kernel 3.10.49.
+ Fork of wireguard-tools with anti-DPI obfuscation support.
+ Pre-built with ee71-crossoe (GCC 13.2, ARMv7-A soft-float).
+Filename: ee71-amneziawg-tools_1.0.20220627-1_armv7-softfp.ipk
+Size: 31171
+MD5Sum: 89579c849b38c0628b3e06ed512f37b8
+
 Package: ee71-apn-ru
 Version: 1.0.0-1
 Depends: libc, libssp, librt, libpthread
