@@ -505,6 +505,61 @@ Filename: iptables_1.4.21-5_armv7-softfp.ipk
 Size: 149497
 MD5Sum: 85911076e698e0a2e22a70236a8d94d3
 
+Package: iptables
+Version: 1.4.21-6
+Depends: libc, libssp, librt, libpthread
+Provides: iptables-any
+Alternatives: 200:/usr/bin/iptables-xml:/usr/sbin/xtables-multi, 200:/usr/sbin/iptables:/usr/sbin/xtables-multi, 200:/usr/sbin/iptables-restore:/usr/sbin/xtables-multi, 200:/usr/sbin/iptables-save:/usr/sbin/xtables-multi, 200:/usr/sbin/ip6tables:/usr/sbin/xtables-multi, 200:/usr/sbin/ip6tables-restore:/usr/sbin/xtables-multi, 200:/usr/sbin/ip6tables-save:/usr/sbin/xtables-multi
+Source: feeds/base/network/utils/iptables
+SourceName: iptables
+License: GPL-2.0
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://netfilter.org/
+CPE-ID: cpe:/a:netfilter:iptables
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 440320
+Description:  IP firewall administration tool.
+ 
+ Matches:
+ - icmp
+ - tcp
+ - udp
+ - comment
+ - conntrack
+ - limit
+ - mac
+ - mark
+ - multiport
+ - set
+ - state
+ - time
+ 
+ Targets:
+ - ACCEPT
+ - CT
+ - DNAT
+ - DROP
+ - REJECT
+ - LOG
+ - MARK
+ - MASQUERADE
+ - REDIRECT
+ - SET
+ - SNAT
+ - TCPMSS
+ 
+ Tables:
+ - filter
+ - mangle
+ - nat
+ - raw
+ 
+Filename: iptables_1.4.21-6_armv7-softfp.ipk
+Size: 149496
+MD5Sum: 50a148e2b41c7f0d9b33d84de4bd3bf2
+
 Package: libmnl
 Version: 1.0.5-1
 Depends: libc, libssp, librt, libpthread
