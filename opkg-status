@@ -1,0 +1,240 @@
+Package: libc
+Version: 2.17-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libc-any
+
+Package: libgcc
+Version: 13.4.0-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libgcc-any
+
+Package: libpthread
+Version: 2.17-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libpthread-any
+
+Package: librt
+Version: 2.17-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: librt-any
+
+Package: libssp
+Version: 13.4.0-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libssp-any
+
+Package: libstdcpp
+Version: 13.4.0-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libstdcpp-any
+
+Package: libatomic
+Version: 13.4.0-12
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libatomic-any
+
+Package: zlib
+Version: 1.2.13-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: zlib-any
+
+Package: libopenssl
+Version: 1.1.1w-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libopenssl-any
+
+Package: libopenssl-conf
+Version: 1.1.1w-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libopenssl-conf-any
+
+Package: openssl-util
+Version: 1.1.1w-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: openssl-util-any
+
+Package: libnl-core
+Version: 3.11.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnl-core-any
+
+Package: libnl-genl
+Version: 3.11.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnl-genl-any
+
+Package: libnl-route
+Version: 3.11.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnl-route-any
+
+Package: libnl-nf
+Version: 3.11.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnl-nf-any
+
+Package: libnl-cli
+Version: 3.11.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnl-cli-any
+
+Package: libnl
+Version: 3.10.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnl-any
+
+Package: libxml2
+Version: 2.13.9-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libxml2-any
+
+Package: sqlite3
+Version: 3.44.2-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: sqlite3-any, libsqlite3, sqlite3-cli
+
+Package: iptables
+Version: 1.4.21-5
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: iptables-any
+
+Package: libnfnetlink
+Version: 1.0.2-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnfnetlink-any
+
+Package: libmnl
+Version: 1.0.5-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libmnl-any
+
+Package: libnetfilter-conntrack
+Version: 1.1.0-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: libnetfilter-conntrack-any
+
+Package: busybox
+Version: 1.36.1-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: busybox-any
+
+Package: opkg
+Version: 2025.11.05~80503d94-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: opkg-any
+
+Package: dnsmasq
+Version: 2.90-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: dnsmasq-any
+
+Package: hostapd
+Version: 2.11-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: hostapd-any
+
+Package: wpa-supplicant
+Version: 2025.08.26~ca266cc2-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: wpa-supplicant-any
+
+Package: wpa-cli
+Version: 2025.08.26~ca266cc2-1
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: wpa-cli-any
+
+Package: terminfo
+Version: 6.4-3
+Status: install ok installed
+Essential: yes
+Architecture: armv7-softfp
+Installed-Time: 1772431290
+Provides: terminfo-any
+
