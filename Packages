@@ -37,23 +37,6 @@ Filename: ca-bundle_20250419-1_all.ipk
 Size: 131009
 MD5Sum: fd7afa5f98cd8978d9da36cb2107a2f9
 
-Package: ca-bundle
-Version: 20250419-2
-Depends: libc, libssp, librt, libpthread
-Provides: ca-bundle-any, ca-certs, ca-certificates-any
-Source: feeds/base/system/ca-certificates
-SourceName: ca-certificates
-License: GPL-2.0-or-later MPL-2.0
-LicenseFiles: debian/copyright
-Section: base
-SourceDateEpoch: 1771513164
-Architecture: all
-Installed-Size: 235520
-Description:  System CA certificates as a bundle
-Filename: ca-bundle_20250419-2_all.ipk
-Size: 131038
-MD5Sum: f830b14ea9e752cf936b6aa95f010976
-
 Package: curl
 Version: 7.88.1-1
 Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
@@ -70,23 +53,6 @@ Description:  curl CLI + libcurl (HTTP/HTTPS only)
 Filename: curl_7.88.1-1_armv7-softfp.ipk
 Size: 170084
 MD5Sum: e815906d0f6d71b72e710f43904372b2
-
-Package: dnsmasq
-Version: 2.90-1
-Depends: libc, libssp, librt, libpthread
-Provides: dnsmasq-any
-Source: feeds/base/network/services/dnsmasq
-SourceName: dnsmasq
-License: GPL-2.0-or-later
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://thekelleys.org.uk/dnsmasq/
-Architecture: armv7-softfp
-Installed-Size: 256000
-Description:  DNS/DHCP server (embedded build)
-Filename: dnsmasq_2.90-1_armv7-softfp.ipk
-Size: 135145
-MD5Sum: 0cf9fbe169a1f3022784646a452b9f28
 
 Package: dnsmasq
 Version: 2.92-1
@@ -431,26 +397,6 @@ Size: 18081
 MD5Sum: 051054d42cab10b287547a33f1481f22
 
 Package: hostapd
-Version: 2.11-1
-Depends: libc, libssp, librt, libpthread, libnl
-Provides: hostapd-any
-Source: feeds/base/network/services/hostapd
-SourceName: hostapd
-License: BSD-3-Clause
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://w1.fi/hostapd/
-Architecture: armv7-softfp
-Installed-Size: 1003520
-Description:  hostapd 2.11 for EE71.
- Uses internal TLS (no OpenSSL dependency).
- Includes 802.11r/w, WPS, nl80211 support.
- (wpa_supplicant not included — separate tarball)
-Filename: hostapd_2.11-1_armv7-softfp.ipk
-Size: 483617
-MD5Sum: b6a22f88ccd221fc9f7017276ea4d42b
-
-Package: hostapd
 Version: 2025.08.26~ca266cc2-1
 Depends: libc, libssp, librt, libpthread, libnl
 Provides: hostapd-any
@@ -784,23 +730,6 @@ Size: 170926
 MD5Sum: c3f216663fba862c1a5bf14257ea5d9a
 
 Package: libnl
-Version: 3.10.0-1
-Depends: libc, libssp, librt, libpthread, libpthread
-Provides: libnl-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-Architecture: armv7-softfp
-Installed-Size: 614400
-Description:  Netlink protocol library suite
-Filename: libnl_3.10.0-1_armv7-softfp.ipk
-Size: 235063
-MD5Sum: 600844dffdd6586c2927e4f83a18ec36
-
-Package: libnl
 Version: 3.11.0-1
 Depends: libc, libssp, librt, libpthread, libnl-genl, libnl-route, libnl-nf, libnl-cli
 Provides: libnl-any
@@ -963,23 +892,6 @@ Filename: libxml2_2.13.9-1_armv7-softfp.ipk
 Size: 431710
 MD5Sum: 02a53859290053c6b1791d99a3cbc876
 
-Package: libxml2
-Version: 2.9.14-1
-Depends: libc, libssp, librt, libpthread, zlib
-Provides: libxml2-any
-Source: feeds/base/libs/libxml2
-SourceName: libxml2
-License: MIT
-Section: libs
-SourceDateEpoch: 1771513164
-URL: http://xmlsoft.org/
-Architecture: armv7-softfp
-Installed-Size: 1003520
-Description:  libxml2 XML parser library
-Filename: libxml2_2.9.14-1_armv7-softfp.ipk
-Size: 453383
-MD5Sum: 4bc5ac1c1b1f1a03aa7c94073f7b9be0
-
 Package: miniupnpd
 Version: 2.3.9-1
 Depends: libc, libssp, librt, libpthread, iptables, libnfnetlink, libnetfilter-conntrack
@@ -1083,24 +995,6 @@ Filename: ppp_2.4.8_git20201003-3_armv7-softfp.ipk
 Size: 107244
 MD5Sum: 7d24bf086d8b3f82658e66718e9013a7
 
-Package: ppp
-Version: 2.4.9-1
-Depends: libc, libssp, librt, libpthread, libopenssl
-Provides: ppp-any
-Source: feeds/base/network/services/ppp
-SourceName: ppp
-License: BSD-4-Clause
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://ppp.samba.org/
-Architecture: armv7-softfp
-Installed-Size: 266240
-Description:  PPP daemon 2.4.9 with OpenWrt patches.
- CVE-2020-8597 fix (critical unauthenticated RCE).
-Filename: ppp_2.4.9-1_armv7-softfp.ipk
-Size: 127862
-MD5Sum: f754a46b7da4c7f63e5edc4553b68320
-
 Package: shadowsocks-libev
 Version: 3.3.5-1
 Depends: libc, libssp, librt, libpthread, libpthread
@@ -1156,23 +1050,6 @@ Description:  Terminal Info Database (ncurses)
 Filename: terminfo_6.4-3_armv7-softfp.ipk
 Size: 9659
 MD5Sum: 70319c4b247cd7b68985e9245de470d3
-
-Package: wireguard-tools
-Version: 1.0.20210914-1
-Depends: libc, libssp, librt, libpthread
-Provides: wireguard-tools-any
-Source: feeds/base/network/utils/wireguard-tools
-SourceName: wireguard-tools
-License: GPL-2.0
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://www.wireguard.com/
-Architecture: armv7-softfp
-Installed-Size: 71680
-Description:  WireGuard userspace tools (wg + wg-quick)
-Filename: wireguard-tools_1.0.20210914-1_armv7-softfp.ipk
-Size: 28641
-MD5Sum: 2e5d3f18c05d0e5445aa02f433872df4
 
 Package: wireguard-tools
 Version: 1.0.20250521-1
@@ -1235,23 +1112,6 @@ Description:  WPA Supplicant with full feature set (internal TLS).
 Filename: wpa-supplicant_2025.08.26~ca266cc2-1_armv7-softfp.ipk
 Size: 514824
 MD5Sum: 9e438efc40e78d298803677ef86c1ba1
-
-Package: zlib
-Version: 1.2.13-1
-Depends: libc, libssp, librt, libpthread
-Provides: zlib-any
-Source: feeds/base/libs/zlib
-SourceName: zlib
-License: Zlib
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://zlib.net/
-Architecture: armv7-softfp
-Installed-Size: 81920
-Description:  zlib compression library
-Filename: zlib_1.2.13-1_armv7-softfp.ipk
-Size: 38393
-MD5Sum: f5b9c3c033c0d1aa54cf2db2244ddbb3
 
 Package: zlib
 Version: 1.3.1-1
