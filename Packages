@@ -38,23 +38,6 @@ Size: 131009
 MD5Sum: fd7afa5f98cd8978d9da36cb2107a2f9
 
 Package: curl
-Version: 7.88.1-1
-Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
-Provides: curl-any
-Source: feeds/rctphone//feeds/rctphone/net/curl
-SourceName: curl
-License: MIT
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://curl.se/
-Architecture: armv7-softfp
-Installed-Size: 337920
-Description:  curl CLI + libcurl (HTTP/HTTPS only)
-Filename: curl_7.88.1-1_armv7-softfp.ipk
-Size: 170084
-MD5Sum: e815906d0f6d71b72e710f43904372b2
-
-Package: curl
 Version: 7.88.1-2
 Depends: libc, libssp, librt, libpthread, libcurl
 Provides: curl-any
@@ -333,8 +316,8 @@ Description:  Polls core_app via IPC for new SMS messages and forwards
  received messages to Telegram. Single daemon replaces
  sms_watchd + sms_notify + sms_forward.sh.
 Filename: ee71-sms-forward_1.0.0-1_armv7-softfp.ipk
-Size: 10016
-MD5Sum: 2a7274def6ca7acb30cae4c4699d39c1
+Size: 11874
+MD5Sum: 0ef25d007d3748f279394e012803a87f
 
 Package: ee71-sms-watchd
 Version: 1.0.0-1
@@ -368,8 +351,8 @@ Description:  Reads /proc/net/nf_conntrack every 3s, aggregates per-LAN-host
  byte counters, computes speeds, stores in 4-level ring buffers,
  writes JSON to /tmp/traffic_stats.json.
 Filename: ee71-traffic-stats_1.0.0-1_armv7-softfp.ipk
-Size: 6793
-MD5Sum: 3a60336f526ce06fadd999730d5f839b
+Size: 7655
+MD5Sum: 7b4da27cf025ceceb968602a23de4cc9
 
 Package: ee71-ttl-fix
 Version: 1.0.0-1
@@ -425,45 +408,15 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.0.0-1
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-watchd, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd
-Provides: ee71-webui-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
-SourceName: ee71-webui
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 552960
-Description:  Single-page web interface for the EE71 router.
- Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
- VPN enforcement, SMS forwarding, and signal monitoring.
-  .
- Runtime dependencies:
- - webs CSP patch (iframe/inline support for GoAhead)
- - TTL/HL normalization (iptables mangle rules)
- - IPv6 support (firewall + dnsmasq AAAA filter + RA)
- - QCMAP binary fix (zero-length netlink attribute)
- - Performance optimizations (tmpfs, daemons, sysctl)
- - USB ADB kernel patch (/dev/kmem)
- - WireGuard (kernel module + wg userspace)
- - AmneziaWG (kernel module + awg userspace)
- - ShadowSocks (ss-redir, ss-tunnel)
- - curl, busybox, dropbear, dnsmasq, iperf3
- - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.0.0-1_armv7-softfp.ipk
-Size: 279646
-MD5Sum: e7e7d2a66aa436d29e88e42f0c484b72
-
-Package: ee71-webui
 Version: 1.0.0-2
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-watchd, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
 SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 931840
+Installed-Size: 921600
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -481,8 +434,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.0.0-2_armv7-softfp.ipk
-Size: 358293
-MD5Sum: a35ae2759b31fad43aeff45de441c999
+Size: 356728
+MD5Sum: e5b4fb4fcac464856f1c4cbdeee518ad
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
