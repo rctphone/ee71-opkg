@@ -54,6 +54,23 @@ Filename: curl_7.88.1-1_armv7-softfp.ipk
 Size: 170084
 MD5Sum: e815906d0f6d71b72e710f43904372b2
 
+Package: curl
+Version: 7.88.1-2
+Depends: libc, libssp, librt, libpthread, libcurl
+Provides: curl-any
+Source: feeds/rctphone//feeds/rctphone/net/curl
+SourceName: curl
+License: MIT
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://curl.se/
+Architecture: armv7-softfp
+Installed-Size: 133120
+Description:  curl CLI (HTTP/HTTPS only)
+Filename: curl_7.88.1-2_armv7-softfp.ipk
+Size: 62460
+MD5Sum: 66fd86bf1949b9f5fb0b628cdbcba501
+
 Package: dnsmasq
 Version: 2.92-1
 Depends: libc, libssp, librt, libpthread
@@ -276,6 +293,48 @@ Description:  Patches QCMAP_ConnectionManager binary to fix infinite busy loop
 Filename: ee71-qcmap-fix_1.0.0-1_armv7-softfp.ipk
 Size: 4301
 MD5Sum: 44175d153e52d2d1057541979ab141c5
+
+Package: ee71-qcmap-wifi-ctl
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread, libstdcpp
+Provides: ee71-qcmap-wifi-ctl-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-wifi-ctl
+SourceName: ee71-qcmap-wifi-ctl
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  Manages WiFi settings on the EE71 router:
+ - Generates /etc/hostapd-wlan1.conf for 5GHz (wlan1)
+ - Sends SetWlanSettings IPC to core_app (JSON-RPC 2.0 via libsock_client.so.0)
+ - Provides restart commands for wlan0/wlan1 hostapd
+  .
+ Solves the dual-band WiFi problem: SetWlanSettings through
+ core_app triggers QCMAP EnableWLAN which tears down ALL WiFi
+ but only restarts wlan0. This tool generates the wlan1 config
+ BEFORE the restart so QCMAP finds both configs.
+  .
+ Runtime deps (on device): hostapd, iw, brctl, libsock_client.so.0
+Filename: ee71-qcmap-wifi-ctl_1.0.0-1_armv7-softfp.ipk
+Size: 7227
+MD5Sum: f0d65c6c4881d7688af89689cb5ed0a3
+
+Package: ee71-sms-forward
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
+Provides: ee71-sms-forward-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
+SourceName: ee71-sms-forward
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  Polls core_app via IPC for new SMS messages and forwards
+ received messages to Telegram. Single daemon replaces
+ sms_watchd + sms_notify + sms_forward.sh.
+Filename: ee71-sms-forward_1.0.0-1_armv7-softfp.ipk
+Size: 10016
+MD5Sum: 2a7274def6ca7acb30cae4c4699d39c1
 
 Package: ee71-sms-watchd
 Version: 1.0.0-1
@@ -535,6 +594,23 @@ Description:  IP firewall administration tool.
 Filename: iptables_1.4.21-6_armv7-softfp.ipk
 Size: 149496
 MD5Sum: 50a148e2b41c7f0d9b33d84de4bd3bf2
+
+Package: libcurl
+Version: 7.88.1-2
+Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
+Provides: libcurl-any
+Source: feeds/rctphone//feeds/rctphone/net/curl
+SourceName: curl
+License: MIT
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://curl.se/
+Architecture: armv7-softfp
+Installed-Size: 266240
+Description:  libcurl (HTTP/HTTPS)
+Filename: libcurl_7.88.1-2_armv7-softfp.ipk
+Size: 131354
+MD5Sum: 75e7ca18a0e9843b189f37729a87cf54
 
 Package: libmnl
 Version: 1.0.5-1
