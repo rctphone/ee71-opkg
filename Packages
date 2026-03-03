@@ -196,7 +196,7 @@ Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
 Package: ee71-optimize
-Version: 1.0.0-1
+Version: 1.0.0-2
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-optimize-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
@@ -238,10 +238,13 @@ Description:  EE71 performance optimization — all phases from optimization des
  - Sysctl: printk=3 3 3 3, panic=10
   .
  Phase 2 (storage cleanup):
- - Remove Bluetooth tools (btmon, hci*, sdptool)
+ - Remove Bluetooth tools + libs (btmon, hci*, sdptool, bluez5/ — 1.1 MB)
+ - Remove Perl (unused, 1.9 MB)
  - Remove QMI test/ping utilities
+ - Remove Qualcomm test binaries (dsi_netctrl_test, mcm_data_test)
  - Remove audio tools (amix, aplay, arec)
  - Remove keyboard tools (dumpkeys, loadkeys, setfont)
+ - Remove conntrackd (HA/failover sync, 269 KB)
  - Remove testCne
   .
  Phase 2 (firewall):
@@ -254,9 +257,9 @@ Description:  EE71 performance optimization — all phases from optimization des
   .
  Phase 4 (runtime):
  - qcmap_renice: renices QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.0.0-1_armv7-softfp.ipk
-Size: 6363
-MD5Sum: c63793ccd47c6cf510b87a56061a1d63
+Filename: ee71-optimize_1.0.0-2_armv7-softfp.ipk
+Size: 6677
+MD5Sum: c9b74c3a443b905673253f70a7eb5778
 
 Package: ee71-qcmap-fix
 Version: 1.0.0-1
