@@ -268,7 +268,7 @@ Size: 6677
 MD5Sum: c9b74c3a443b905673253f70a7eb5778
 
 Package: ee71-qcmap-fix
-Version: 1.0.0-1
+Version: 1.1.0-1
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-qcmap-fix-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-fix
@@ -277,14 +277,20 @@ Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 20480
-Description:  Patches QCMAP_ConnectionManager binary to fix infinite busy loop
- caused by zero-length netlink TLV attributes. 12-byte ARM32 patch
- at vaddr 0x244C4 adds a zero-step guard in the attribute parser.
- Includes Python patcher script and init script that applies patch
- on boot (backs up original, verifies before patching).
-Filename: ee71-qcmap-fix_1.0.0-1_armv7-softfp.ipk
-Size: 4301
-MD5Sum: 44175d153e52d2d1057541979ab141c5
+Description:  Patches QCMAP_ConnectionManager binary on boot.
+  .
+ Patch 1 — zero-length netlink fix (12 bytes at 0x1C4C4):
+ Fixes infinite busy loop when netlink TLV attribute has length=0.
+  .
+ Patch 2 — preserve dnsmasq leases (1 byte at 0x6A858):
+ Disables rm of /var/lib/misc/dnsmasq.leases on dnsmasq restart.
+ QCMAP kills and restarts dnsmasq on WAN reconnect, deleting leases.
+ This patch comments out the rm command so clients keep their IPs.
+  .
+ Init script backs up original, applies both patches, verifies.
+Filename: ee71-qcmap-fix_1.1.0-1_armv7-softfp.ipk
+Size: 4832
+MD5Sum: 265412e58076ae71faf08d066a2b1391
 
 Package: ee71-qcmap-wifi-ctl
 Version: 1.0.0-1
