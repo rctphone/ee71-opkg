@@ -54,6 +54,30 @@ Filename: curl_7.88.1-2_armv7-softfp.ipk
 Size: 62460
 MD5Sum: 66fd86bf1949b9f5fb0b628cdbcba501
 
+Package: dnsmasq-full
+Version: 2.92-1
+Depends: libc, libssp, librt, libpthread, libnetfilter-conntrack
+Provides: dnsmasq-full-any, dnsmasq
+Source: feeds/base/network/services/dnsmasq
+SourceName: dnsmasq
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: net
+Require-User: dnsmasq=453:dnsmasq=453
+SourceDateEpoch: 1771513164
+URL: http://www.thekelleys.org.uk/dnsmasq/
+CPE-ID: cpe:/a:thekelleys:dnsmasq
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 317440
+Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
+  .
+ This is a fully configurable variant with DHCPv4, DHCPv6, DNSSEC, Authoritative DNS
+ and nftset, Conntrack support & NO_ID enabled by default.
+Filename: dnsmasq-full_2.92-1_armv7-softfp.ipk
+Size: 163282
+MD5Sum: 1d14a0b06784a8529982133f597c238a
+
 Package: dnsmasq
 Version: 2.92-1
 Depends: libc, libssp, librt, libpthread
@@ -127,24 +151,6 @@ Description:  APN match profiles for Russian mobile operators:
 Filename: ee71-apn-ru_1.0.0-1_armv7-softfp.ipk
 Size: 1145
 MD5Sum: 5ba92554d3876ba2ed30d9f1b6a013f2
-
-Package: ee71-ipv6
-Version: 1.0.0-1
-Depends: libc, libssp, librt, libpthread
-Provides: ee71-ipv6-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
-SourceName: ee71-ipv6
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 20480
-Description:  IPv6 support bundle for EE71:
- - ip6tables INPUT DROP firewall (mirrors IPv4 whitelist, runs before QCMAP)
- - Conditional dnsmasq AAAA filter (filter-AAAA when no WAN IPv6)
- - Router Advertisement init for periodic RA relay to LAN clients
-Filename: ee71-ipv6_1.0.0-1_armv7-softfp.ipk
-Size: 3278
-MD5Sum: 403bf9ef08d642df6cd930810bc6b3a2
 
 Package: ee71-kmod-amneziawg
 Version: 1.0.20220627-1
@@ -304,6 +310,35 @@ Description:  Manages WiFi settings on the EE71 router:
 Filename: ee71-qcmap-wifi-ctl_1.0.0-1_armv7-softfp.ipk
 Size: 7227
 MD5Sum: f0d65c6c4881d7688af89689cb5ed0a3
+
+Package: ee71-radish
+Version: 1.2.1-1
+Depends: libc, libssp, librt, libpthread, libpthread, librt
+Provides: ee71-radish-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-radish
+SourceName: ee71-radish
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 51200
+Description:  Complete IPv6 stack for EE71. Replaces ee71-ipv6 package.
+  .
+ Radish (Qualcomm v1.1 + EE71 enhancements):
+ - RDNSS: wrapper adds -d flag for DNS server in RA
+ - Periodic RA: cached RA every 600s on bridge
+ - RS response: immediate RA reply from cache to client RS
+ - Startup RS: solicits RA from modem at boot
+ - Bridge IPv6: assigns prefix::1 to bridge0
+  .
+ IPv6 infrastructure:
+ - ip6tables INPUT DROP firewall (S38, before QCMAP)
+ - Conditional dnsmasq AAAA filter (S95, after core_app)
+  .
+ Binary at /usr/libexec/radish, wrapper at /usr/sbin/radish.
+ Links against stock device libs.
+Filename: ee71-radish_1.2.1-1_armv7-softfp.ipk
+Size: 21534
+MD5Sum: 8d4eb12ba80115fd59e35208f39dea54
 
 Package: ee71-sms-forward
 Version: 1.0.0-1
