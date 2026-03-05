@@ -152,6 +152,26 @@ Filename: ee71-apn-ru_1.0.0-1_armv7-softfp.ipk
 Size: 1145
 MD5Sum: 5ba92554d3876ba2ed30d9f1b6a013f2
 
+Package: ee71-ipv6
+Version: 1.1.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-ipv6-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
+SourceName: ee71-ipv6
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  IPv6 support bundle for EE71:
+ - ip6tables INPUT DROP firewall (mirrors IPv4 whitelist, runs before QCMAP)
+ - Conditional dnsmasq AAAA filter (filter-AAAA when no WAN IPv6)
+  .
+ Note: Periodic RA and RS response are now handled by ee71-radish v1.2+.
+ The send_ra init script has been removed.
+Filename: ee71-ipv6_1.1.0-1_armv7-softfp.ipk
+Size: 2878
+MD5Sum: c7e18edf382fee1b5d737e8be1c92aa6
+
 Package: ee71-kmod-amneziawg
 Version: 1.0.20220627-1
 Depends: libc, libssp, librt, libpthread, ee71-kmod-tun
@@ -347,7 +367,7 @@ Size: 4018
 MD5Sum: ad7d8a1b0327acb021b9390c80c15591
 
 Package: ee71-traffic-stats
-Version: 1.0.0-1
+Version: 1.0.0-2
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-traffic-stats-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-traffic-stats
@@ -355,13 +375,15 @@ SourceName: ee71-traffic-stats
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 20480
+Installed-Size: 30720
 Description:  Reads /proc/net/nf_conntrack every 3s, aggregates per-LAN-host
  byte counters, computes speeds, stores in 4-level ring buffers,
  writes JSON to /tmp/traffic_stats.json.
-Filename: ee71-traffic-stats_1.0.0-1_armv7-softfp.ipk
-Size: 7655
-MD5Sum: 7b4da27cf025ceceb968602a23de4cc9
+ Also polls GetNetworkInfo via IPC for LTE signal metrics,
+ writes /tmp/signal_current.txt and /tmp/signal_history.json.
+Filename: ee71-traffic-stats_1.0.0-2_armv7-softfp.ipk
+Size: 10792
+MD5Sum: 6f1774f976bc7f9fe28abe4da5058e6f
 
 Package: ee71-ttl-fix
 Version: 1.0.0-1
@@ -417,15 +439,15 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.0.0-3
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd
+Version: 1.1.0-1
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
 SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 921600
+Installed-Size: 952320
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -442,9 +464,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.0.0-3_armv7-softfp.ipk
-Size: 356826
-MD5Sum: 2a0c6dfa7ec3a14732c9a5f92c581139
+Filename: ee71-webui_1.1.0-1_armv7-softfp.ipk
+Size: 363845
+MD5Sum: 3bbfa765cacd6c98478fa97b1fdf2e54
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
@@ -556,6 +578,25 @@ Description:  IP firewall administration tool.
 Filename: iptables_1.4.21-6_armv7-softfp.ipk
 Size: 149496
 MD5Sum: 50a148e2b41c7f0d9b33d84de4bd3bf2
+
+Package: jq
+Version: 1.8.1-1
+Depends: libc, libssp, librt, libpthread
+Provides: jq-any
+Source: feeds/rctphone//feeds/rctphone/utils/jq
+SourceName: jq
+License: MIT
+Section: utils
+SourceDateEpoch: 1771513164
+URL: https://jqlang.github.io/jq/
+Architecture: armv7-softfp
+Installed-Size: 266240
+Description:  jq is like sed for JSON data — you can use it to slice, filter, map,
+ and transform structured data with the same ease that sed, awk, grep
+ and friends let you play with text.
+Filename: jq_1.8.1-1_armv7-softfp.ipk
+Size: 122957
+MD5Sum: c21d8ed9083176af71b7502a4f648945
 
 Package: libcurl
 Version: 7.88.1-2
