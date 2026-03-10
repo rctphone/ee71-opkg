@@ -93,11 +93,11 @@ URL: http://www.thekelleys.org.uk/dnsmasq/
 CPE-ID: cpe:/a:thekelleys:dnsmasq
 Essential: yes
 Architecture: armv7-softfp
-Installed-Size: 256000
+Installed-Size: 276480
 Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
 Filename: dnsmasq_2.92-1_armv7-softfp.ipk
-Size: 129607
-MD5Sum: 4dede54de53a36d19d803a7907c36bb9
+Size: 135798
+MD5Sum: 0809f3d033866c5d68f0463331f7fd26
 
 Package: dropbear
 Version: 2025.89-1
@@ -465,8 +465,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.1.0-1_armv7-softfp.ipk
-Size: 363314
-MD5Sum: b2eb515ebeb21b9f978d4f1c0093a9df
+Size: 363436
+MD5Sum: 9debe14c50a43de986ba827375b1b139
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
@@ -509,7 +509,7 @@ MD5Sum: 543699997bf40d475c91650cde1780da
 
 Package: iperf3
 Version: 3.20-1
-Depends: libc, libssp, librt, libpthread, openssl, libatomic
+Depends: libc, libssp, librt, libpthread, libopenssl, libatomic
 Provides: iperf3-any, iperf3-ssl
 Source: feeds/rctphone//feeds/rctphone/net/iperf3
 SourceName: iperf3
@@ -522,7 +522,7 @@ Installed-Size: 122880
 Description:  Network bandwidth measurement tool
 Filename: iperf3_3.20-1_armv7-softfp.ipk
 Size: 52973
-MD5Sum: c32301c14a7979f168aeb48fdef40a63
+MD5Sum: 1f5f03734e0b3ae9021f01a2df5c1e5d
 
 Package: iptables
 Version: 1.4.21-6
