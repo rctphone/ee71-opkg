@@ -598,6 +598,44 @@ Filename: jq_1.8.1-1_armv7-softfp.ipk
 Size: 122957
 MD5Sum: c21d8ed9083176af71b7502a4f648945
 
+Package: libatomic
+Version: 13.4.0-12
+Depends: libgcc
+Provides: libatomic-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  Atomic support library
+Filename: libatomic_13.4.0-12_armv7-softfp.ipk
+Size: 7057
+MD5Sum: 4413164785aa8e500459d61190ea55d6
+
+Package: libc
+Version: 2.17-12
+Depends: libgcc
+Provides: libc-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.gnu.org/software/libc/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 2273280
+Description:  C library
+Filename: libc_2.17-12_armv7-softfp.ipk
+Size: 1127473
+MD5Sum: 5aa4da3a4d97d5bfce48ae22a54ef45a
+
 Package: libcurl
 Version: 7.88.1-2
 Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
@@ -612,8 +650,26 @@ Architecture: armv7-softfp
 Installed-Size: 266240
 Description:  libcurl (HTTP/HTTPS)
 Filename: libcurl_7.88.1-2_armv7-softfp.ipk
-Size: 131354
-MD5Sum: 75e7ca18a0e9843b189f37729a87cf54
+Size: 131341
+MD5Sum: dfbc88ff610b70ce2f54fe80689c2a3c
+
+Package: libgcc
+Version: 13.4.0-12
+Provides: libgcc-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 51200
+Description:  GCC support library
+Filename: libgcc_13.4.0-12_armv7-softfp.ipk
+Size: 22202
+MD5Sum: 69bb25844d9b5a95f529e73a3711a486
 
 Package: libmnl
 Version: 1.0.5-1
@@ -868,6 +924,80 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
 Filename: libopenssl_1.1.1w-1_armv7-softfp.ipk
 Size: 1066268
 MD5Sum: 04bc55c787f8fe8e9d09b11630bf27e2
+
+Package: libpthread
+Version: 2.17-12
+Depends: libgcc
+Provides: libpthread-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.gnu.org/software/libc/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 92160
+Description:  POSIX thread library
+Filename: libpthread_2.17-12_armv7-softfp.ipk
+Size: 37000
+MD5Sum: b91445b9f01c05dc173be8d4278370ab
+
+Package: librt
+Version: 2.17-12
+Depends: libpthread
+Provides: librt-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: http://www.gnu.org/software/libc/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  POSIX.1b RealTime extension library
+Filename: librt_2.17-12_armv7-softfp.ipk
+Size: 12636
+MD5Sum: 60e8e48b27fa7fb4436b46c67215f661
+
+Package: libssp
+Version: 13.4.0-12
+Provides: libssp-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  GCC support library
+Filename: libssp_13.4.0-12_armv7-softfp.ipk
+Size: 3623
+MD5Sum: 03567cdfc324d11404f8894757dd12d5
+
+Package: libstdcpp
+Version: 13.4.0-12
+Provides: libstdcpp-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 1638400
+Description:  GNU Standard C++ Library v3
+Filename: libstdcpp_13.4.0-12_armv7-softfp.ipk
+Size: 591366
+MD5Sum: 7b155bcd3f3e55ec8a3764701568859e
 
 Package: libxml2
 Version: 2.13.9-1
