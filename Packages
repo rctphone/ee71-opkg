@@ -54,6 +54,27 @@ Filename: curl_7.88.1-2_armv7-softfp.ipk
 Size: 62460
 MD5Sum: 66fd86bf1949b9f5fb0b628cdbcba501
 
+Package: dnsmasq
+Version: 2.92-1
+Depends: libc, libssp, librt, libpthread
+Provides: dnsmasq-any
+Source: feeds/base/network/services/dnsmasq
+SourceName: dnsmasq
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: net
+Require-User: dnsmasq=453:dnsmasq=453
+SourceDateEpoch: 1771513164
+URL: http://www.thekelleys.org.uk/dnsmasq/
+CPE-ID: cpe:/a:thekelleys:dnsmasq
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 276480
+Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
+Filename: dnsmasq_2.92-1_armv7-softfp.ipk
+Size: 135798
+MD5Sum: 0809f3d033866c5d68f0463331f7fd26
+
 Package: dnsmasq-full
 Version: 2.92-1
 Depends: libc, libssp, librt, libpthread, libnetfilter-conntrack
@@ -77,27 +98,6 @@ Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
 Filename: dnsmasq-full_2.92-1_armv7-softfp.ipk
 Size: 163282
 MD5Sum: 1d14a0b06784a8529982133f597c238a
-
-Package: dnsmasq
-Version: 2.92-1
-Depends: libc, libssp, librt, libpthread
-Provides: dnsmasq-any
-Source: feeds/base/network/services/dnsmasq
-SourceName: dnsmasq
-License: GPL-2.0
-LicenseFiles: COPYING
-Section: net
-Require-User: dnsmasq=453:dnsmasq=453
-SourceDateEpoch: 1771513164
-URL: http://www.thekelleys.org.uk/dnsmasq/
-CPE-ID: cpe:/a:thekelleys:dnsmasq
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 276480
-Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
-Filename: dnsmasq_2.92-1_armv7-softfp.ipk
-Size: 135798
-MD5Sum: 0809f3d033866c5d68f0463331f7fd26
 
 Package: dropbear
 Version: 2025.89-1
@@ -303,7 +303,7 @@ Size: 7227
 MD5Sum: f0d65c6c4881d7688af89689cb5ed0a3
 
 Package: ee71-radish
-Version: 1.2.1-1
+Version: 1.3.0-1
 Depends: libc, libssp, librt, libpthread, libpthread, librt
 Provides: ee71-radish-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-radish
@@ -323,13 +323,12 @@ Description:  Complete IPv6 stack for EE71. Replaces ee71-ipv6 package.
   .
  IPv6 infrastructure:
  - ip6tables INPUT DROP firewall (S38, before QCMAP)
- - Conditional dnsmasq AAAA filter (S95, after core_app)
   .
  Binary at /usr/libexec/radish, wrapper at /usr/sbin/radish.
  Links against stock device libs.
-Filename: ee71-radish_1.2.1-1_armv7-softfp.ipk
-Size: 21534
-MD5Sum: 8d4eb12ba80115fd59e35208f39dea54
+Filename: ee71-radish_1.3.0-1_armv7-softfp.ipk
+Size: 20294
+MD5Sum: acfaf03d58bb462eb1b1daf2ca05cd5d
 
 Package: ee71-sms-forward
 Version: 1.0.0-1
@@ -468,25 +467,6 @@ Filename: ee71-webui_1.1.0-1_armv7-softfp.ipk
 Size: 363436
 MD5Sum: 9debe14c50a43de986ba827375b1b139
 
-Package: hostapd-utils
-Version: 2025.08.26~ca266cc2-1
-Depends: libc, libssp, librt, libpthread, hostapd
-Provides: hostapd-utils-any
-Source: feeds/base/network/services/hostapd
-SourceName: hostapd
-License: BSD-3-Clause
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://w1.fi/hostapd/
-CPE-ID: cpe:/a:w1.fi:hostapd
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 51200
-Description:  This package contains the hostapd_cli utility.
-Filename: hostapd-utils_2025.08.26~ca266cc2-1_armv7-softfp.ipk
-Size: 18081
-MD5Sum: 051054d42cab10b287547a33f1481f22
-
 Package: hostapd
 Version: 2025.08.26~ca266cc2-1
 Depends: libc, libssp, librt, libpthread, libnl
@@ -506,6 +486,25 @@ Description:  This package contains a full featured IEEE 802.1x/WPA/EAP/RADIUS
 Filename: hostapd_2025.08.26~ca266cc2-1_armv7-softfp.ipk
 Size: 464851
 MD5Sum: 543699997bf40d475c91650cde1780da
+
+Package: hostapd-utils
+Version: 2025.08.26~ca266cc2-1
+Depends: libc, libssp, librt, libpthread, hostapd
+Provides: hostapd-utils-any
+Source: feeds/base/network/services/hostapd
+SourceName: hostapd
+License: BSD-3-Clause
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://w1.fi/hostapd/
+CPE-ID: cpe:/a:w1.fi:hostapd
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 51200
+Description:  This package contains the hostapd_cli utility.
+Filename: hostapd-utils_2025.08.26~ca266cc2-1_armv7-softfp.ipk
+Size: 18081
+MD5Sum: 051054d42cab10b287547a33f1481f22
 
 Package: iperf3
 Version: 3.20-1
@@ -598,44 +597,6 @@ Filename: jq_1.8.1-1_armv7-softfp.ipk
 Size: 122957
 MD5Sum: c21d8ed9083176af71b7502a4f648945
 
-Package: libatomic
-Version: 13.4.0-12
-Depends: libgcc
-Provides: libatomic-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://gcc.gnu.org/
-Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 30720
-Description:  Atomic support library
-Filename: libatomic_13.4.0-12_armv7-softfp.ipk
-Size: 7057
-MD5Sum: 4413164785aa8e500459d61190ea55d6
-
-Package: libc
-Version: 2.17-12
-Depends: libgcc
-Provides: libc-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
-Section: libs
-SourceDateEpoch: 1771513164
-URL: http://www.gnu.org/software/libc/
-Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 2273280
-Description:  C library
-Filename: libc_2.17-12_armv7-softfp.ipk
-Size: 1127473
-MD5Sum: 5aa4da3a4d97d5bfce48ae22a54ef45a
-
 Package: libcurl
 Version: 7.88.1-2
 Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
@@ -652,24 +613,6 @@ Description:  libcurl (HTTP/HTTPS)
 Filename: libcurl_7.88.1-2_armv7-softfp.ipk
 Size: 131341
 MD5Sum: dfbc88ff610b70ce2f54fe80689c2a3c
-
-Package: libgcc
-Version: 13.4.0-12
-Provides: libgcc-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://gcc.gnu.org/
-Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 51200
-Description:  GCC support library
-Filename: libgcc_13.4.0-12_armv7-softfp.ipk
-Size: 22202
-MD5Sum: 69bb25844d9b5a95f529e73a3711a486
 
 Package: libmnl
 Version: 1.0.5-1
@@ -755,6 +698,27 @@ Description:  libnfnetlink is is the low-level library for netfilter related ker
 Filename: libnfnetlink_1.0.2-1_armv7-softfp.ipk
 Size: 10586
 MD5Sum: 4d369d1d4280de560db5bc95782f9362
+
+Package: libnl
+Version: 3.11.0-1
+Depends: libc, libssp, librt, libpthread, libnl-genl, libnl-route, libnl-nf, libnl-cli
+Provides: libnl-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+LicenseFiles: COPYING
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.infradead.org/~tgr/libnl/
+CPE-ID: cpe:/a:libnl_project:libnl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 10240
+Description:  Socket handling, connection management, sending and receiving of data,
+ message construction and parsing, object caching system, etc.
+Filename: libnl_3.11.0-1_armv7-softfp.ipk
+Size: 805
+MD5Sum: 6ee31addcae066461e93a2e90f1eea50
 
 Package: libnl-cli
 Version: 3.11.0-1
@@ -856,51 +820,6 @@ Filename: libnl-route_3.11.0-1_armv7-softfp.ipk
 Size: 170926
 MD5Sum: c3f216663fba862c1a5bf14257ea5d9a
 
-Package: libnl
-Version: 3.11.0-1
-Depends: libc, libssp, librt, libpthread, libnl-genl, libnl-route, libnl-nf, libnl-cli
-Provides: libnl-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-LicenseFiles: COPYING
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-CPE-ID: cpe:/a:libnl_project:libnl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 10240
-Description:  Socket handling, connection management, sending and receiving of data,
- message construction and parsing, object caching system, etc.
-Filename: libnl_3.11.0-1_armv7-softfp.ipk
-Size: 805
-MD5Sum: 6ee31addcae066461e93a2e90f1eea50
-
-Package: libopenssl-conf
-Version: 1.1.1w-1
-Depends: libc, libssp, librt, libpthread, libopenssl
-Provides: libopenssl-conf-any
-Source: feeds/base/libs/openssl
-SourceName: openssl
-License: OpenSSL
-LicenseFiles: LICENSE
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.openssl.org/
-CPE-ID: cpe:/a:openssl:openssl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 20480
-Description:  The OpenSSL Project is a collaborative effort to develop a robust,
- commercial-grade, full-featured, and Open Source toolkit implementing the
- Transport Layer Security (TLS) protocol as well as a full-strength
- general-purpose cryptography library.
- This package installs the OpenSSL configuration file /etc/ssl/openssl.cnf.
-Filename: libopenssl-conf_1.1.1w-1_armv7-softfp.ipk
-Size: 4777
-MD5Sum: 93d3bf1d9d015501efd2602078dd2790
-
 Package: libopenssl
 Version: 1.1.1w-1
 Depends: libc, libssp, librt, libpthread, zlib
@@ -925,79 +844,29 @@ Filename: libopenssl_1.1.1w-1_armv7-softfp.ipk
 Size: 1066268
 MD5Sum: 04bc55c787f8fe8e9d09b11630bf27e2
 
-Package: libpthread
-Version: 2.17-12
-Depends: libgcc
-Provides: libpthread-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
+Package: libopenssl-conf
+Version: 1.1.1w-1
+Depends: libc, libssp, librt, libpthread, libopenssl
+Provides: libopenssl-conf-any
+Source: feeds/base/libs/openssl
+SourceName: openssl
+License: OpenSSL
+LicenseFiles: LICENSE
 Section: libs
 SourceDateEpoch: 1771513164
-URL: http://www.gnu.org/software/libc/
+URL: https://www.openssl.org/
+CPE-ID: cpe:/a:openssl:openssl
 Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 92160
-Description:  POSIX thread library
-Filename: libpthread_2.17-12_armv7-softfp.ipk
-Size: 37000
-MD5Sum: b91445b9f01c05dc173be8d4278370ab
-
-Package: librt
-Version: 2.17-12
-Depends: libpthread
-Provides: librt-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
-Section: libs
-SourceDateEpoch: 1771513164
-URL: http://www.gnu.org/software/libc/
-Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 30720
-Description:  POSIX.1b RealTime extension library
-Filename: librt_2.17-12_armv7-softfp.ipk
-Size: 12636
-MD5Sum: 60e8e48b27fa7fb4436b46c67215f661
-
-Package: libssp
-Version: 13.4.0-12
-Provides: libssp-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://gcc.gnu.org/
-Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-softfp
 Installed-Size: 20480
-Description:  GCC support library
-Filename: libssp_13.4.0-12_armv7-softfp.ipk
-Size: 3623
-MD5Sum: 03567cdfc324d11404f8894757dd12d5
-
-Package: libstdcpp
-Version: 13.4.0-12
-Provides: libstdcpp-any
-Source: feeds/base/libs/toolchain
-SourceName: toolchain
-License: GPL-3.0-with-GCC-exception
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://gcc.gnu.org/
-Essential: yes
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 1638400
-Description:  GNU Standard C++ Library v3
-Filename: libstdcpp_13.4.0-12_armv7-softfp.ipk
-Size: 591366
-MD5Sum: 7b155bcd3f3e55ec8a3764701568859e
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the
+ Transport Layer Security (TLS) protocol as well as a full-strength
+ general-purpose cryptography library.
+ This package installs the OpenSSL configuration file /etc/ssl/openssl.cnf.
+Filename: libopenssl-conf_1.1.1w-1_armv7-softfp.ipk
+Size: 4777
+MD5Sum: 93d3bf1d9d015501efd2602078dd2790
 
 Package: libxml2
 Version: 2.13.9-1
@@ -1059,24 +928,6 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
 Filename: openssl-util_1.1.1w-1_armv7-softfp.ipk
 Size: 249144
 MD5Sum: 92cbc9dd8a29745febbb329ec67a8c22
-
-Package: openssl
-Version: 1.1.1w-1
-Depends: libc, libssp, librt, libpthread
-Provides: openssl-any, libopenssl, libopenssl-conf, libopenssl-legacy, openssl-util
-Source: feeds/base/libs/openssl
-SourceName: openssl
-License: OpenSSL
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.openssl.org/
-Architecture: armv7-softfp
-Installed-Size: 3072000
-Description:  OpenSSL 1.1.1w with ChaCha20 preference, small footprint.
- ABI-compatible with stock OEM binaries (core_app, webs, config_manager).
-Filename: openssl_1.1.1w-1_armv7-softfp.ipk
-Size: 1552946
-MD5Sum: 473cd4d4f6a7bbab67ee3afb4ae2bc91
 
 Package: opkg
 Version: 2025.11.05~80503d94-1
