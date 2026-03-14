@@ -464,8 +464,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.1.0-1_armv7-softfp.ipk
-Size: 363493
-MD5Sum: 51d1e17551c33c8b6c5d1a746276c4e5
+Size: 363544
+MD5Sum: 529a4e3f41ffea66af1b6a165ab73e86
 
 Package: hostapd
 Version: 2025.08.26~ca266cc2-1
