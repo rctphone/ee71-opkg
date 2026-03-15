@@ -152,20 +152,33 @@ Filename: ee71-apn-ru_1.0.0-1_armv7-softfp.ipk
 Size: 1145
 MD5Sum: 5ba92554d3876ba2ed30d9f1b6a013f2
 
-Version: 1.1.0-1
-Depends: libc, libssp, librt, libpthread
+Package: ee71-ipv6
+Version: 2.0.0-1
+Depends: libc, libssp, librt, libpthread, libpthread, librt
+Provides: ee71-ipv6-any, ee71-radish
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
+SourceName: ee71-ipv6
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 20480
-Description:  IPv6 support bundle for EE71:
- - ip6tables INPUT DROP firewall (mirrors IPv4 whitelist, runs before QCMAP)
- - Conditional dnsmasq AAAA filter (filter-AAAA when no WAN IPv6)
+Installed-Size: 51200
+Description:  Complete IPv6 stack for EE71 (formerly ee71-radish).
   .
- Note: Periodic RA and RS response are now handled by ee71-radish v1.2+.
- The send_ra init script has been removed.
-Size: 2878
-MD5Sum: c7e18edf382fee1b5d737e8be1c92aa6
+ Radish (Qualcomm v1.1 + EE71 enhancements):
+ - RDNSS: wrapper adds -d flag for DNS server in RA
+ - Periodic RA: cached RA every 600s on bridge
+ - RS response: immediate RA reply from cache to client RS
+ - Startup RS: solicits RA from modem at boot
+ - Bridge IPv6: assigns prefix::1 to bridge0
+  .
+ IPv6 infrastructure:
+ - ip6tables INPUT DROP firewall (S38, before QCMAP)
+  .
+ Binary at /usr/libexec/radish, wrapper at /usr/sbin/radish.
+ Links against stock device libs.
+Filename: ee71-ipv6_2.0.0-1_armv7-softfp.ipk
+Size: 20296
+MD5Sum: b23ec20f915b75f0e7431d097b0c7da3
 
 Package: ee71-kmod-amneziawg
 Version: 1.0.20220627-1
@@ -300,6 +313,7 @@ MD5Sum: f0d65c6c4881d7688af89689cb5ed0a3
 Package: ee71-radish
 Version: 1.3.0-1
 Depends: libc, libssp, librt, libpthread, libpthread, librt
+Conflicts: ee71-ipv6
 Provides: ee71-radish-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-radish
 SourceName: ee71-radish
@@ -307,6 +321,7 @@ Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 51200
+Description:  Complete IPv6 stack for EE71. Replaces ee71-ipv6 package.
   .
  Radish (Qualcomm v1.1 + EE71 enhancements):
  - RDNSS: wrapper adds -d flag for DNS server in RA
@@ -433,7 +448,7 @@ MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
 Version: 1.2.0-1
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-radish, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
 SourceName: ee71-webui
@@ -458,8 +473,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.2.0-1_armv7-softfp.ipk
-Size: 363544
-MD5Sum: 9d072c194e174519a581ddb0a9718456
+Size: 363542
+MD5Sum: 40421ea2f37b18828f56caa7b36072c0
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
