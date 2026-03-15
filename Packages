@@ -152,12 +152,8 @@ Filename: ee71-apn-ru_1.0.0-1_armv7-softfp.ipk
 Size: 1145
 MD5Sum: 5ba92554d3876ba2ed30d9f1b6a013f2
 
-Package: ee71-ipv6
 Version: 1.1.0-1
 Depends: libc, libssp, librt, libpthread
-Provides: ee71-ipv6-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
-SourceName: ee71-ipv6
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
@@ -168,7 +164,6 @@ Description:  IPv6 support bundle for EE71:
   .
  Note: Periodic RA and RS response are now handled by ee71-radish v1.2+.
  The send_ra init script has been removed.
-Filename: ee71-ipv6_1.1.0-1_armv7-softfp.ipk
 Size: 2878
 MD5Sum: c7e18edf382fee1b5d737e8be1c92aa6
 
@@ -305,7 +300,6 @@ MD5Sum: f0d65c6c4881d7688af89689cb5ed0a3
 Package: ee71-radish
 Version: 1.3.0-1
 Depends: libc, libssp, librt, libpthread, libpthread, librt
-Conflicts: ee71-ipv6
 Provides: ee71-radish-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-radish
 SourceName: ee71-radish
@@ -313,7 +307,6 @@ Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 51200
-Description:  Complete IPv6 stack for EE71. Replaces ee71-ipv6 package.
   .
  Radish (Qualcomm v1.1 + EE71 enhancements):
  - RDNSS: wrapper adds -d flag for DNS server in RA
