@@ -363,7 +363,7 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.2.0-1
+Version: 1.3.0-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -371,7 +371,7 @@ SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 942080
+Installed-Size: 962560
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -388,9 +388,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.2.0-1_armv7-softfp.ipk
-Size: 363703
-MD5Sum: 1c2e34e210d6320ebea02656362dcc5b
+Filename: ee71-webui_1.3.0-1_armv7-softfp.ipk
+Size: 366574
+MD5Sum: c263b4b92a047c28c41a1bd4f6034ac7
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
@@ -934,6 +934,27 @@ Description:  SQLite3 database engine
 Filename: sqlite3_3.44.2-1_armv7-softfp.ipk
 Size: 1068478
 MD5Sum: 319e5637beb28d9ffec14d7d240746f9
+
+Package: strace
+Version: 6.18-2
+Depends: libc, libssp, librt, libpthread
+Provides: strace-any
+Source: feeds/base/devel/strace
+SourceName: strace
+License: LGPL-2.1-or-later
+LicenseFiles: COPYING
+Section: utils
+SourceDateEpoch: 1771513164
+URL: https://strace.io/
+CPE-ID: cpe:/a:strace_project:strace
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 890880
+Description:  A useful diagnostic, instructional, and debugging tool. Allows you to track what
+ system calls a program makes while it is running.
+Filename: strace_6.18-2_armv7-softfp.ipk
+Size: 358325
+MD5Sum: b09fcb84d46b0ff79c0f15c7d7e190b3
 
 Package: terminfo
 Version: 6.4-3
