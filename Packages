@@ -116,7 +116,7 @@ Size: 31171
 MD5Sum: 89579c849b38c0628b3e06ed512f37b8
 
 Package: ee71-apn-ru
-Version: 1.0.0-1
+Version: 1.1.0-1
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-apn-ru-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-apn-ru
@@ -124,12 +124,12 @@ SourceName: ee71-apn-ru
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 20480
+Installed-Size: 30720
 Description:  APN match profiles for Russian mobile operators:
  MTS, Yota, Tele2, Beeline, MOTIV, Rostelecom, Tinkoff.
-Filename: ee71-apn-ru_1.0.0-1_armv7-softfp.ipk
-Size: 1303
-MD5Sum: ea2f90a70bcf3d526e19ff8b42807ab3
+Filename: ee71-apn-ru_1.1.0-1_armv7-softfp.ipk
+Size: 1390
+MD5Sum: 141d5b5684007085c9e2d70dc260d19d
 
 Package: ee71-ipv6
 Version: 2.0.0-1
