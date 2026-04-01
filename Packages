@@ -265,7 +265,7 @@ Size: 4832
 MD5Sum: 265412e58076ae71faf08d066a2b1391
 
 Package: ee71-qcmap-wifi-ctl
-Version: 1.2.0-1
+Version: 1.3.0-1
 Depends: libc, libssp, librt, libpthread, libstdcpp
 Provides: ee71-qcmap-wifi-ctl-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-wifi-ctl
@@ -285,9 +285,9 @@ Description:  Manages WiFi settings on the EE71 router:
  BEFORE the restart so QCMAP finds both configs.
   .
  Runtime deps (on device): hostapd, iw, brctl, libsock_client.so.0
-Filename: ee71-qcmap-wifi-ctl_1.2.0-1_armv7-softfp.ipk
-Size: 8263
-MD5Sum: 70ca1da1824cf9d3663dd4c8d192cdb7
+Filename: ee71-qcmap-wifi-ctl_1.3.0-1_armv7-softfp.ipk
+Size: 8261
+MD5Sum: 6ef1b20430584207e12468e90a09efdc
 
 Package: ee71-sms-forward
 Version: 1.0.0-1
@@ -379,7 +379,7 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.5.0-1
+Version: 1.5.1-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -404,9 +404,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.5.0-1_armv7-softfp.ipk
-Size: 898337
-MD5Sum: d1a8719d3437230577306ddbd7e652a1
+Filename: ee71-webui_1.5.1-1_armv7-softfp.ipk
+Size: 899625
+MD5Sum: c64254adae0c0c69f0c890c4d5cb1f20
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
