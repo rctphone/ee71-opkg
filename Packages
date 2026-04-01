@@ -265,7 +265,7 @@ Size: 4832
 MD5Sum: 265412e58076ae71faf08d066a2b1391
 
 Package: ee71-qcmap-wifi-ctl
-Version: 1.3.0-1
+Version: 1.3.1-1
 Depends: libc, libssp, librt, libpthread, libstdcpp
 Provides: ee71-qcmap-wifi-ctl-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-wifi-ctl
@@ -285,9 +285,9 @@ Description:  Manages WiFi settings on the EE71 router:
  BEFORE the restart so QCMAP finds both configs.
   .
  Runtime deps (on device): hostapd, iw, brctl, libsock_client.so.0
-Filename: ee71-qcmap-wifi-ctl_1.3.0-1_armv7-softfp.ipk
-Size: 8261
-MD5Sum: 6ef1b20430584207e12468e90a09efdc
+Filename: ee71-qcmap-wifi-ctl_1.3.1-1_armv7-softfp.ipk
+Size: 8296
+MD5Sum: 781a06edd2de364604ce54ce3577187b
 
 Package: ee71-sms-forward
 Version: 1.0.0-1
