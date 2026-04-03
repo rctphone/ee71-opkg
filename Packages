@@ -379,7 +379,7 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.6.1-1
+Version: 1.6.2-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -404,9 +404,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.6.1-1_armv7-softfp.ipk
-Size: 901229
-MD5Sum: ff7e87b625d2c8c696c30182252d23d5
+Filename: ee71-webui_1.6.2-1_armv7-softfp.ipk
+Size: 901214
+MD5Sum: 80ffc6bc1fc08b8bde65d3b7d5a316aa
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-1
