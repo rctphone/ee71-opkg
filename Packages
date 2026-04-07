@@ -209,7 +209,7 @@ Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
 Package: ee71-optimize
-Version: 1.3.0-1
+Version: 1.4.0-1
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-optimize-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
@@ -235,9 +235,9 @@ Description:  EE71 performance optimization suite.
  - oem_watch_patch: remove drop_caches anti-pattern from watchdog
  - parallel_boot: background dropbear/syslog/thermal-engine at boot
  - qcmap_renice: renice QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.3.0-1_armv7-softfp.ipk
-Size: 5737
-MD5Sum: a53cbe6aa1900d9fda9dd92992caf246
+Filename: ee71-optimize_1.4.0-1_armv7-softfp.ipk
+Size: 6028
+MD5Sum: 7b4499cf64c4f5dda96ae480873f883d
 
 Package: ee71-qcmap-fix
 Version: 1.1.0-1
