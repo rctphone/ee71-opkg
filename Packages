@@ -387,7 +387,7 @@ SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 2969600
+Installed-Size: 2979840
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -405,8 +405,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.7.3-1_armv7-softfp.ipk
-Size: 903725
-MD5Sum: c289e1b5985badfb04f042ae92e6de75
+Size: 904371
+MD5Sum: bc8ced1402cb15bef8476b5a17e2075a
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
