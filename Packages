@@ -209,7 +209,7 @@ Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
 Package: ee71-optimize
-Version: 1.1.0-1
+Version: 1.2.0-1
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-optimize-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
@@ -235,9 +235,9 @@ Description:  EE71 performance optimization suite.
  - oem_watch_patch: remove drop_caches anti-pattern from watchdog
  - parallel_boot: background dropbear/syslog/thermal-engine at boot
  - qcmap_renice: renice QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.1.0-1_armv7-softfp.ipk
-Size: 5348
-MD5Sum: f146a1877136f4e18a411fc831b832fe
+Filename: ee71-optimize_1.2.0-1_armv7-softfp.ipk
+Size: 5545
+MD5Sum: b4aad5edd9afe3ad946392fdd748e1cc
 
 Package: ee71-qcmap-fix
 Version: 1.1.0-1
@@ -284,10 +284,10 @@ Description:  Manages WiFi settings on the EE71 router:
  but only restarts wlan0. This tool generates the wlan1 config
  BEFORE the restart so QCMAP finds both configs.
   .
- Runtime deps (on device): hostapd, iw, brctl, libsock_client.so.0
+ Runtime deps (on device): hostapd, libsock_client.so.0
 Filename: ee71-qcmap-wifi-ctl_1.3.1-1_armv7-softfp.ipk
-Size: 8296
-MD5Sum: 781a06edd2de364604ce54ce3577187b
+Size: 10520
+MD5Sum: 1a229bb49719c254a81c430de243838a
 
 Package: ee71-sms-forward
 Version: 1.0.0-1
@@ -405,11 +405,11 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.7.3-1_armv7-softfp.ipk
-Size: 903690
-MD5Sum: 630228accc843b70d06586744909c764
+Size: 903725
+MD5Sum: c289e1b5985badfb04f042ae92e6de75
 
 Package: hostapd-utils
-Version: 2025.08.26~ca266cc2-1
+Version: 2025.08.26~ca266cc2-3
 Depends: libc, libssp, librt, libpthread, hostapd
 Provides: hostapd-utils-any
 Source: feeds/base/network/services/hostapd
@@ -423,12 +423,12 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 51200
 Description:  This package contains the hostapd_cli utility.
-Filename: hostapd-utils_2025.08.26~ca266cc2-1_armv7-softfp.ipk
+Filename: hostapd-utils_2025.08.26~ca266cc2-3_armv7-softfp.ipk
 Size: 18081
-MD5Sum: 051054d42cab10b287547a33f1481f22
+MD5Sum: 07204e6d7650cbb7542d359f574644c3
 
 Package: hostapd
-Version: 2025.08.26~ca266cc2-1
+Version: 2025.08.26~ca266cc2-3
 Depends: libc, libssp, librt, libpthread, libnl
 Provides: hostapd-any
 Source: feeds/base/network/services/hostapd
@@ -440,12 +440,12 @@ URL: https://w1.fi/hostapd/
 CPE-ID: cpe:/a:w1.fi:hostapd
 Essential: yes
 Architecture: armv7-softfp
-Installed-Size: 962560
+Installed-Size: 972800
 Description:  This package contains a full featured IEEE 802.1x/WPA/EAP/RADIUS
  Authenticator (internal TLS, no external crypto library).
-Filename: hostapd_2025.08.26~ca266cc2-1_armv7-softfp.ipk
-Size: 464851
-MD5Sum: 543699997bf40d475c91650cde1780da
+Filename: hostapd_2025.08.26~ca266cc2-3_armv7-softfp.ipk
+Size: 468116
+MD5Sum: 3b473a9797fbde1d4385d22caffa2844
 
 Package: iperf3
 Version: 3.20-1
@@ -1017,7 +1017,7 @@ Size: 24354
 MD5Sum: 0d96284103ca5f8d302cd94c4d49b3c1
 
 Package: wpa-cli
-Version: 2025.08.26~ca266cc2-1
+Version: 2025.08.26~ca266cc2-3
 Depends: libc, libssp, librt, libpthread, wpa-supplicant
 Provides: wpa-cli-any
 Source: feeds/base/network/services/hostapd
@@ -1030,12 +1030,12 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 81920
 Description:  WPA Supplicant command line control utility
-Filename: wpa-cli_2025.08.26~ca266cc2-1_armv7-softfp.ipk
-Size: 30511
-MD5Sum: c97c379dc69e5fb2bb369b69bd73f258
+Filename: wpa-cli_2025.08.26~ca266cc2-3_armv7-softfp.ipk
+Size: 30512
+MD5Sum: 185be3fabd2d259a3cf408137d469140
 
 Package: wpa-supplicant
-Version: 2025.08.26~ca266cc2-1
+Version: 2025.08.26~ca266cc2-3
 Depends: libc, libssp, librt, libpthread, libnl
 Provides: wpa-supplicant-any
 Source: feeds/base/network/services/hostapd
@@ -1049,9 +1049,9 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 1064960
 Description:  WPA Supplicant with full feature set (internal TLS).
-Filename: wpa-supplicant_2025.08.26~ca266cc2-1_armv7-softfp.ipk
-Size: 514824
-MD5Sum: 9e438efc40e78d298803677ef86c1ba1
+Filename: wpa-supplicant_2025.08.26~ca266cc2-3_armv7-softfp.ipk
+Size: 514825
+MD5Sum: 339d18e06275c250cbe209bac5c2d929
 
 Package: zlib
 Version: 1.3.1-1
