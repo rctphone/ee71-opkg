@@ -209,15 +209,15 @@ Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
 Package: ee71-optimize
-Version: 1.4.0-1
-Depends: libc, libssp, librt, libpthread
+Version: 1.5.0-1
+Depends: libc, libssp, librt, libpthread, jq, sqlite3, ee71-qcmap-wifi-ctl
 Provides: ee71-optimize-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
 SourceName: ee71-optimize
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 30720
+Installed-Size: 40960
 Description:  EE71 performance optimization suite.
   .
  One-time (marker file, skipped on subsequent boots):
@@ -235,9 +235,9 @@ Description:  EE71 performance optimization suite.
  - oem_watch_patch: remove drop_caches anti-pattern from watchdog
  - parallel_boot: background dropbear/syslog/thermal-engine at boot
  - qcmap_renice: renice QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.4.0-1_armv7-softfp.ipk
-Size: 6028
-MD5Sum: 7b4499cf64c4f5dda96ae480873f883d
+Filename: ee71-optimize_1.5.0-1_armv7-softfp.ipk
+Size: 8716
+MD5Sum: e23e85cdf2de05dbc1a5bc6da21d3b2d
 
 Package: ee71-qcmap-fix
 Version: 1.1.0-1
@@ -405,8 +405,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.7.3-1_armv7-softfp.ipk
-Size: 904360
-MD5Sum: 8403c8caae68a9d56dccdb383cc4e9b4
+Size: 904704
+MD5Sum: 683453607896b27258e33b68e1d2618a
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
