@@ -318,15 +318,15 @@ Size: 11874
 MD5Sum: 0ef25d007d3748f279394e012803a87f
 
 Package: ee71-speedtest-cli
-Version: 1.2.1-1
+Version: 1.2.2-1
 Depends: jq
 Section: ee71
 Architecture: armv7-softfp
-Description: Ookla Speedtest CLI (device-side engine). Static ARM binary + CGI; honest error when Ookla servers are unreachable.
-Installed-Size: 966195
-Filename: ee71-speedtest-cli_1.2.1-1_armv7-softfp.ipk
-Size: 859427
-MD5Sum: 36ded8ab069396b184c1dce8921e2ae8
+Description: Ookla Speedtest CLI (device-side engine). Static ARM binary + CGI; honest unreachable error.
+Installed-Size: 966105
+Filename: ee71-speedtest-cli_1.2.2-1_armv7-softfp.ipk
+Size: 859285
+MD5Sum: 4b27ba5d7c6d2356c154a29ce791421b
 
 Package: ee71-traffic-stats
 Version: 1.0.0-2
@@ -401,7 +401,7 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.8.4-1
+Version: 1.8.5-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -409,7 +409,7 @@ SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 2778331
+Installed-Size: 2776848
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -426,9 +426,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.4-1_armv7-softfp.ipk
-Size: 908631
-MD5Sum: db09245b63e98613698a54f2f404a5df
+Filename: ee71-webui_1.8.5-1_armv7-softfp.ipk
+Size: 907886
+MD5Sum: 4c7ca38f86a5d56d2573395c9d54f218
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
