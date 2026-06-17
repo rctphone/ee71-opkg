@@ -318,15 +318,15 @@ Size: 11874
 MD5Sum: 0ef25d007d3748f279394e012803a87f
 
 Package: ee71-speedtest-cli
-Version: 1.2.4-1
+Version: 1.2.5-1
 Depends: jq
 Section: ee71
 Architecture: armv7-softfp
-Description: Ookla Speedtest CLI engine. Auto-binds to active VPN (by routing); GET-friendly; clearer timeout/failure messages.
-Installed-Size: 966868
-Filename: ee71-speedtest-cli_1.2.4-1_armv7-softfp.ipk
-Size: 859682
-MD5Sum: 6dc8ce4908c12fec996af67e69582767
+Description: Ookla Speedtest CLI engine. Sets HOME (webs spawns CGIs without it, causing the binary to abort); auto-binds to active VPN by routing.
+Installed-Size: 967042
+Filename: ee71-speedtest-cli_1.2.5-1_armv7-softfp.ipk
+Size: 859790
+MD5Sum: e6208794649fbc1fb7bd932dd3ddffc6
 
 Package: ee71-traffic-stats
 Version: 1.0.0-2
