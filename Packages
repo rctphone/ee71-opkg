@@ -132,15 +132,15 @@ Size: 1390
 MD5Sum: 141d5b5684007085c9e2d70dc260d19d
 
 Package: ee71-internetometer
-Version: 1.0.0-1
+Version: 1.0.1-1
 Depends: curl, jq
 Section: ee71
 Architecture: all
-Description: Yandex Интернетометр speed test engine (browser-side). Proxy CGI for CORS-blocked Yandex calls; measurement runs in the browser in real time.
-Installed-Size: 1471
-Filename: ee71-internetometer_1.0.0-1_all.ipk
-Size: 1629
-MD5Sum: 80a8f65a5696647e86f1b3667444a728
+Description: Yandex Internetometer speed test engine (browser-side). Proxy CGI for CORS-blocked Yandex calls; auto-binds to an active VPN tunnel (by routing) to match the measurement exit.
+Installed-Size: 2142
+Filename: ee71-internetometer_1.0.1-1_all.ipk
+Size: 1972
+MD5Sum: 78fb7c45f32349abc4f1a9aaed045e3c
 
 Package: ee71-ipv6
 Version: 2.0.0-1
