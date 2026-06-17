@@ -318,15 +318,15 @@ Size: 11874
 MD5Sum: 0ef25d007d3748f279394e012803a87f
 
 Package: ee71-speedtest-cli
-Version: 1.2.2-1
+Version: 1.2.3-1
 Depends: jq
 Section: ee71
 Architecture: armv7-softfp
-Description: Ookla Speedtest CLI (device-side engine). Static ARM binary + CGI; honest unreachable error.
-Installed-Size: 966105
-Filename: ee71-speedtest-cli_1.2.2-1_armv7-softfp.ipk
-Size: 859285
-MD5Sum: 4b27ba5d7c6d2356c154a29ce791421b
+Description: Ookla Speedtest CLI (device-side engine). Auto-binds to an active VPN tunnel (detected by routing) so it works when the raw WAN is region-blocked.
+Installed-Size: 966736
+Filename: ee71-speedtest-cli_1.2.3-1_armv7-softfp.ipk
+Size: 859639
+MD5Sum: 9102f3bc742df4fb4926d0d391b81b06
 
 Package: ee71-traffic-stats
 Version: 1.0.0-2
