@@ -318,15 +318,15 @@ Size: 11874
 MD5Sum: 0ef25d007d3748f279394e012803a87f
 
 Package: ee71-speedtest-cli
-Version: 1.2.3-1
+Version: 1.2.4-1
 Depends: jq
 Section: ee71
 Architecture: armv7-softfp
-Description: Ookla Speedtest CLI (device-side engine). Auto-binds to an active VPN tunnel (detected by routing) so it works when the raw WAN is region-blocked.
-Installed-Size: 966736
-Filename: ee71-speedtest-cli_1.2.3-1_armv7-softfp.ipk
-Size: 859639
-MD5Sum: 9102f3bc742df4fb4926d0d391b81b06
+Description: Ookla Speedtest CLI engine. Auto-binds to active VPN (by routing); GET-friendly; clearer timeout/failure messages.
+Installed-Size: 966868
+Filename: ee71-speedtest-cli_1.2.4-1_armv7-softfp.ipk
+Size: 859682
+MD5Sum: 6dc8ce4908c12fec996af67e69582767
 
 Package: ee71-traffic-stats
 Version: 1.0.0-2
@@ -401,7 +401,7 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.8.7-1
+Version: 1.8.8-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -409,7 +409,7 @@ SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 2777490
+Installed-Size: 2777466
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -426,9 +426,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.7-1_armv7-softfp.ipk
-Size: 908153
-MD5Sum: 924a8823cea51877e7fe2c1c5d7d6f3b
+Filename: ee71-webui_1.8.8-1_armv7-softfp.ipk
+Size: 908046
+MD5Sum: 0f9bcf8476cee1868116dc1aa1994fbb
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
