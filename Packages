@@ -258,6 +258,37 @@ Filename: ee71-optimize_1.5.3-1_armv7-softfp.ipk
 Size: 9051
 MD5Sum: 35ec59b071785ceaae0a3acb297efc8d
 
+Package: ee71-optimize
+Version: 1.5.4-1
+Depends: libc, libssp, librt, libpthread, jq, sqlite3, ee71-qcmap-wifi-ctl
+Provides: ee71-optimize-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
+SourceName: ee71-optimize
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 51200
+Description:  EE71 performance optimization suite.
+  .
+ One-time (marker file, skipped on subsequent boots):
+ - Disable unused init scripts (bootlogd, hwclock, alx, eMBMs, ramdump, dbus)
+ - Disable getty, nbnsd, reduce misc-daemon timeout
+ - Patch find_partitions.sh with noatime, install optimized fstab
+ - Remove unused binaries (~4 MB: bluetooth, perl, QMI test, audio, keyboard)
+  .
+ Every boot:
+ - Right-size tmpfs (203MB reserved → 100MB), clean stale CGI temp files
+ - Remount UBIFS with noatime, apply sysctl tuning
+ - bridge0 INPUT ACCEPT firewall rule
+  .
+ Companion scripts (separate init entries):
+ - oem_watch_patch: remove drop_caches anti-pattern from watchdog
+ - parallel_boot: background dropbear/syslog/thermal-engine at boot
+ - qcmap_renice: renice QCMAP busy-loop threads to priority 19
+Filename: ee71-optimize_1.5.4-1_armv7-softfp.ipk
+Size: 11115
+MD5Sum: a9e3951645134c18f10b3bf8bab3211a
+
 Package: ee71-qcmap-fix
 Version: 1.1.0-1
 Depends: libc, libssp, librt, libpthread
@@ -308,6 +339,31 @@ Filename: ee71-qcmap-wifi-ctl_1.4.1-1_armv7-softfp.ipk
 Size: 10522
 MD5Sum: 63e13434cfa2f1cf068927646acd48c7
 
+Package: ee71-qcmap-wifi-ctl
+Version: 1.4.2-1
+Depends: libc, libssp, librt, libpthread, libstdcpp
+Provides: ee71-qcmap-wifi-ctl-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-wifi-ctl
+SourceName: ee71-qcmap-wifi-ctl
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  Manages WiFi settings on the EE71 router:
+ - Generates /etc/hostapd-wlan1.conf for 5GHz (wlan1)
+ - Sends SetWlanSettings IPC to core_app (JSON-RPC 2.0 via libsock_client.so.0)
+ - Provides restart commands for wlan0/wlan1 hostapd
+  .
+ Solves the dual-band WiFi problem: SetWlanSettings through
+ core_app triggers QCMAP EnableWLAN which tears down ALL WiFi
+ but only restarts wlan0. This tool generates the wlan1 config
+ BEFORE the restart so QCMAP finds both configs.
+  .
+ Runtime deps (on device): hostapd, libsock_client.so.0
+Filename: ee71-qcmap-wifi-ctl_1.4.2-1_armv7-softfp.ipk
+Size: 10562
+MD5Sum: 60b8f9313c8734f7f514c45fd1daf56f
+
 Package: ee71-sms-forward
 Version: 1.0.2-1
 Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
@@ -341,6 +397,23 @@ Description:  Polls core_app via IPC for new SMS messages and forwards
 Filename: ee71-sms-forward_1.0.4-1_armv7-softfp.ipk
 Size: 12338
 MD5Sum: da6d3324f3389d92f6326412c70996b1
+
+Package: ee71-sms-forward
+Version: 1.0.5-1
+Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
+Provides: ee71-sms-forward-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
+SourceName: ee71-sms-forward
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 40960
+Description:  Polls core_app via IPC for new SMS messages and forwards
+ received messages to Telegram. Single daemon replaces
+ sms_watchd + sms_notify + sms_forward.sh.
+Filename: ee71-sms-forward_1.0.5-1_armv7-softfp.ipk
+Size: 12608
+MD5Sum: 8148c329e0dac4a51492d0cb2964e7c8
 
 Package: ee71-speedtest-cli
 Version: 1.2.7-1
@@ -509,6 +582,36 @@ Description:  Single-page web interface for the EE71 router.
 Filename: ee71-webui_1.8.13-1_armv7-softfp.ipk
 Size: 372779
 MD5Sum: 918bac152d1fe3a46aa6eb12f18c64d2
+
+Package: ee71-webui
+Version: 1.8.14-1
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
+Provides: ee71-webui-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
+SourceName: ee71-webui
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 860160
+Description:  Single-page web interface for the EE71 router.
+ Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
+ VPN enforcement, SMS forwarding, and signal monitoring.
+  .
+ Runtime dependencies:
+ - webs CSP patch (iframe/inline support for GoAhead)
+ - TTL/HL normalization (iptables mangle rules)
+ - IPv6 support (firewall + dnsmasq AAAA filter + RA)
+ - QCMAP binary fix (zero-length netlink attribute)
+ - Performance optimizations (tmpfs, daemons, sysctl)
+ - USB ADB kernel patch (/dev/kmem)
+ - WireGuard (kernel module + wg userspace)
+ - AmneziaWG (kernel module + awg userspace)
+ - ShadowSocks (ss-redir, ss-tunnel)
+ - curl, busybox, dropbear, dnsmasq, iperf3
+ - miniupnpd, sqlite3, hostapd
+Filename: ee71-webui_1.8.14-1_armv7-softfp.ipk
+Size: 372809
+MD5Sum: 9fe5a1f53aff5e75e845d6f7c17226c5
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
