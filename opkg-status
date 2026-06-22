@@ -143,7 +143,7 @@ Installed-Time: 0
 Provides: libxml2-any
 
 Package: sqlite3
-Version: 3.44.2-1
+Version: 3.53.2-1
 Status: install ok installed
 Essential: yes
 Architecture: armv7-softfp

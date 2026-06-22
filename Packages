@@ -1286,7 +1286,7 @@ Size: 572436
 MD5Sum: 7c934694b012721deec7c27d230fdc62
 
 Package: sqlite3
-Version: 3.44.2-1
+Version: 3.53.2-1
 Depends: libc, libssp, librt, libpthread, libpthread
 Provides: sqlite3-any, libsqlite3, sqlite3-cli
 Source: feeds/rctphone//feeds/rctphone/libs/sqlite3
@@ -1297,11 +1297,11 @@ SourceDateEpoch: 1771513164
 URL: https://www.sqlite.org/
 Essential: yes
 Architecture: armv7-softfp
-Installed-Size: 1935360
+Installed-Size: 2129920
 Description:  SQLite3 database engine
-Filename: sqlite3_3.44.2-1_armv7-softfp.ipk
-Size: 1068478
-MD5Sum: 319e5637beb28d9ffec14d7d240746f9
+Filename: sqlite3_3.53.2-1_armv7-softfp.ipk
+Size: 1176356
+MD5Sum: e7c41456311cb167f8c3ac502049f37d
 
 Package: strace
 Version: 6.18-2
