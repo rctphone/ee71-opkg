@@ -71,7 +71,7 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 317440
 Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
- 
+  .
  This is a fully configurable variant with DHCPv4, DHCPv6, DNSSEC, Authoritative DNS
  and nftset, Conntrack support & NO_ID enabled by default.
 Filename: dnsmasq-full_2.92-1_armv7-softfp.ipk
@@ -133,14 +133,22 @@ MD5Sum: 141d5b5684007085c9e2d70dc260d19d
 
 Package: ee71-internetometer
 Version: 1.1.0-1
-Depends: curl, jq
+Depends: libc, libssp, librt, libpthread, curl, jq
+Provides: ee71-internetometer-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-internetometer
+SourceName: ee71-internetometer
 Section: ee71
-Architecture: all
-Description: Yandex Интернетометр speed test (device-side, measured from the router; live stages via polling; binds to VPN by routing; works on raw WAN without VPN).
-Installed-Size: 6857
-Filename: ee71-internetometer_1.1.0-1_all.ipk
-Size: 3584
-MD5Sum: ed42c30f3db92b2b92159558615f581d
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  Internet speed test using the Yandex Интернетометр method, measured from the
+ ROUTER's WAN (binds to an active VPN tunnel by routing). Runs detached and
+ streams live stages + intermediate speed via polling (webs can't stream).
+ Uses Yandex CDN, which is reachable on the raw WAN without a VPN. Reuses the
+ real yandex.ru/internet gauge look. Optional engine for ee71-webui Speed Test.
+Filename: ee71-internetometer_1.1.0-1_armv7-softfp.ipk
+Size: 3937
+MD5Sum: 9af13d41a50729e0c695ee35a7219a96
 
 Package: ee71-ipv6
 Version: 2.0.0-1
@@ -153,17 +161,17 @@ SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 51200
 Description:  Complete IPv6 stack for EE71 (formerly ee71-radish).
- 
+  .
  Radish (Qualcomm v1.1 + EE71 enhancements):
  - RDNSS: wrapper adds -d flag for DNS server in RA
  - Periodic RA: cached RA every 600s on bridge
  - RS response: immediate RA reply from cache to client RS
  - Startup RS: solicits RA from modem at boot
  - Bridge IPv6: assigns prefix::1 to bridge0
- 
+  .
  IPv6 infrastructure:
  - ip6tables INPUT DROP firewall (S38, before QCMAP)
- 
+  .
  Binary at /usr/libexec/radish, wrapper at /usr/sbin/radish.
  Links against stock device libs.
 Filename: ee71-ipv6_2.0.0-1_armv7-softfp.ipk
@@ -230,18 +238,18 @@ SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 40960
 Description:  EE71 performance optimization suite.
- 
+  .
  One-time (marker file, skipped on subsequent boots):
  - Disable unused init scripts (bootlogd, hwclock, alx, eMBMs, ramdump, dbus)
  - Disable getty, nbnsd, reduce misc-daemon timeout
  - Patch find_partitions.sh with noatime, install optimized fstab
  - Remove unused binaries (~4 MB: bluetooth, perl, QMI test, audio, keyboard)
- 
+  .
  Every boot:
  - Right-size tmpfs (203MB reserved → 100MB), clean stale CGI temp files
  - Remount UBIFS with noatime, apply sysctl tuning
  - bridge0 INPUT ACCEPT firewall rule
- 
+  .
  Companion scripts (separate init entries):
  - oem_watch_patch: remove drop_caches anti-pattern from watchdog
  - parallel_boot: background dropbear/syslog/thermal-engine at boot
@@ -261,15 +269,15 @@ SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 20480
 Description:  Patches QCMAP_ConnectionManager binary on boot.
- 
+  .
  Patch 1 — zero-length netlink fix (12 bytes at 0x1C4C4):
  Fixes infinite busy loop when netlink TLV attribute has length=0.
- 
+  .
  Patch 2 — preserve dnsmasq leases (1 byte at 0x6A858):
  Disables rm of /var/lib/misc/dnsmasq.leases on dnsmasq restart.
  QCMAP kills and restarts dnsmasq on WAN reconnect, deleting leases.
  This patch comments out the rm command so clients keep their IPs.
- 
+  .
  Init script backs up original, applies both patches, verifies.
 Filename: ee71-qcmap-fix_1.1.0-1_armv7-softfp.ipk
 Size: 4832
@@ -289,19 +297,19 @@ Description:  Manages WiFi settings on the EE71 router:
  - Generates /etc/hostapd-wlan1.conf for 5GHz (wlan1)
  - Sends SetWlanSettings IPC to core_app (JSON-RPC 2.0 via libsock_client.so.0)
  - Provides restart commands for wlan0/wlan1 hostapd
- 
+  .
  Solves the dual-band WiFi problem: SetWlanSettings through
  core_app triggers QCMAP EnableWLAN which tears down ALL WiFi
  but only restarts wlan0. This tool generates the wlan1 config
  BEFORE the restart so QCMAP finds both configs.
- 
+  .
  Runtime deps (on device): hostapd, libsock_client.so.0
 Filename: ee71-qcmap-wifi-ctl_1.4.1-1_armv7-softfp.ipk
 Size: 10522
 MD5Sum: 63e13434cfa2f1cf068927646acd48c7
 
 Package: ee71-sms-forward
-Version: 1.0.0-1
+Version: 1.0.1-1
 Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
 Provides: ee71-sms-forward-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
@@ -313,20 +321,27 @@ Installed-Size: 30720
 Description:  Polls core_app via IPC for new SMS messages and forwards
  received messages to Telegram. Single daemon replaces
  sms_watchd + sms_notify + sms_forward.sh.
-Filename: ee71-sms-forward_1.0.0-1_armv7-softfp.ipk
-Size: 11874
-MD5Sum: 0ef25d007d3748f279394e012803a87f
+Filename: ee71-sms-forward_1.0.1-1_armv7-softfp.ipk
+Size: 12109
+MD5Sum: be6d8c8a163127bc3c14dfeb7d4da2bb
 
 Package: ee71-speedtest-cli
-Version: 1.2.6-1
-Depends: jq
+Version: 1.2.7-1
+Depends: libc, libssp, librt, libpthread, jq
+Provides: ee71-speedtest-cli-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-speedtest-cli
+SourceName: ee71-speedtest-cli
 Section: ee71
+SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Description: Ookla Speedtest CLI engine. Live stages via background jsonl + polling; connection info (IP/ISP) from Ookla; VPN auto-bind; HOME set.
-Installed-Size: 968392
-Filename: ee71-speedtest-cli_1.2.6-1_armv7-softfp.ipk
-Size: 860116
-MD5Sum: e2fc14deddec9daab47a10bb03ec583e
+Installed-Size: 983040
+Description:  Static ARM Ookla Speedtest CLI binary + a CGI that runs it on the router and
+ maps the JSON to the Web UI gauge shape. Measures the router's WAN from the
+ device. Installed to /jrd-resource (so it does not fill the small /usr).
+ Optional engine for ee71-webui Speed Test.
+Filename: ee71-speedtest-cli_1.2.7-1_armv7-softfp.ipk
+Size: 858798
+MD5Sum: e323e2e3aba7440554bd298a603f5bfa
 
 Package: ee71-traffic-stats
 Version: 1.0.0-2
@@ -409,11 +424,11 @@ SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 2777620
+Installed-Size: 839680
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
- 
+  .
  Runtime dependencies:
  - webs CSP patch (iframe/inline support for GoAhead)
  - TTL/HL normalization (iptables mangle rules)
@@ -427,8 +442,8 @@ Description:  Single-page web interface for the EE71 router.
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
 Filename: ee71-webui_1.8.11-1_armv7-softfp.ipk
-Size: 908267
-MD5Sum: 766df4166a382b6d9e8c1b95cb25dd4c
+Size: 370958
+MD5Sum: 4d05061a94fd174bcec3b7fbbb04ec53
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
@@ -502,7 +517,7 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 440320
 Description:  IP firewall administration tool.
- 
+  .
  Matches:
  - icmp
  - tcp
@@ -516,7 +531,7 @@ Description:  IP firewall administration tool.
  - set
  - state
  - time
- 
+  .
  Targets:
  - ACCEPT
  - CT
@@ -530,13 +545,13 @@ Description:  IP firewall administration tool.
  - SET
  - SNAT
  - TCPMSS
- 
+  .
  Tables:
  - filter
  - mangle
  - nat
  - raw
- 
+  .
 Filename: iptables_1.4.21-6_armv7-softfp.ipk
 Size: 149496
 MD5Sum: 50a148e2b41c7f0d9b33d84de4bd3bf2
@@ -911,7 +926,7 @@ Description:  Lightweight package management system
  installation and removal of packages on a system. It can
  recursively follow dependencies and download all packages
  necessary to install a particular package.
- 
+  .
  opkg knows how to install both .ipk and .deb packages.
 Filename: opkg_2025.11.05~80503d94-1_armv7-softfp.ipk
 Size: 386162
@@ -1032,7 +1047,7 @@ Description:  WireGuard is a novel VPN that runs inside the Linux Kernel and uti
  be considerably more performant than OpenVPN.  WireGuard is designed as a
  general purpose VPN for running on embedded interfaces and super computers
  alike, fit for many different circumstances. It uses UDP.
- 
+  .
  This package provides the userspace control program for WireGuard, wg(8).
 Filename: wireguard-tools_1.0.20250521-1_armv7-softfp.ipk
 Size: 24354
