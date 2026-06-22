@@ -309,7 +309,7 @@ Size: 10522
 MD5Sum: 63e13434cfa2f1cf068927646acd48c7
 
 Package: ee71-sms-forward
-Version: 1.0.1-1
+Version: 1.0.2-1
 Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
 Provides: ee71-sms-forward-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
@@ -321,9 +321,9 @@ Installed-Size: 30720
 Description:  Polls core_app via IPC for new SMS messages and forwards
  received messages to Telegram. Single daemon replaces
  sms_watchd + sms_notify + sms_forward.sh.
-Filename: ee71-sms-forward_1.0.1-1_armv7-softfp.ipk
-Size: 12109
-MD5Sum: be6d8c8a163127bc3c14dfeb7d4da2bb
+Filename: ee71-sms-forward_1.0.2-1_armv7-softfp.ipk
+Size: 12224
+MD5Sum: 93f27ddb731f6cbf0e80170040a11559
 
 Package: ee71-speedtest-cli
 Version: 1.2.7-1
@@ -416,7 +416,7 @@ Size: 1674
 MD5Sum: 021ae11e85e5b22094ca574640ba65ad
 
 Package: ee71-webui
-Version: 1.8.11-1
+Version: 1.8.12-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -424,7 +424,7 @@ SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 839680
+Installed-Size: 849920
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -441,9 +441,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.11-1_armv7-softfp.ipk
-Size: 370958
-MD5Sum: 4d05061a94fd174bcec3b7fbbb04ec53
+Filename: ee71-webui_1.8.12-1_armv7-softfp.ipk
+Size: 372717
+MD5Sum: 1c74579cdc1093cbb175f9b17f76a498
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
@@ -931,25 +931,6 @@ Description:  Lightweight package management system
 Filename: opkg_2025.11.05~80503d94-1_armv7-softfp.ipk
 Size: 386162
 MD5Sum: 34cf849bfb0efa3d5b0f825ced2e4817
-
-Package: ppp
-Version: 2.4.8_git20201003-3
-Depends: libc, libssp, librt, libpthread
-Provides: ppp-any
-Source: feeds/base/network/services/ppp
-SourceName: ppp
-License: BSD-4-Clause
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://ppp.samba.org/
-CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
-Maintainer: Felix Fietkau <nbd@nbd.name>
-Architecture: armv7-softfp
-Installed-Size: 225280
-Description:  This package contains the PPP (Point-to-Point Protocol) daemon.
-Filename: ppp_2.4.8_git20201003-3_armv7-softfp.ipk
-Size: 107244
-MD5Sum: 7d24bf086d8b3f82658e66718e9013a7
 
 Package: shadowsocks-libev
 Version: 3.3.5-1
