@@ -38,7 +38,7 @@ Size: 131009
 MD5Sum: fd7afa5f98cd8978d9da36cb2107a2f9
 
 Package: curl
-Version: 7.88.1-2
+Version: 8.17.0-1
 Depends: libc, libssp, librt, libpthread, libcurl
 Provides: curl-any
 Source: feeds/rctphone//feeds/rctphone/net/curl
@@ -48,11 +48,11 @@ Section: net
 SourceDateEpoch: 1771513164
 URL: https://curl.se/
 Architecture: armv7-softfp
-Installed-Size: 133120
+Installed-Size: 153600
 Description:  curl CLI (HTTP/HTTPS only)
-Filename: curl_7.88.1-2_armv7-softfp.ipk
-Size: 62460
-MD5Sum: 66fd86bf1949b9f5fb0b628cdbcba501
+Filename: curl_8.17.0-1_armv7-softfp.ipk
+Size: 73313
+MD5Sum: 888c37f08b7e1e00016dc6bb214ef343
 
 Package: dnsmasq-full
 Version: 2.92-1
@@ -838,7 +838,7 @@ Size: 122957
 MD5Sum: c21d8ed9083176af71b7502a4f648945
 
 Package: libcurl
-Version: 7.88.1-2
+Version: 8.17.0-1
 Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
 Provides: libcurl-any
 Source: feeds/rctphone//feeds/rctphone/net/curl
@@ -848,11 +848,11 @@ Section: libs
 SourceDateEpoch: 1771513164
 URL: https://curl.se/
 Architecture: armv7-softfp
-Installed-Size: 266240
+Installed-Size: 358400
 Description:  libcurl (HTTP/HTTPS)
-Filename: libcurl_7.88.1-2_armv7-softfp.ipk
-Size: 131341
-MD5Sum: dfbc88ff610b70ce2f54fe80689c2a3c
+Filename: libcurl_8.17.0-1_armv7-softfp.ipk
+Size: 174956
+MD5Sum: b65b4a9c543ebca17cef79bdb3be8c5d
 
 Package: libmnl
 Version: 1.0.5-1
