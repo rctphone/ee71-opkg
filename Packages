@@ -365,7 +365,7 @@ Size: 10562
 MD5Sum: 60b8f9313c8734f7f514c45fd1daf56f
 
 Package: ee71-sms-forward
-Version: 1.0.8-1
+Version: 1.0.9-1
 Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
 Provides: ee71-sms-forward-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
@@ -377,9 +377,9 @@ Installed-Size: 40960
 Description:  Polls core_app via IPC for new SMS messages and forwards
  received messages to Telegram. Single daemon replaces
  sms_watchd + sms_notify + sms_forward.sh.
-Filename: ee71-sms-forward_1.0.8-1_armv7-softfp.ipk
-Size: 12805
-MD5Sum: 1c669db3e9652881a7b110da5676c6a7
+Filename: ee71-sms-forward_1.0.9-1_armv7-softfp.ipk
+Size: 12878
+MD5Sum: 2c8018d42fc6efa747e02dc17a1147cf
 
 Package: ee71-speedtest-cli
 Version: 1.2.7-1
