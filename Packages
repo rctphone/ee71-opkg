@@ -1267,7 +1267,7 @@ Size: 386162
 MD5Sum: 34cf849bfb0efa3d5b0f825ced2e4817
 
 Package: shadowsocks-libev
-Version: 3.3.6-1
+Version: 3.3.6-2
 Depends: libc, libssp, librt, libpthread, libpthread
 Provides: shadowsocks-libev-any
 Source: feeds/rctphone//feeds/rctphone/net/shadowsocks-libev
@@ -1277,13 +1277,13 @@ Section: net
 SourceDateEpoch: 1771513164
 URL: https://github.com/shadowsocks/shadowsocks-libev
 Architecture: armv7-softfp
-Installed-Size: 1228800
+Installed-Size: 1208320
 Description:  Lightweight SOCKS5 proxy with encrypted tunnel.
  All dependencies (libev, libsodium, c-ares, mbedTLS, PCRE2)
  are downloaded and statically linked at build time.
-Filename: shadowsocks-libev_3.3.6-1_armv7-softfp.ipk
-Size: 580421
-MD5Sum: 8f0cfd090c81ab24a53edffa90387938
+Filename: shadowsocks-libev_3.3.6-2_armv7-softfp.ipk
+Size: 572436
+MD5Sum: 7c934694b012721deec7c27d230fdc62
 
 Package: sqlite3
 Version: 3.44.2-1
