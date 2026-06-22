@@ -990,6 +990,30 @@ Filename: libopenssl-conf_1.1.1w-1_armv7-softfp.ipk
 Size: 4777
 MD5Sum: 93d3bf1d9d015501efd2602078dd2790
 
+Package: libopenssl-conf
+Version: 1.1.1zh-2
+Depends: libc, libssp, librt, libpthread, libopenssl
+Provides: libopenssl-conf-any
+Source: feeds/base/libs/openssl
+SourceName: openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.openssl.org/
+CPE-ID: cpe:/a:openssl:openssl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the
+ Transport Layer Security (TLS) protocol as well as a full-strength
+ general-purpose cryptography library.
+ This package installs the OpenSSL configuration file /etc/ssl/openssl.cnf.
+Filename: libopenssl-conf_1.1.1zh-2_armv7-softfp.ipk
+Size: 4777
+MD5Sum: 20e129506405cdf4a7f5b4875a57e771
+
 Package: libopenssl
 Version: 1.1.1w-1
 Depends: libc, libssp, librt, libpthread, zlib
@@ -1013,6 +1037,30 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
 Filename: libopenssl_1.1.1w-1_armv7-softfp.ipk
 Size: 1066268
 MD5Sum: 04bc55c787f8fe8e9d09b11630bf27e2
+
+Package: libopenssl
+Version: 1.1.1zh-2
+Depends: libc, libssp, librt, libpthread, zlib
+Provides: libopenssl-any
+Source: feeds/base/libs/openssl
+SourceName: openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.openssl.org/
+CPE-ID: cpe:/a:openssl:openssl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 2099200
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the
+ Transport Layer Security (TLS) protocol as well as a full-strength
+ general-purpose cryptography library.
+ This package contains the OpenSSL shared libraries, needed by other programs.
+Filename: libopenssl_1.1.1zh-2_armv7-softfp.ipk
+Size: 1067138
+MD5Sum: 6a9fd2a35e9d7ff2ae6b1a56bf93ae38
 
 Package: libxml2
 Version: 2.13.9-1
@@ -1074,6 +1122,30 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
 Filename: openssl-util_1.1.1w-1_armv7-softfp.ipk
 Size: 249144
 MD5Sum: 92cbc9dd8a29745febbb329ec67a8c22
+
+Package: openssl-util
+Version: 1.1.1zh-2
+Depends: libc, libssp, librt, libpthread, libopenssl, libopenssl-conf
+Provides: openssl-util-any
+Source: feeds/base/libs/openssl
+SourceName: openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: utils
+SourceDateEpoch: 1771513164
+URL: https://www.openssl.org/
+CPE-ID: cpe:/a:openssl:openssl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 532480
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the
+ Transport Layer Security (TLS) protocol as well as a full-strength
+ general-purpose cryptography library.
+ This package contains the OpenSSL command-line utility.
+Filename: openssl-util_1.1.1zh-2_armv7-softfp.ipk
+Size: 249125
+MD5Sum: eb9b8a01acb11a081d63123f82a3abe4
 
 Package: opkg
 Version: 2025.11.05~80503d94-1
