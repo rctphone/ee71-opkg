@@ -63,7 +63,7 @@ Installed-Time: 0
 Provides: zlib-any
 
 Package: libopenssl
-Version: 1.1.1w-1
+Version: 1.1.1zh-3
 Status: install ok installed
 Essential: yes
 Architecture: armv7-softfp
@@ -71,7 +71,7 @@ Installed-Time: 0
 Provides: libopenssl-any
 
 Package: libopenssl-conf
-Version: 1.1.1w-1
+Version: 1.1.1zh-3
 Status: install ok installed
 Essential: yes
 Architecture: armv7-softfp
@@ -79,7 +79,7 @@ Installed-Time: 0
 Provides: libopenssl-conf-any
 
 Package: openssl-util
-Version: 1.1.1w-1
+Version: 1.1.1zh-3
 Status: install ok installed
 Essential: yes
 Architecture: armv7-softfp

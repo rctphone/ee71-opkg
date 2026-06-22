@@ -151,7 +151,7 @@ Size: 3937
 MD5Sum: 9af13d41a50729e0c695ee35a7219a96
 
 Package: ee71-ipv6
-Version: 2.0.0-1
+Version: 2.0.1-1
 Depends: libc, libssp, librt, libpthread, libpthread, librt
 Provides: ee71-ipv6-any, ee71-radish
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
@@ -171,12 +171,13 @@ Description:  Complete IPv6 stack for EE71 (formerly ee71-radish).
   .
  IPv6 infrastructure:
  - ip6tables INPUT DROP firewall (S38, before QCMAP)
+ - dnsmasq AAAA filter when routed IPv6 is unavailable
   .
  Binary at /usr/libexec/radish, wrapper at /usr/sbin/radish.
  Links against stock device libs.
-Filename: ee71-ipv6_2.0.0-1_armv7-softfp.ipk
-Size: 20296
-MD5Sum: b23ec20f915b75f0e7431d097b0c7da3
+Filename: ee71-ipv6_2.0.1-1_armv7-softfp.ipk
+Size: 21893
+MD5Sum: d500d6e144d1d36016d5fd05180a9a05
 
 Package: ee71-kmod-amneziawg
 Version: 1.0.20220627-1
@@ -226,37 +227,6 @@ Description:  WireGuard VPN kernel module for kernel 3.10.49.
 Filename: ee71-kmod-wireguard_1.0.20220627-1_armv7-softfp.ipk
 Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
-
-Package: ee71-optimize
-Version: 1.5.3-1
-Depends: libc, libssp, librt, libpthread, jq, sqlite3, ee71-qcmap-wifi-ctl
-Provides: ee71-optimize-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
-SourceName: ee71-optimize
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 40960
-Description:  EE71 performance optimization suite.
-  .
- One-time (marker file, skipped on subsequent boots):
- - Disable unused init scripts (bootlogd, hwclock, alx, eMBMs, ramdump, dbus)
- - Disable getty, nbnsd, reduce misc-daemon timeout
- - Patch find_partitions.sh with noatime, install optimized fstab
- - Remove unused binaries (~4 MB: bluetooth, perl, QMI test, audio, keyboard)
-  .
- Every boot:
- - Right-size tmpfs (203MB reserved → 100MB), clean stale CGI temp files
- - Remount UBIFS with noatime, apply sysctl tuning
- - bridge0 INPUT ACCEPT firewall rule
-  .
- Companion scripts (separate init entries):
- - oem_watch_patch: remove drop_caches anti-pattern from watchdog
- - parallel_boot: background dropbear/syslog/thermal-engine at boot
- - qcmap_renice: renice QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.5.3-1_armv7-softfp.ipk
-Size: 9051
-MD5Sum: 35ec59b071785ceaae0a3acb297efc8d
 
 Package: ee71-optimize
 Version: 1.5.4-1
@@ -315,31 +285,6 @@ Size: 4832
 MD5Sum: 265412e58076ae71faf08d066a2b1391
 
 Package: ee71-qcmap-wifi-ctl
-Version: 1.4.1-1
-Depends: libc, libssp, librt, libpthread, libstdcpp
-Provides: ee71-qcmap-wifi-ctl-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-wifi-ctl
-SourceName: ee71-qcmap-wifi-ctl
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 30720
-Description:  Manages WiFi settings on the EE71 router:
- - Generates /etc/hostapd-wlan1.conf for 5GHz (wlan1)
- - Sends SetWlanSettings IPC to core_app (JSON-RPC 2.0 via libsock_client.so.0)
- - Provides restart commands for wlan0/wlan1 hostapd
-  .
- Solves the dual-band WiFi problem: SetWlanSettings through
- core_app triggers QCMAP EnableWLAN which tears down ALL WiFi
- but only restarts wlan0. This tool generates the wlan1 config
- BEFORE the restart so QCMAP finds both configs.
-  .
- Runtime deps (on device): hostapd, libsock_client.so.0
-Filename: ee71-qcmap-wifi-ctl_1.4.1-1_armv7-softfp.ipk
-Size: 10522
-MD5Sum: 63e13434cfa2f1cf068927646acd48c7
-
-Package: ee71-qcmap-wifi-ctl
 Version: 1.4.2-1
 Depends: libc, libssp, librt, libpthread, libstdcpp
 Provides: ee71-qcmap-wifi-ctl-any
@@ -380,23 +325,6 @@ Description:  Polls core_app via IPC for new SMS messages and forwards
 Filename: ee71-sms-forward_1.0.10-1_armv7-softfp.ipk
 Size: 12881
 MD5Sum: 66408516ab250d4772223ce0b144ce9e
-
-Package: ee71-sms-forward
-Version: 1.0.9-1
-Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
-Provides: ee71-sms-forward-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
-SourceName: ee71-sms-forward
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 40960
-Description:  Polls core_app via IPC for new SMS messages and forwards
- received messages to Telegram. Single daemon replaces
- sms_watchd + sms_notify + sms_forward.sh.
-Filename: ee71-sms-forward_1.0.9-1_armv7-softfp.ipk
-Size: 12878
-MD5Sum: 2c8018d42fc6efa747e02dc17a1147cf
 
 Package: ee71-speedtest-cli
 Version: 1.2.7-1
@@ -471,24 +399,6 @@ Size: 3295
 MD5Sum: 0a809f7adffa74ac41250f3fbdd60552
 
 Package: ee71-webs-csp
-Version: 1.0.0-1
-Depends: libc, libssp, librt, libpthread
-Provides: ee71-webs-csp-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webs-csp
-SourceName: ee71-webs-csp
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 10240
-Description:  Patches the GoAhead webs binary Content-Security-Policy string
- in-place to allow iframe embedding and inline scripts/styles.
- Original CSP is very restrictive; replaced with permissive policy.
- Backs up original binary before patching.
-Filename: ee71-webs-csp_1.0.0-1_armv7-softfp.ipk
-Size: 1674
-MD5Sum: 021ae11e85e5b22094ca574640ba65ad
-
-Package: ee71-webs-csp
 Version: 1.0.1-1
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-webs-csp-any
@@ -507,7 +417,7 @@ Size: 1841
 MD5Sum: 215e62be2fe0e4c84d354f4fc9413a19
 
 Package: ee71-webui
-Version: 1.8.20-1
+Version: 1.8.23-1
 Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -532,69 +442,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.20-1_armv7-softfp.ipk
-Size: 373364
-MD5Sum: 6284a2ecd78e95d3b39822aadd26d6e6
-
-Package: ee71-webui
-Version: 1.8.21-1
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
-Provides: ee71-webui-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
-SourceName: ee71-webui
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 860160
-Description:  Single-page web interface for the EE71 router.
- Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
- VPN enforcement, SMS forwarding, and signal monitoring.
-  .
- Runtime dependencies:
- - webs CSP patch (iframe/inline support for GoAhead)
- - TTL/HL normalization (iptables mangle rules)
- - IPv6 support (firewall + dnsmasq AAAA filter + RA)
- - QCMAP binary fix (zero-length netlink attribute)
- - Performance optimizations (tmpfs, daemons, sysctl)
- - USB ADB kernel patch (/dev/kmem)
- - WireGuard (kernel module + wg userspace)
- - AmneziaWG (kernel module + awg userspace)
- - ShadowSocks (ss-redir, ss-tunnel)
- - curl, busybox, dropbear, dnsmasq, iperf3
- - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.21-1_armv7-softfp.ipk
-Size: 373480
-MD5Sum: f119ac63f611bf953503aef8e16a3f11
-
-Package: ee71-webui
-Version: 1.8.22-1
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
-Provides: ee71-webui-any
-Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
-SourceName: ee71-webui
-Section: ee71
-SourceDateEpoch: 1771513164
-Architecture: armv7-softfp
-Installed-Size: 860160
-Description:  Single-page web interface for the EE71 router.
- Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
- VPN enforcement, SMS forwarding, and signal monitoring.
-  .
- Runtime dependencies:
- - webs CSP patch (iframe/inline support for GoAhead)
- - TTL/HL normalization (iptables mangle rules)
- - IPv6 support (firewall + dnsmasq AAAA filter + RA)
- - QCMAP binary fix (zero-length netlink attribute)
- - Performance optimizations (tmpfs, daemons, sysctl)
- - USB ADB kernel patch (/dev/kmem)
- - WireGuard (kernel module + wg userspace)
- - AmneziaWG (kernel module + awg userspace)
- - ShadowSocks (ss-redir, ss-tunnel)
- - curl, busybox, dropbear, dnsmasq, iperf3
- - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.22-1_armv7-softfp.ipk
-Size: 373494
-MD5Sum: 5c466ac77dd2f923cd478438783d1ec3
+Filename: ee71-webui_1.8.23-1_armv7-softfp.ipk
+Size: 373568
+MD5Sum: bf079ebe22de539241e5a5bfbc5e6df8
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
@@ -950,30 +800,6 @@ Size: 805
 MD5Sum: 6ee31addcae066461e93a2e90f1eea50
 
 Package: libopenssl-conf
-Version: 1.1.1w-1
-Depends: libc, libssp, librt, libpthread, libopenssl
-Provides: libopenssl-conf-any
-Source: feeds/base/libs/openssl
-SourceName: openssl
-License: OpenSSL
-LicenseFiles: LICENSE
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.openssl.org/
-CPE-ID: cpe:/a:openssl:openssl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 20480
-Description:  The OpenSSL Project is a collaborative effort to develop a robust,
- commercial-grade, full-featured, and Open Source toolkit implementing the
- Transport Layer Security (TLS) protocol as well as a full-strength
- general-purpose cryptography library.
- This package installs the OpenSSL configuration file /etc/ssl/openssl.cnf.
-Filename: libopenssl-conf_1.1.1w-1_armv7-softfp.ipk
-Size: 4777
-MD5Sum: 93d3bf1d9d015501efd2602078dd2790
-
-Package: libopenssl-conf
 Version: 1.1.1zh-3
 Depends: libc, libssp, librt, libpthread, libopenssl
 Provides: libopenssl-conf-any
@@ -996,30 +822,6 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
 Filename: libopenssl-conf_1.1.1zh-3_armv7-softfp.ipk
 Size: 4732
 MD5Sum: 965b52d879bb758383490f437ae23a1e
-
-Package: libopenssl
-Version: 1.1.1w-1
-Depends: libc, libssp, librt, libpthread, zlib
-Provides: libopenssl-any
-Source: feeds/base/libs/openssl
-SourceName: openssl
-License: OpenSSL
-LicenseFiles: LICENSE
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.openssl.org/
-CPE-ID: cpe:/a:openssl:openssl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 2099200
-Description:  The OpenSSL Project is a collaborative effort to develop a robust,
- commercial-grade, full-featured, and Open Source toolkit implementing the
- Transport Layer Security (TLS) protocol as well as a full-strength
- general-purpose cryptography library.
- This package contains the OpenSSL shared libraries, needed by other programs.
-Filename: libopenssl_1.1.1w-1_armv7-softfp.ipk
-Size: 1066268
-MD5Sum: 04bc55c787f8fe8e9d09b11630bf27e2
 
 Package: libopenssl
 Version: 1.1.1zh-3
@@ -1081,30 +883,6 @@ Description:  UPnP/NAT-PMP/PCP daemon
 Filename: miniupnpd_2.3.10-1_armv7-softfp.ipk
 Size: 66352
 MD5Sum: 308757d797fc7592b31ce4fd9e9d949f
-
-Package: openssl-util
-Version: 1.1.1w-1
-Depends: libc, libssp, librt, libpthread, libopenssl, libopenssl-conf
-Provides: openssl-util-any
-Source: feeds/base/libs/openssl
-SourceName: openssl
-License: OpenSSL
-LicenseFiles: LICENSE
-Section: utils
-SourceDateEpoch: 1771513164
-URL: https://www.openssl.org/
-CPE-ID: cpe:/a:openssl:openssl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 532480
-Description:  The OpenSSL Project is a collaborative effort to develop a robust,
- commercial-grade, full-featured, and Open Source toolkit implementing the
- Transport Layer Security (TLS) protocol as well as a full-strength
- general-purpose cryptography library.
- This package contains the OpenSSL command-line utility.
-Filename: openssl-util_1.1.1w-1_armv7-softfp.ipk
-Size: 249144
-MD5Sum: 92cbc9dd8a29745febbb329ec67a8c22
 
 Package: openssl-util
 Version: 1.1.1zh-3
