@@ -415,6 +415,23 @@ Filename: ee71-sms-forward_1.0.5-1_armv7-softfp.ipk
 Size: 12608
 MD5Sum: 8148c329e0dac4a51492d0cb2964e7c8
 
+Package: ee71-sms-forward
+Version: 1.0.6-1
+Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
+Provides: ee71-sms-forward-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
+SourceName: ee71-sms-forward
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 40960
+Description:  Polls core_app via IPC for new SMS messages and forwards
+ received messages to Telegram. Single daemon replaces
+ sms_watchd + sms_notify + sms_forward.sh.
+Filename: ee71-sms-forward_1.0.6-1_armv7-softfp.ipk
+Size: 12828
+MD5Sum: 6f3f4d7eef77cbf69a7764010f618dd4
+
 Package: ee71-speedtest-cli
 Version: 1.2.7-1
 Depends: libc, libssp, librt, libpthread, jq
@@ -642,6 +659,36 @@ Description:  Single-page web interface for the EE71 router.
 Filename: ee71-webui_1.8.15-1_armv7-softfp.ipk
 Size: 372887
 MD5Sum: 7abe6727864c332c97456f7d21f6c37c
+
+Package: ee71-webui
+Version: 1.8.16-1
+Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
+Provides: ee71-webui-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
+SourceName: ee71-webui
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 860160
+Description:  Single-page web interface for the EE71 router.
+ Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
+ VPN enforcement, SMS forwarding, and signal monitoring.
+  .
+ Runtime dependencies:
+ - webs CSP patch (iframe/inline support for GoAhead)
+ - TTL/HL normalization (iptables mangle rules)
+ - IPv6 support (firewall + dnsmasq AAAA filter + RA)
+ - QCMAP binary fix (zero-length netlink attribute)
+ - Performance optimizations (tmpfs, daemons, sysctl)
+ - USB ADB kernel patch (/dev/kmem)
+ - WireGuard (kernel module + wg userspace)
+ - AmneziaWG (kernel module + awg userspace)
+ - ShadowSocks (ss-redir, ss-tunnel)
+ - curl, busybox, dropbear, dnsmasq, iperf3
+ - miniupnpd, sqlite3, hostapd
+Filename: ee71-webui_1.8.16-1_armv7-softfp.ipk
+Size: 372959
+MD5Sum: 107a48e40adb4da6dae1821f4ccc416c
 
 Package: hostapd-utils
 Version: 2025.08.26~ca266cc2-3
