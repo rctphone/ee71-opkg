@@ -228,7 +228,7 @@ Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
 Package: ee71-optimize
-Version: 1.5.2-1
+Version: 1.5.3-1
 Depends: libc, libssp, librt, libpthread, jq, sqlite3, ee71-qcmap-wifi-ctl
 Provides: ee71-optimize-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
@@ -236,7 +236,7 @@ SourceName: ee71-optimize
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 51200
+Installed-Size: 40960
 Description:  EE71 performance optimization suite.
   .
  One-time (marker file, skipped on subsequent boots):
@@ -254,9 +254,9 @@ Description:  EE71 performance optimization suite.
  - oem_watch_patch: remove drop_caches anti-pattern from watchdog
  - parallel_boot: background dropbear/syslog/thermal-engine at boot
  - qcmap_renice: renice QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.5.2-1_armv7-softfp.ipk
-Size: 9558
-MD5Sum: b0b4a97dc7a96f0a39ff48d473ee5a8b
+Filename: ee71-optimize_1.5.3-1_armv7-softfp.ipk
+Size: 9051
+MD5Sum: 35ec59b071785ceaae0a3acb297efc8d
 
 Package: ee71-qcmap-fix
 Version: 1.1.0-1
