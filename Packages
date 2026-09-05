@@ -79,7 +79,7 @@ Size: 163361
 MD5Sum: c0ee0ed88562de73d172714a44a5df0b
 
 Package: dropbear
-Version: 2026.94-2
+Version: 2026.94-3
 Depends: libc, libssp, librt, libpthread
 Provides: dropbear-any
 Alternatives: 100:/usr/bin/ssh-keygen:/usr/sbin/dropbear, 100:/usr/bin/scp:/usr/sbin/dropbear, 100:/usr/bin/ssh:/usr/sbin/dropbear
@@ -94,9 +94,9 @@ CPE-ID: cpe:/a:dropbear_ssh_project:dropbear_ssh
 Architecture: armv7-softfp
 Installed-Size: 256000
 Description:  A small SSH2 server/client designed for small memory environments.
-Filename: dropbear_2026.94-2_armv7-softfp.ipk
-Size: 129081
-MD5Sum: abcaa5015a374fb84e6f99acc2466c04
+Filename: dropbear_2026.94-3_armv7-softfp.ipk
+Size: 129263
+MD5Sum: 58bfd1b0844ecbc2d7475edf8299ba79
 
 Package: ee71-amneziawg-tools
 Version: 1.0.20210914-1
@@ -138,7 +138,7 @@ Size: 1390
 MD5Sum: 141d5b5684007085c9e2d70dc260d19d
 
 Package: ee71-charger-fix
-Version: 1.0.0-3
+Version: 1.0.0-4
 Depends: libc, libssp, librt, libpthread, busybox
 Provides: ee71-charger-fix-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-charger-fix
@@ -222,9 +222,9 @@ Description:  The stock firmware programs the BQ25601's input current limit to 1
  vendor driver reprograms the register on the next USB attach. The register is
  deliberately not restored on stop: putting 1500 mA back would re-create the
  fault on purpose.
-Filename: ee71-charger-fix_1.0.0-3_armv7-softfp.ipk
-Size: 7582
-MD5Sum: b099bb8259c4697a70b4f3337e98804d
+Filename: ee71-charger-fix_1.0.0-4_armv7-softfp.ipk
+Size: 8058
+MD5Sum: 1511ece469aa8b1dfdfb0ac1b684a05b
 
 Package: ee71-core-app-wifi-fix
 Version: 1.0.0-1
@@ -779,7 +779,7 @@ Size: 1841
 MD5Sum: 215e62be2fe0e4c84d354f4fc9413a19
 
 Package: ee71-webui
-Version: 1.9.2-5
+Version: 1.9.2-6
 Depends: ee71-qcmap-wifi-ctl (>=2.0.0), libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-nat66, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
@@ -804,9 +804,9 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.9.2-5_armv7-softfp.ipk
-Size: 236490
-MD5Sum: 682f9ad2cca1e3cd5fad263d0cd4c385
+Filename: ee71-webui_1.9.2-6_armv7-softfp.ipk
+Size: 237410
+MD5Sum: ac42f5ccd76e9d957e9b63da12893ef4
 
 Package: hostapd
 Version: 2025.08.26~ca266cc2-4
