@@ -1249,7 +1249,7 @@ Size: 431710
 MD5Sum: 02a53859290053c6b1791d99a3cbc876
 
 Package: miniupnpd
-Version: 2.3.11-7
+Version: 2.3.11-8
 Depends: libc, libssp, librt, libpthread, iptables, libnfnetlink, libnetfilter-conntrack, libmnl
 Provides: miniupnpd-any, miniupnpd-iptables
 Source: feeds/rctphone//feeds/rctphone/net/miniupnpd
@@ -1261,9 +1261,9 @@ URL: http://miniupnp.free.fr/
 Architecture: armv7-softfp
 Installed-Size: 163840
 Description:  UPnP/NAT-PMP/PCP daemon
-Filename: miniupnpd_2.3.11-7_armv7-softfp.ipk
-Size: 72972
-MD5Sum: 72da142d9f3f1a20a2b98e63c50f0f8c
+Filename: miniupnpd_2.3.11-8_armv7-softfp.ipk
+Size: 73410
+MD5Sum: 323d724886db7f1615e5d3f468d6f6da
 
 Package: openssl-util
 Version: 1.1.1zh-5
