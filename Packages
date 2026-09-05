@@ -404,7 +404,7 @@ Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
 Package: ee71-kmod-wlan
-Version: 4.2.25.8-7
+Version: 4.2.25.8-8
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-kmod-wlan-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-wlan
@@ -556,9 +556,9 @@ Description:  A from-source rebuild of the device's own WiFi driver: qcacld-2.0
  /usr/lib/ee71/wlan-rebuilt.buildinfo. Build options live
  in QCACLD_KBUILD_EXTRA at the top of that script. Analysis:
  docs/wlan-ko-analysis.md
-Filename: ee71-kmod-wlan_4.2.25.8-7_armv7-softfp.ipk
-Size: 1333853
-MD5Sum: e3df062bd091106f0fc2c817ea44d9b5
+Filename: ee71-kmod-wlan_4.2.25.8-8_armv7-softfp.ipk
+Size: 1334133
+MD5Sum: 0c8d1bdbae2ea29f1b5c281239c31291
 
 Package: ee71-optimize
 Version: 1.6.0-1
