@@ -21,7 +21,7 @@ Size: 617826
 MD5Sum: f75adfd3c6076a131819dfdbcc302a1a
 
 Package: ca-bundle
-Version: 20250419-1
+Version: 20260816-1
 Depends: libc, libssp, librt, libpthread
 Provides: ca-bundle-any, ca-certs
 Source: feeds/base/system/ca-certificates
@@ -31,14 +31,14 @@ LicenseFiles: debian/copyright
 Section: base
 SourceDateEpoch: 1771513164
 Architecture: all
-Installed-Size: 235520
+Installed-Size: 194560
 Description:  System CA certificates as a bundle
-Filename: ca-bundle_20250419-1_all.ipk
-Size: 131009
-MD5Sum: fd7afa5f98cd8978d9da36cb2107a2f9
+Filename: ca-bundle_20260816-1_all.ipk
+Size: 107274
+MD5Sum: ae42198bdc1ad90387019e2c5280fd1d
 
 Package: curl
-Version: 8.17.0-2
+Version: 8.17.0-3
 Depends: libc, libssp, librt, libpthread, libcurl
 Provides: curl-any
 Source: feeds/rctphone//feeds/rctphone/net/curl
@@ -50,12 +50,12 @@ URL: https://curl.se/
 Architecture: armv7-softfp
 Installed-Size: 153600
 Description:  curl CLI (HTTP/HTTPS only)
-Filename: curl_8.17.0-2_armv7-softfp.ipk
+Filename: curl_8.17.0-3_armv7-softfp.ipk
 Size: 73313
-MD5Sum: 585e860a37f5a28cd73e1b6ee6213876
+MD5Sum: 0bb50a73a9681b33cdbcaddf55424cd4
 
 Package: dnsmasq-full
-Version: 2.92-1
+Version: 2.92rel2-1
 Depends: libc, libssp, librt, libpthread, libnetfilter-conntrack
 Provides: dnsmasq-full-any, dnsmasq
 Source: feeds/base/network/services/dnsmasq
@@ -74,12 +74,12 @@ Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
   .
  This is a fully configurable variant with DHCPv4, DHCPv6, DNSSEC, Authoritative DNS
  and nftset, Conntrack support & NO_ID enabled by default.
-Filename: dnsmasq-full_2.92-1_armv7-softfp.ipk
-Size: 163282
-MD5Sum: 1d14a0b06784a8529982133f597c238a
+Filename: dnsmasq-full_2.92rel2-1_armv7-softfp.ipk
+Size: 163361
+MD5Sum: c0ee0ed88562de73d172714a44a5df0b
 
 Package: dropbear
-Version: 2026.91-1
+Version: 2026.94-2
 Depends: libc, libssp, librt, libpthread
 Provides: dropbear-any
 Alternatives: 100:/usr/bin/ssh-keygen:/usr/sbin/dropbear, 100:/usr/bin/scp:/usr/sbin/dropbear, 100:/usr/bin/ssh:/usr/sbin/dropbear
@@ -94,12 +94,12 @@ CPE-ID: cpe:/a:dropbear_ssh_project:dropbear_ssh
 Architecture: armv7-softfp
 Installed-Size: 256000
 Description:  A small SSH2 server/client designed for small memory environments.
-Filename: dropbear_2026.91-1_armv7-softfp.ipk
-Size: 127810
-MD5Sum: e0de3d660c846c2e2b355b1cb19158ef
+Filename: dropbear_2026.94-2_armv7-softfp.ipk
+Size: 129081
+MD5Sum: abcaa5015a374fb84e6f99acc2466c04
 
 Package: ee71-amneziawg-tools
-Version: 1.0.20220627-1
+Version: 1.0.20210914-1
 Depends: libc, libssp, librt, libpthread, ee71-kmod-amneziawg
 Provides: ee71-amneziawg-tools-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-amneziawg-tools
@@ -111,9 +111,15 @@ Installed-Size: 71680
 Description:  AmneziaWG userspace control program (awg) for kernel 3.10.49.
  Fork of wireguard-tools with anti-DPI obfuscation support.
  Pre-built with ee71-crossoe (GCC 13.2, ARMv7-A soft-float).
-Filename: ee71-amneziawg-tools_1.0.20220627-1_armv7-softfp.ipk
-Size: 31171
-MD5Sum: 89579c849b38c0628b3e06ed512f37b8
+  .
+ This is the AWG 1.0 generation. It cannot set the I1-I5 / S3-S4
+ parameters that AmneziaWG 2.0 (2025-09) and 3.x (2026-07) introduced, and
+ Amnezia states 1.0 peers do not interoperate with 2.0/3.x servers. Talking
+ to a current Amnezia server needs a rebuild from the v3.1 tools tag and a
+ matching kernel module, not a config change.
+Filename: ee71-amneziawg-tools_1.0.20210914-1_armv7-softfp.ipk
+Size: 31356
+MD5Sum: 239517c281b060eb7d047d11fa216178
 
 Package: ee71-apn-ru
 Version: 1.1.0-1
@@ -130,6 +136,38 @@ Description:  APN match profiles for Russian mobile operators:
 Filename: ee71-apn-ru_1.1.0-1_armv7-softfp.ipk
 Size: 1390
 MD5Sum: 141d5b5684007085c9e2d70dc260d19d
+
+Package: ee71-core-app-wifi-fix
+Version: 1.0.0-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-core-app-wifi-fix-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-core-app-wifi-fix
+SourceName: ee71-core-app-wifi-fix
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  core_app's WiFi-apply path runs three broad `killall hostapd*` shell
+ commands that tear down BOTH bands and then restart only wlan0, leaving
+ the 5 GHz guest AP on wlan1 dead until something restarts it manually.
+  .
+ This package replaces those three kill commands (plain NUL-terminated C
+ strings, all loaded only by core_app fcn.001ea0a4) with calls to a small
+ helper /etc/hk that kills ONLY wlan0's hostapd / hostapd_cli. wlan1 keeps
+ running, so applying 2.4 GHz settings no longer drops 5 GHz.
+  .
+ Patch is a string patch (no code change): each replacement is shorter
+ than the slot it fills and is NUL-padded. The init script verifies the
+ known stock byte layout before writing and refuses on any other build,
+ is idempotent, and can revert to stock (`stop`). It runs in rcS (before
+ oem_watch launches core_app) so the binary is patched in place while not
+ running - no "Text file busy", no extra disk, no WAN blip.
+  .
+ Backup of the stock binary goes to /cache/core_app.orig (2.98 MB; /usr
+ has no room), and byte-level revert works even if that backup is gone.
+Filename: ee71-core-app-wifi-fix_1.0.0-1_armv7-softfp.ipk
+Size: 5720
+MD5Sum: d0bfadecf824d595512c1d5f4472e6fb
 
 Package: ee71-internetometer
 Version: 1.1.0-1
@@ -151,7 +189,7 @@ Size: 3937
 MD5Sum: 9af13d41a50729e0c695ee35a7219a96
 
 Package: ee71-ipv6
-Version: 2.0.1-1
+Version: 2.2.0-1
 Depends: libc, libssp, librt, libpthread, libpthread, librt
 Provides: ee71-ipv6-any, ee71-radish
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-ipv6
@@ -170,17 +208,31 @@ Description:  Complete IPv6 stack for EE71 (formerly ee71-radish).
  - Bridge IPv6: assigns prefix::1 to bridge0
   .
  IPv6 infrastructure:
- - ip6tables INPUT DROP firewall (S38, before QCMAP)
- - dnsmasq AAAA filter when routed IPv6 is unavailable
+ - ip6tables INPUT + FORWARD DROP firewall (S38, before QCMAP)
+ 2.2.0 adds the FORWARD half. Until then the policy was ACCEPT and nothing
+ else set it (QCMAP does not, contrary to the old comment in the script), so
+ once the PDP type became IPv4v6 every LAN client was reachable from the
+ internet on every port at its autoconfigured global address — there is no
+ NAT on v6 to hide behind. The chain is now default DROP with stateful
+ return traffic, LAN-sourced forwarding, and RFC 4890 transit ICMPv6.
+ FORWARD is shared with miniupnpd's MINIUPNPD jump and vpn_apply's leak
+ guard, so our rules are check-then-add and the chain is never flushed.
+ The boot-time dnsmasq AAAA filter was removed in 2.1.0: it blocked the
+ init chain for 42 s, and its SIGHUP could never apply filter-AAAA anyway
+ (dnsmasq re-reads hosts and leases on SIGHUP, never its config file).
+ LAN IPv6 is now rejected audibly rather than blackholed while a VPN is up
+ (see vpn_apply in ee71-webui), so clients fall back to IPv4 immediately
+ and no DNS-level filter is needed.
+ Analysis: docs/plans/s95-dnsmasq-ipv6-filter-analysis.md
   .
  Binary at /usr/libexec/radish, wrapper at /usr/sbin/radish.
  Links against stock device libs.
-Filename: ee71-ipv6_2.0.1-1_armv7-softfp.ipk
-Size: 21893
-MD5Sum: d500d6e144d1d36016d5fd05180a9a05
+Filename: ee71-ipv6_2.2.0-1_armv7-softfp.ipk
+Size: 23701
+MD5Sum: e4527080bedf538fc8ddfb696399d689
 
 Package: ee71-kmod-amneziawg
-Version: 1.0.20220627-1
+Version: 1.0.20251009-1
 Depends: libc, libssp, librt, libpthread, ee71-kmod-tun
 Provides: ee71-kmod-amneziawg-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-amneziawg
@@ -192,9 +244,43 @@ Installed-Size: 153600
 Description:  AmneziaWG VPN kernel module for kernel 3.10.49.
  WireGuard variant with anti-DPI obfuscation.
  Pre-built with Linaro GCC 4.9 using compat layer.
-Filename: ee71-kmod-amneziawg_1.0.20220627-1_armv7-softfp.ipk
-Size: 55860
-MD5Sum: 942a39d5abd8d1181cd84c29e12d374e
+Filename: ee71-kmod-amneziawg_1.0.20251009-1_armv7-softfp.ipk
+Size: 55858
+MD5Sum: 71f7a91b7d7745f709fa7dbf58308362
+
+Package: ee71-kmod-nat66
+Version: 3.10.49-1
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-kmod-nat66-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-nat66
+SourceName: ee71-kmod-nat66
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  IPv6 NAT (NAT66) and stateless prefix translation (NPTv6) kernel modules
+ for kernel 3.10.49, which ships without CONFIG_NF_NAT_IPV6.
+  .
+ Modules: nf_nat_ipv6, ip6table_nat, ip6t_MASQUERADE.
+ Pre-built with Linaro GCC 4.9 (required for this kernel) from the vendor
+ 3.10.49 tree; see docker/kernel-modules/build.sh.
+  .
+ The package ships files only. vpn_apply insmods them on demand from
+ ip6_nat_available(), the same way it already loads wireguard.ko — so there
+ is no boot cost, and on an IPv4-only tunnel they are never loaded at all.
+ With them loaded, ip6tables gains the nat table and vpn_apply routes LAN
+ IPv6 through the tunnel instead of rejecting it. This only has an effect
+ once the tunnel itself carries IPv6 (an IPv6 Address and ::/0 in
+ AllowedIPs); on an IPv4-only tunnel it changes nothing.
+  .
+ ip6t_NPT (stateless NPTv6) is built by docker/kernel-modules/build.sh but
+ deliberately NOT shipped: nothing in this project uses SNPT/DNPT, and a
+ file on UBIFS that nothing references is worse than one cp away.
+  .
+ Analysis: docs/plans/ipv6-nat-feasibility.md
+Filename: ee71-kmod-nat66_3.10.49-1_armv7-softfp.ipk
+Size: 7344
+MD5Sum: 65e014e88881d54f1ac3472f0d909e4f
 
 Package: ee71-kmod-tun
 Version: 3.10.49-1
@@ -228,16 +314,173 @@ Filename: ee71-kmod-wireguard_1.0.20220627-1_armv7-softfp.ipk
 Size: 50826
 MD5Sum: 19857d46cdd936df6ed2fca578b96f55
 
+Package: ee71-kmod-wlan
+Version: 4.2.25.8-6
+Depends: libc, libssp, librt, libpthread
+Provides: ee71-kmod-wlan-any
+Source: feeds/rctphone//feeds/rctphone/ee71/ee71-kmod-wlan
+SourceName: ee71-kmod-wlan
+Section: ee71
+SourceDateEpoch: 1771513164
+Architecture: armv7-softfp
+Installed-Size: 1351680
+Description:  A from-source rebuild of the device's own WiFi driver: qcacld-2.0
+ "Release 4.2.25.8 MDM9X40" (commit c26933bef522, 2016-05-10, branch
+ LNX.LE.5.2 of the CodeLinaro qcacld-2.0 repository), compiled with GCC 4.9.4
+ against the device's own kernel config. Stock options: no qcacld feature flag
+ is set by hand, they are all derived from the kernel .config, which is why
+ the result matches the vendor's module as closely as it does.
+  .
+ THIS REPLACES A WORKING VENDOR DRIVER WITH A REBUILT ONE. There is no reason
+ to install it unless you are chasing a specific WiFi defect or intend to
+ change the driver source. If the rebuilt module does not load, the router
+ comes up with no WiFi - no 2.4 GHz, no 5 GHz.
+  .
+ FragAttacks mitigations are carried. Upstream 4.2.25.8 predates them; the
+ vendor's module reports the same version but is not that source, because TCL
+ cherry-picked later fixes on top without ever bumping QWLAN_VERSIONSTR. The
+ two commits whose absence made this build a security regression are applied
+ as build-time patches from docker/kernel-modules/patches/qcacld/:
+  .
+ c3bf4f5b  fragment PN continuity, defrag duplicate + timeout checks
+ 09d426dd  EAPOL sanity check on intra-BSS forwarding
+  .
+ CVE-2020-24586 / 24587 / 24588 plus the plaintext-injection check. Verified
+ against the vendor module as oracle rather than by inspection: all four
+ symbols (ol_rx_pn_strict_chk, ol_cfg_rx_host_duplicate_check,
+ ol_cfg_rx_host_defrag_timeout_check, __adf_nbuf_data_is_eapol_pkt) are now
+ present, and ol_cfg_rx_host_defrag_timeout_duplicate_check - the single
+ pre-2021 function those commits split into two - is gone, which is how you
+ tell the pick landed rather than merely applied.
+  .
+ WPA3-Personal (SAE) is dispatched to userspace. The 2016 LIM answers any
+ authentication algorithm it does not recognise with status 13, so SAE frames
+ were refused inside the driver and never reached hostapd. Patch 0003 adds the
+ early dispatch the LNX.LE.5.2 branch head uses: SAE is recognised ahead of
+ limIsAuthAlgoSupported() and forwarded up the management-frame indication
+ path that already exists - limSendSmeMgmtFrameInd() -> eWNI_SME_MGMT_FRM_IND
+ -> sme_mgmtFrmInd() -> eSAP_INDICATE_MGMT_FRAME -> hdd_indicateMgmtFrame(),
+ the same path P2P action frames use. AP-mode SAE needs no offload; hostapd
+ runs the exchange itself.
+  .
+ This needs hostapd built with CONFIG_SAE (the -4 package or later). With the
+ older hostapd the driver will hand up frames nothing can process.
+  .
+ RXMGMT_FLAG_EXTERNAL_AUTH is not passed and cannot be: on kernel 3.10
+ cfg80211_rx_mgmt() has no flags argument at all. Nothing depends on it -
+ hostapd reads the algorithm out of the frame body.
+  .
+ The feature is behind CONFIG_WLAN_FEATURE_SAE (on by default). Building with
+ CONFIG_WLAN_FEATURE_SAE=n gives a module of identical size with an identical
+ symbol set and none of the SAE strings; it is not byte-identical only because
+ the patch shifts __LINE__ values that FL() compiles into log calls - 127 bytes
+ of 3.6 MB, all accounted for. See docs/kernel-source-provenance.md.
+  .
+ Diagnosing it on the device: dmesg lines prefixed "SAE:" mean the driver saw
+ the frame and forwarded it. The line "received Authentication frame for
+ unsupported auth algorithm 3" means the dispatch is NOT in effect - wrong
+ module, or built with SAE off. Full table in docs/wpa3-feasibility.md.
+  .
+ A driver assertion warns instead of panicking. VOS_BUG() with PANIC_ON_BUG
+ set is a KERN_CRIT printk followed by BUG_ON(1), so a failed assertion takes
+ the whole kernel down rather than just WiFi. Patch 0004 turns that into
+ WARN_ON(1): the function, the line and a stack trace still reach dmesg and
+ the router stays up. On a device that is someone's only internet connection,
+ a WiFi fault that recovers beats a hang.
+  .
+ This is not a softening of the vendor's safety model. VOS_ASSERT() - same
+ header, 402 call sites against VOS_BUG()'s 26 - already expands to
+ printk + WARN_ON(1); this gives the rare variant the body the common one
+ always had. All 26 VOS_BUG() sites were checked: 7 return immediately,
+ 16 are the last statement in their function, and of the 3 that continue one
+ can never fire (it asserts a constant true) while the other two propagate an
+ error status rather than dereferencing what they just asserted about.
+  .
+ Given up: a panic triggers a ramdump, a warning does not. There is no
+ established ramdump-collection path for this device. Restore the panic for
+ debugging with QCACLD_KBUILD_EXTRA="PANIC_ON_BUG=1".
+  .
+ ONE KNOWN DIFFERENCE REMAINS. The vendor module defines ol_pktlog_init and
+ this one does not, because that function is not in 4.2.25.8 at all - it is
+ another TCL backport, not yet identified to a commit. Everything else in the
+ symbol delta (32 symbols) is inlining: those functions are present in the
+ 4.2.25.8 source and differ only in whether GCC 4.8.1 (vendor) or 4.9.4
+ (ours) chose to inline them.
+  .
+ Installing the package does NOT switch drivers. It only puts files on the
+ device. Switching is a separate, deliberate step:
+  .
+ /etc/init.d/ee71-wlan-rebuilt enable      # from the next WiFi start
+ /etc/init.d/ee71-wlan-rebuilt disable     # back to stock
+ /etc/init.d/ee71-wlan-rebuilt status
+ dmesg | grep wlan_load                    # which driver actually loaded
+  .
+ Upgrading the package keeps whichever driver you chose. Up to 4.2.25.8-4 it
+ did not: opkg runs the old package's prerm on an upgrade as well as on a
+ removal, so every `opkg install` of a newer build put the stock driver back
+ in the boot path - and since nothing here re-enables at boot, it stayed
+ there. The upgrade reported success while the driver under test quietly
+ stopped being the one that loaded. Now prerm records the choice, postrm
+ leaves that record alone on an upgrade, and postinst restores it.
+  .
+ `opkg install --force-reinstall` is the exception, and deliberately so: opkg
+ implements it as a removal followed by an install, the removal genuinely is
+ one, and the stock driver comes back. Re-run `enable` afterwards.
+  .
+ The stock /usr/lib/modules/3.10.49/extra/wlan.ko is never touched, moved or
+ overwritten - so restoring it needs no backup of it. What `enable` changes is
+ one line of the vendor's /etc/init.d/wlan (the only caller of insmod for this
+ driver) so that it goes through /usr/lib/ee71/wlan_load. `disable` reverses
+ that substitution byte for byte and reads no backup file, and removing the
+ package runs `disable` first - so the stock driver comes back whether or not
+ this package is still installed.
+  .
+ IF IT MISBEHAVES - will not load, WiFi up but clients cannot associate,
+ throughput collapses - recover over ADB, which comes up from rcS and does not
+ depend on WiFi:
+  .
+ adb shell
+ /etc/init.d/ee71-wlan-rebuilt disable
+ reboot
+  .
+ There is deliberately no automatic fallback to the stock module at boot. It
+ would run forever to guard against a state that takes thirty seconds to undo
+ over a cable, and it would make every experiment lie about which driver
+ actually loaded.
+  .
+ The module ships gzipped (1.34 MB): /usr has about 3.6 MB free and the module
+ is 3.63 MB, so an uncompressed second copy does not fit beside the stock one.
+ wlan_load inflates it into tmpfs, insmods it from there, and deletes it. It
+ is not offloaded to /cache: that partition is one we clean, and a WiFi driver
+ that disappears when someone tidies up is worse than one that never shipped.
+  .
+ What the module was built from is recorded in
+ /usr/lib/ee71/wlan-rebuilt.buildinfo - source revision, compiler, vermagic,
+ build options, size and sha256 - and `status` prints it.
+  .
+ The four firmware blobs the driver loads (qwlan30.bin, bdwlan30.bin, otp30.bin,
+ nvm_tlv_3.0.bin) live on the /firmware partition, are board-specific, and are
+ not touched by any of this.
+  .
+ Built by docker/kernel-modules/build.sh with BUILD_WLAN=1. Exact source
+ revision, patch set, kernel revision, compiler and vermagic are recorded in
+ /usr/lib/ee71/wlan-rebuilt.buildinfo. Build options live
+ in QCACLD_KBUILD_EXTRA at the top of that script. Analysis:
+ docs/wlan-ko-analysis.md
+Filename: ee71-kmod-wlan_4.2.25.8-6_armv7-softfp.ipk
+Size: 1333056
+MD5Sum: f6895387e22910735b3a039e03a484f6
+
 Package: ee71-optimize
-Version: 1.5.4-1
-Depends: libc, libssp, librt, libpthread, jq, sqlite3, ee71-qcmap-wifi-ctl
+Version: 1.6.0-1
+Depends: libc, libssp, librt, libpthread, jq, sqlite3
 Provides: ee71-optimize-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-optimize
 SourceName: ee71-optimize
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 51200
+Installed-Size: 40960
 Description:  EE71 performance optimization suite.
   .
  One-time (marker file, skipped on subsequent boots):
@@ -255,12 +498,22 @@ Description:  EE71 performance optimization suite.
  - oem_watch_patch: remove drop_caches anti-pattern from watchdog
  - parallel_boot: background dropbear/syslog/thermal-engine at boot
  - qcmap_renice: renice QCMAP busy-loop threads to priority 19
-Filename: ee71-optimize_1.5.4-1_armv7-softfp.ipk
-Size: 11115
-MD5Sum: a9e3951645134c18f10b3bf8bab3211a
+  .
+ 1.6.0 dropped the two WiFi boot scripts (S38ee71_prewarm_wlan,
+ S92ee71_wifi_boot) and their helpers. They existed to force
+ <WlanMode>AP-AP</WlanMode> back into mobileap_cfg.xml at boot, fighting a
+ revert that our own wifi.cgi caused by writing to the wifi_config rows
+ core_app derives its WLAN mode from: a corrupted row made core_app ask
+ QCMAP for plain AP, and QCMAP then persisted AP. With that write gone,
+ QCMAP starts both APs from its own XML and core_app re-asserts AP-AP
+ itself; the scripts were already no-ops on the last boot. See
+ docs/plans/ee71-dual-wifi-redesign.md.
+Filename: ee71-optimize_1.6.0-1_armv7-softfp.ipk
+Size: 8717
+MD5Sum: 3ef366900c20aeb4e7428a8fec25ece3
 
 Package: ee71-qcmap-fix
-Version: 1.1.0-1
+Version: 1.2.0-1
 Depends: libc, libssp, librt, libpthread
 Provides: ee71-qcmap-fix-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-fix
@@ -271,22 +524,32 @@ Architecture: armv7-softfp
 Installed-Size: 20480
 Description:  Patches QCMAP_ConnectionManager binary on boot.
   .
- Patch 1 — zero-length netlink fix (12 bytes at 0x1C4C4):
- Fixes infinite busy loop when netlink TLV attribute has length=0.
+ Patch 1 — zero-length netlink fix (12 bytes at file offset 0x1C4C4,
+ vaddr 0x244C4): fixes an infinite busy loop when a netlink TLV attribute
+ has length=0.
   .
  Patch 2 — preserve dnsmasq leases (1 byte at 0x6A858):
  Disables rm of /var/lib/misc/dnsmasq.leases on dnsmasq restart.
  QCMAP kills and restarts dnsmasq on WAN reconnect, deleting leases.
  This patch comments out the rm command so clients keep their IPs.
   .
- Init script backs up original, applies both patches, verifies.
-Filename: ee71-qcmap-fix_1.1.0-1_armv7-softfp.ipk
-Size: 4832
-MD5Sum: 265412e58076ae71faf08d066a2b1391
+ Init script backs up the original, applies both patches, verifies, and
+ restarts QCMAP. `stop` reverts to stock bytes; it works from the bytes
+ themselves, so removing the package really does undo the patch.
+  .
+ 1.2.0 fixes patch 1's file offset. It was 116932 (0x1C8C4), 0x400 past the
+ patch site, so patch 1 silently took the "bytes don't match" branch and was
+ never applied on any device. It is 115908 (0x1C4C4) now — which means the
+ next install of this package applies patch 1 for the first time. 1.2.0 also
+ restarts QCMAP after patching instead of only killing it (nothing on this
+ device respawns QCMAP), and adds the prerm revert.
+Filename: ee71-qcmap-fix_1.2.0-1_armv7-softfp.ipk
+Size: 6903
+MD5Sum: 2c875ae4e7fe3464407905b23622f475
 
 Package: ee71-qcmap-wifi-ctl
-Version: 1.4.2-1
-Depends: libc, libssp, librt, libpthread, libstdcpp
+Version: 2.1.0-1
+Depends: libc, libssp, librt, libpthread, libstdcpp, sqlite3
 Provides: ee71-qcmap-wifi-ctl-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-qcmap-wifi-ctl
 SourceName: ee71-qcmap-wifi-ctl
@@ -294,23 +557,33 @@ Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
 Installed-Size: 30720
-Description:  Manages WiFi settings on the EE71 router:
- - Generates /etc/hostapd-wlan1.conf for 5GHz (wlan1)
- - Sends SetWlanSettings IPC to core_app (JSON-RPC 2.0 via libsock_client.so.0)
- - Provides restart commands for wlan0/wlan1 hostapd
+Description:  The WiFi jobs no stock component on the EE71 does:
+ - Generates /etc/hostapd-wlan1.conf from the Guest5G* settings
+ - Restarts the wlan1 hostapd after core_app's `killall hostapd`
+ (core_app restarts only wlan0; QCMAP never notices wlan1 died)
+ - Sets wifi_config.GuestAP=1 when the guest AP is switched on. That row
+ decides dual-band at boot and has no field in the JSON-RPC wire
+ protocol, so no API call can reach it. Written one-way (never 0) and
+ only when already different, so "5 GHz off" can never make dual-band
+ unrecoverable. See docs/plans/guestap-apmode-semantics.md.
+ - stop-guest: "5 GHz off" as a runtime state, leaving provisioning alone
   .
- Solves the dual-band WiFi problem: SetWlanSettings through
- core_app triggers QCMAP EnableWLAN which tears down ALL WiFi
- but only restarts wlan0. This tool generates the wlan1 config
- BEFORE the restart so QCMAP finds both configs.
+ Also sends the one SetWlanSettings IPC to core_app (JSON-RPC 2.0 via
+ libsock_client.so.0) so core_app owns every DB write and wlan0.
+  .
+ Deliberately NOT here (2.0.0 removed all of it): WLAN mode switching
+ and mobileap_cfg.xml editing (QCMAP reads the XML only at start and
+ core_app re-asserts the mode at every start, so a runtime edit changed
+ nothing), and wlan0 hostapd restarts (core_app owns wlan0). The device
+ is always AP-AP.
   .
  Runtime deps (on device): hostapd, libsock_client.so.0
-Filename: ee71-qcmap-wifi-ctl_1.4.2-1_armv7-softfp.ipk
-Size: 10562
-MD5Sum: 60b8f9313c8734f7f514c45fd1daf56f
+Filename: ee71-qcmap-wifi-ctl_2.1.0-1_armv7-softfp.ipk
+Size: 10790
+MD5Sum: d83c0439d59c184d8f7d5ddac6aed609
 
 Package: ee71-sms-forward
-Version: 1.0.10-1
+Version: 1.0.11-1
 Depends: libc, libssp, librt, libpthread, libstdcpp, libcurl
 Provides: ee71-sms-forward-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-sms-forward
@@ -322,9 +595,9 @@ Installed-Size: 40960
 Description:  Polls core_app via IPC for new SMS messages and forwards
  received messages to Telegram. Single daemon replaces
  sms_watchd + sms_notify + sms_forward.sh.
-Filename: ee71-sms-forward_1.0.10-1_armv7-softfp.ipk
-Size: 12881
-MD5Sum: 66408516ab250d4772223ce0b144ce9e
+Filename: ee71-sms-forward_1.0.11-1_armv7-softfp.ipk
+Size: 13145
+MD5Sum: 28bf45f59c5cd2dc6ae3cbea8a0d3ce7
 
 Package: ee71-speedtest-cli
 Version: 1.2.7-1
@@ -417,15 +690,15 @@ Size: 1841
 MD5Sum: 215e62be2fe0e4c84d354f4fc9413a19
 
 Package: ee71-webui
-Version: 1.8.27-1
-Depends: libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
+Version: 1.9.2-4
+Depends: ee71-qcmap-wifi-ctl (>=2.0.0), libc, libssp, librt, libpthread, ee71-traffic-stats, ee71-sms-forward, ee71-webs-csp, ee71-ttl-fix, ee71-ipv6, ee71-qcmap-fix, ee71-qcmap-wifi-ctl, ee71-optimize, ee71-usb-adb, ee71-kmod-wireguard, ee71-kmod-nat66, ee71-kmod-amneziawg, ee71-kmod-tun, wireguard-tools, ee71-amneziawg-tools, shadowsocks-libev, curl, busybox, dropbear, dnsmasq, iperf3, miniupnpd, sqlite3, hostapd, jq
 Provides: ee71-webui-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-webui
 SourceName: ee71-webui
 Section: ee71
 SourceDateEpoch: 1771513164
 Architecture: armv7-softfp
-Installed-Size: 860160
+Installed-Size: 727040
 Description:  Single-page web interface for the EE71 router.
  Includes SPA (HTML/JS/CSS), CGI scripts, init scripts,
  VPN enforcement, SMS forwarding, and signal monitoring.
@@ -442,12 +715,32 @@ Description:  Single-page web interface for the EE71 router.
  - ShadowSocks (ss-redir, ss-tunnel)
  - curl, busybox, dropbear, dnsmasq, iperf3
  - miniupnpd, sqlite3, hostapd
-Filename: ee71-webui_1.8.27-1_armv7-softfp.ipk
-Size: 375570
-MD5Sum: f3702a30836932c9e0349770a7118d8a
+Filename: ee71-webui_1.9.2-4_armv7-softfp.ipk
+Size: 235345
+MD5Sum: e1804bd839a5e866e0759decaf666b9b
+
+Package: hostapd
+Version: 2025.08.26~ca266cc2-4
+Depends: libc, libssp, librt, libpthread, libnl, libopenssl
+Provides: hostapd-any
+Source: feeds/base/network/services/hostapd
+SourceName: hostapd
+License: BSD-3-Clause
+Section: net
+SourceDateEpoch: 1771513164
+URL: https://w1.fi/hostapd/
+CPE-ID: cpe:/a:w1.fi:hostapd
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 952320
+Description:  This package contains a full featured IEEE 802.1x/WPA/EAP/RADIUS
+ Authenticator, built against OpenSSL and with SAE (WPA3-Personal).
+Filename: hostapd_2025.08.26~ca266cc2-4_armv7-softfp.ipk
+Size: 456017
+MD5Sum: 9f9470bbdc3f28ab00c59bb1abef9dc5
 
 Package: hostapd-utils
-Version: 2025.08.26~ca266cc2-3
+Version: 2025.08.26~ca266cc2-4
 Depends: libc, libssp, librt, libpthread, hostapd
 Provides: hostapd-utils-any
 Source: feeds/base/network/services/hostapd
@@ -461,32 +754,12 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 51200
 Description:  This package contains the hostapd_cli utility.
-Filename: hostapd-utils_2025.08.26~ca266cc2-3_armv7-softfp.ipk
-Size: 18081
-MD5Sum: 07204e6d7650cbb7542d359f574644c3
-
-Package: hostapd
-Version: 2025.08.26~ca266cc2-3
-Depends: libc, libssp, librt, libpthread, libnl
-Provides: hostapd-any
-Source: feeds/base/network/services/hostapd
-SourceName: hostapd
-License: BSD-3-Clause
-Section: net
-SourceDateEpoch: 1771513164
-URL: https://w1.fi/hostapd/
-CPE-ID: cpe:/a:w1.fi:hostapd
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 972800
-Description:  This package contains a full featured IEEE 802.1x/WPA/EAP/RADIUS
- Authenticator (internal TLS, no external crypto library).
-Filename: hostapd_2025.08.26~ca266cc2-3_armv7-softfp.ipk
-Size: 468116
-MD5Sum: 3b473a9797fbde1d4385d22caffa2844
+Filename: hostapd-utils_2025.08.26~ca266cc2-4_armv7-softfp.ipk
+Size: 18080
+MD5Sum: b601137e8d731469bb8186802836d5a8
 
 Package: iperf3
-Version: 3.20-1
+Version: 3.21-1
 Depends: libc, libssp, librt, libpthread, libopenssl, libatomic
 Provides: iperf3-any, iperf3-ssl
 Source: feeds/rctphone//feeds/rctphone/net/iperf3
@@ -498,9 +771,9 @@ URL: https://software.es.net/iperf/
 Architecture: armv7-softfp
 Installed-Size: 122880
 Description:  Network bandwidth measurement tool
-Filename: iperf3_3.20-1_armv7-softfp.ipk
-Size: 52973
-MD5Sum: 1f5f03734e0b3ae9021f01a2df5c1e5d
+Filename: iperf3_3.21-1_armv7-softfp.ipk
+Size: 54459
+MD5Sum: aa6b3f8197a51e4aecaf77bf59309ae4
 
 Package: iptables
 Version: 1.4.21-6
@@ -558,7 +831,7 @@ Size: 149496
 MD5Sum: 50a148e2b41c7f0d9b33d84de4bd3bf2
 
 Package: jq
-Version: 1.8.1-1
+Version: 1.8.2-1
 Depends: libc, libssp, librt, libpthread
 Provides: jq-any
 Source: feeds/rctphone//feeds/rctphone/utils/jq
@@ -568,16 +841,35 @@ Section: utils
 SourceDateEpoch: 1771513164
 URL: https://jqlang.github.io/jq/
 Architecture: armv7-softfp
-Installed-Size: 266240
+Installed-Size: 276480
 Description:  jq is like sed for JSON data — you can use it to slice, filter, map,
  and transform structured data with the same ease that sed, awk, grep
  and friends let you play with text.
-Filename: jq_1.8.1-1_armv7-softfp.ipk
-Size: 122957
-MD5Sum: c21d8ed9083176af71b7502a4f648945
+Filename: jq_1.8.2-1_armv7-softfp.ipk
+Size: 127702
+MD5Sum: 383e4da00eb99e7af22d14d4d57e473e
+
+Package: libatomic
+Version: 13.4.0-12
+Depends: libgcc
+Provides: libatomic-any
+Source: feeds/base/libs/toolchain
+SourceName: toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://gcc.gnu.org/
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  Atomic support library
+Filename: libatomic_13.4.0-12_armv7-softfp.ipk
+Size: 7057
+MD5Sum: 4413164785aa8e500459d61190ea55d6
 
 Package: libcurl
-Version: 8.17.0-2
+Version: 8.17.0-3
 Depends: libc, libssp, librt, libpthread, libopenssl, zlib, ca-bundle
 Provides: libcurl-any
 Source: feeds/rctphone//feeds/rctphone/net/curl
@@ -587,11 +879,11 @@ Section: libs
 SourceDateEpoch: 1771513164
 URL: https://curl.se/
 Architecture: armv7-softfp
-Installed-Size: 358400
+Installed-Size: 348160
 Description:  libcurl (HTTP/HTTPS)
-Filename: libcurl_8.17.0-2_armv7-softfp.ipk
-Size: 176488
-MD5Sum: 41660cd8214fdee03f6d7c8ab988dc78
+Filename: libcurl_8.17.0-3_armv7-softfp.ipk
+Size: 169434
+MD5Sum: ca68875446b841e7875f74401275190a
 
 Package: libmnl
 Version: 1.0.5-1
@@ -678,108 +970,8 @@ Filename: libnfnetlink_1.0.2-1_armv7-softfp.ipk
 Size: 10586
 MD5Sum: 4d369d1d4280de560db5bc95782f9362
 
-Package: libnl-cli
-Version: 3.11.0-1
-Depends: libc, libssp, librt, libpthread, libnl-genl, libnl-nf
-Provides: libnl-cli-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-LicenseFiles: COPYING
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-CPE-ID: cpe:/a:libnl_project:libnl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 40960
-Description:  CLI Netlink Library Functions
-Filename: libnl-cli_3.11.0-1_armv7-softfp.ipk
-Size: 11772
-MD5Sum: cb93724963c1837681f0a3b7064d253e
-
-Package: libnl-core
-Version: 3.11.0-1
-Depends: libc, libssp, librt, libpthread, libpthread
-Provides: libnl-core-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-LicenseFiles: COPYING
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-CPE-ID: cpe:/a:libnl_project:libnl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 92160
-Description:  Common code for all netlink libraries
-Filename: libnl-core_3.11.0-1_armv7-softfp.ipk
-Size: 36437
-MD5Sum: 9d0b61e3f24430d88dd27af358ea6af8
-
-Package: libnl-genl
-Version: 3.11.0-1
-Depends: libc, libssp, librt, libpthread, libnl-core
-Provides: libnl-genl-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-LicenseFiles: COPYING
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-CPE-ID: cpe:/a:libnl_project:libnl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 30720
-Description:  Generic Netlink Library Functions
-Filename: libnl-genl_3.11.0-1_armv7-softfp.ipk
-Size: 7994
-MD5Sum: af4feb4fcb2ae48f555cd659b004f8a8
-
-Package: libnl-nf
-Version: 3.11.0-1
-Depends: libc, libssp, librt, libpthread, libnl-route
-Provides: libnl-nf-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-LicenseFiles: COPYING
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-CPE-ID: cpe:/a:libnl_project:libnl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 81920
-Description:  Netfilter Netlink Library Functions
-Filename: libnl-nf_3.11.0-1_armv7-softfp.ipk
-Size: 27120
-MD5Sum: cb1061f00474bce1f593e5e1580a82c2
-
-Package: libnl-route
-Version: 3.11.0-1
-Depends: libc, libssp, librt, libpthread, libnl-core
-Provides: libnl-route-any
-Source: feeds/base/libs/libnl
-SourceName: libnl
-License: LGPL-2.1
-LicenseFiles: COPYING
-Section: libs
-SourceDateEpoch: 1771513164
-URL: https://www.infradead.org/~tgr/libnl/
-CPE-ID: cpe:/a:libnl_project:libnl
-Essential: yes
-Architecture: armv7-softfp
-Installed-Size: 450560
-Description:  Routing Netlink Library Functions
-Filename: libnl-route_3.11.0-1_armv7-softfp.ipk
-Size: 170926
-MD5Sum: c3f216663fba862c1a5bf14257ea5d9a
-
 Package: libnl
-Version: 3.11.0-1
+Version: 3.12.0-1
 Depends: libc, libssp, librt, libpthread, libnl-genl, libnl-route, libnl-nf, libnl-cli
 Provides: libnl-any
 Source: feeds/base/libs/libnl
@@ -795,36 +987,112 @@ Architecture: armv7-softfp
 Installed-Size: 10240
 Description:  Socket handling, connection management, sending and receiving of data,
  message construction and parsing, object caching system, etc.
-Filename: libnl_3.11.0-1_armv7-softfp.ipk
-Size: 805
-MD5Sum: 6ee31addcae066461e93a2e90f1eea50
+Filename: libnl_3.12.0-1_armv7-softfp.ipk
+Size: 806
+MD5Sum: 06a70310e7d9bbae93cc44e1ce6d8e6d
 
-Package: libopenssl-conf
-Version: 1.1.1zh-3
-Depends: libc, libssp, librt, libpthread, libopenssl
-Provides: libopenssl-conf-any
-Source: feeds/base/libs/openssl
-SourceName: openssl
-License: OpenSSL
-LicenseFiles: LICENSE
+Package: libnl-cli
+Version: 3.12.0-1
+Depends: libc, libssp, librt, libpthread, libnl-genl, libnl-nf
+Provides: libnl-cli-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+LicenseFiles: COPYING
 Section: libs
 SourceDateEpoch: 1771513164
-URL: https://www.openssl.org/
-CPE-ID: cpe:/a:openssl:openssl
+URL: https://www.infradead.org/~tgr/libnl/
+CPE-ID: cpe:/a:libnl_project:libnl
 Essential: yes
 Architecture: armv7-softfp
-Installed-Size: 20480
-Description:  The OpenSSL Project is a collaborative effort to develop a robust,
- commercial-grade, full-featured, and Open Source toolkit implementing the
- Transport Layer Security (TLS) protocol as well as a full-strength
- general-purpose cryptography library.
- This package installs the OpenSSL configuration file /etc/ssl/openssl.cnf.
-Filename: libopenssl-conf_1.1.1zh-3_armv7-softfp.ipk
-Size: 4732
-MD5Sum: 965b52d879bb758383490f437ae23a1e
+Installed-Size: 40960
+Description:  CLI Netlink Library Functions
+Filename: libnl-cli_3.12.0-1_armv7-softfp.ipk
+Size: 11772
+MD5Sum: 3fb90b927b76ae1c2bc2e0a3a4723124
+
+Package: libnl-core
+Version: 3.12.0-1
+Depends: libc, libssp, librt, libpthread, libpthread
+Provides: libnl-core-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+LicenseFiles: COPYING
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.infradead.org/~tgr/libnl/
+CPE-ID: cpe:/a:libnl_project:libnl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 92160
+Description:  Common code for all netlink libraries
+Filename: libnl-core_3.12.0-1_armv7-softfp.ipk
+Size: 36765
+MD5Sum: d032f8a7e49e010baa8d4e4c49534a27
+
+Package: libnl-genl
+Version: 3.12.0-1
+Depends: libc, libssp, librt, libpthread, libnl-core
+Provides: libnl-genl-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+LicenseFiles: COPYING
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.infradead.org/~tgr/libnl/
+CPE-ID: cpe:/a:libnl_project:libnl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 30720
+Description:  Generic Netlink Library Functions
+Filename: libnl-genl_3.12.0-1_armv7-softfp.ipk
+Size: 7957
+MD5Sum: 0d98649f800d432a45a4feb2b6ccb29f
+
+Package: libnl-nf
+Version: 3.12.0-1
+Depends: libc, libssp, librt, libpthread, libnl-route
+Provides: libnl-nf-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+LicenseFiles: COPYING
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.infradead.org/~tgr/libnl/
+CPE-ID: cpe:/a:libnl_project:libnl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 81920
+Description:  Netfilter Netlink Library Functions
+Filename: libnl-nf_3.12.0-1_armv7-softfp.ipk
+Size: 27016
+MD5Sum: 4005c4b7448130b1a7c0ff32eb38129a
+
+Package: libnl-route
+Version: 3.12.0-1
+Depends: libc, libssp, librt, libpthread, libnl-core
+Provides: libnl-route-any
+Source: feeds/base/libs/libnl
+SourceName: libnl
+License: LGPL-2.1
+LicenseFiles: COPYING
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.infradead.org/~tgr/libnl/
+CPE-ID: cpe:/a:libnl_project:libnl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 471040
+Description:  Routing Netlink Library Functions
+Filename: libnl-route_3.12.0-1_armv7-softfp.ipk
+Size: 176699
+MD5Sum: b604ddfa68e4d31d7018ef2b45c5077f
 
 Package: libopenssl
-Version: 1.1.1zh-3
+Version: 1.1.1zh-5
 Depends: libc, libssp, librt, libpthread, zlib
 Provides: libopenssl-any
 Source: feeds/base/libs/openssl
@@ -843,9 +1111,33 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  Transport Layer Security (TLS) protocol as well as a full-strength
  general-purpose cryptography library.
  This package contains the OpenSSL shared libraries, needed by other programs.
-Filename: libopenssl_1.1.1zh-3_armv7-softfp.ipk
-Size: 1067138
-MD5Sum: 41441fb9f8bef134001a32121223c3d4
+Filename: libopenssl_1.1.1zh-5_armv7-softfp.ipk
+Size: 1066638
+MD5Sum: 6ad7c8204611b07c37bb157f0e99603c
+
+Package: libopenssl-conf
+Version: 1.1.1zh-5
+Depends: libc, libssp, librt, libpthread, libopenssl
+Provides: libopenssl-conf-any
+Source: feeds/base/libs/openssl
+SourceName: openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: libs
+SourceDateEpoch: 1771513164
+URL: https://www.openssl.org/
+CPE-ID: cpe:/a:openssl:openssl
+Essential: yes
+Architecture: armv7-softfp
+Installed-Size: 20480
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the
+ Transport Layer Security (TLS) protocol as well as a full-strength
+ general-purpose cryptography library.
+ This package installs the OpenSSL configuration file /etc/ssl/openssl.cnf.
+Filename: libopenssl-conf_1.1.1zh-5_armv7-softfp.ipk
+Size: 4729
+MD5Sum: df876494babd33e4235f95ceb13224b5
 
 Package: libxml2
 Version: 2.13.9-1
@@ -868,8 +1160,8 @@ Size: 431710
 MD5Sum: 02a53859290053c6b1791d99a3cbc876
 
 Package: miniupnpd
-Version: 2.3.10-1
-Depends: libc, libssp, librt, libpthread, iptables, libnfnetlink, libnetfilter-conntrack
+Version: 2.3.11-3
+Depends: libc, libssp, librt, libpthread, iptables, libnfnetlink, libnetfilter-conntrack, libmnl
 Provides: miniupnpd-any, miniupnpd-iptables
 Source: feeds/rctphone//feeds/rctphone/net/miniupnpd
 SourceName: miniupnpd
@@ -878,14 +1170,14 @@ Section: net
 SourceDateEpoch: 1771513164
 URL: http://miniupnp.free.fr/
 Architecture: armv7-softfp
-Installed-Size: 143360
+Installed-Size: 153600
 Description:  UPnP/NAT-PMP/PCP daemon
-Filename: miniupnpd_2.3.10-1_armv7-softfp.ipk
-Size: 66352
-MD5Sum: 308757d797fc7592b31ce4fd9e9d949f
+Filename: miniupnpd_2.3.11-3_armv7-softfp.ipk
+Size: 70704
+MD5Sum: 5f54eda8988323f473f6f545c8b28eed
 
 Package: openssl-util
-Version: 1.1.1zh-3
+Version: 1.1.1zh-5
 Depends: libc, libssp, librt, libpthread, libopenssl, libopenssl-conf
 Provides: openssl-util-any
 Source: feeds/base/libs/openssl
@@ -904,9 +1196,9 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  Transport Layer Security (TLS) protocol as well as a full-strength
  general-purpose cryptography library.
  This package contains the OpenSSL command-line utility.
-Filename: openssl-util_1.1.1zh-3_armv7-softfp.ipk
-Size: 249124
-MD5Sum: e4b8c90337cb756c9310fdba20af79ec
+Filename: openssl-util_1.1.1zh-5_armv7-softfp.ipk
+Size: 249126
+MD5Sum: 28744de7fcabe66113fc7964edf263a5
 
 Package: opkg
 Version: 2025.11.05~80503d94-1
@@ -934,7 +1226,7 @@ Size: 386162
 MD5Sum: 34cf849bfb0efa3d5b0f825ced2e4817
 
 Package: shadowsocks-libev
-Version: 3.3.6-2
+Version: 3.3.6-3
 Depends: libc, libssp, librt, libpthread, libpthread
 Provides: shadowsocks-libev-any
 Source: feeds/rctphone//feeds/rctphone/net/shadowsocks-libev
@@ -948,12 +1240,12 @@ Installed-Size: 1208320
 Description:  Lightweight SOCKS5 proxy with encrypted tunnel.
  All dependencies (libev, libsodium, c-ares, mbedTLS, PCRE2)
  are downloaded and statically linked at build time.
-Filename: shadowsocks-libev_3.3.6-2_armv7-softfp.ipk
-Size: 572436
-MD5Sum: 7c934694b012721deec7c27d230fdc62
+Filename: shadowsocks-libev_3.3.6-3_armv7-softfp.ipk
+Size: 572653
+MD5Sum: 203f1838a4287701ba7e33270d1c1a27
 
 Package: sqlite3
-Version: 3.53.2-2
+Version: 3.53.4-1
 Depends: libc, libssp, librt, libpthread, libpthread
 Provides: sqlite3-any, libsqlite3, sqlite3-cli
 Source: feeds/rctphone//feeds/rctphone/libs/sqlite3
@@ -966,9 +1258,9 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 1249280
 Description:  SQLite3 database engine
-Filename: sqlite3_3.53.2-2_armv7-softfp.ipk
-Size: 670804
-MD5Sum: dbcf0a7d683092280c7bfc2283486153
+Filename: sqlite3_3.53.4-1_armv7-softfp.ipk
+Size: 671064
+MD5Sum: fe4a883c917594bc3ca545bf4bfd15b8
 
 Package: strace
 Version: 6.18-2
@@ -1011,7 +1303,7 @@ Size: 9659
 MD5Sum: 70319c4b247cd7b68985e9245de470d3
 
 Package: wireguard-tools
-Version: 1.0.20250521-1
+Version: 1.0.20260223-1
 Depends: libc, libssp, librt, libpthread
 Provides: wireguard-tools-any
 Source: feeds/base/network/utils/wireguard-tools
@@ -1031,12 +1323,12 @@ Description:  WireGuard is a novel VPN that runs inside the Linux Kernel and uti
  alike, fit for many different circumstances. It uses UDP.
   .
  This package provides the userspace control program for WireGuard, wg(8).
-Filename: wireguard-tools_1.0.20250521-1_armv7-softfp.ipk
-Size: 24354
-MD5Sum: 0d96284103ca5f8d302cd94c4d49b3c1
+Filename: wireguard-tools_1.0.20260223-1_armv7-softfp.ipk
+Size: 24482
+MD5Sum: b88c89df4f5565cd2e6bb38481778984
 
 Package: wpa-cli
-Version: 2025.08.26~ca266cc2-3
+Version: 2025.08.26~ca266cc2-4
 Depends: libc, libssp, librt, libpthread, wpa-supplicant
 Provides: wpa-cli-any
 Source: feeds/base/network/services/hostapd
@@ -1049,13 +1341,13 @@ Essential: yes
 Architecture: armv7-softfp
 Installed-Size: 81920
 Description:  WPA Supplicant command line control utility
-Filename: wpa-cli_2025.08.26~ca266cc2-3_armv7-softfp.ipk
-Size: 30512
-MD5Sum: 185be3fabd2d259a3cf408137d469140
+Filename: wpa-cli_2025.08.26~ca266cc2-4_armv7-softfp.ipk
+Size: 30511
+MD5Sum: 67277b1eb2b4717b244ae5a4d05616aa
 
 Package: wpa-supplicant
-Version: 2025.08.26~ca266cc2-3
-Depends: libc, libssp, librt, libpthread, libnl
+Version: 2025.08.26~ca266cc2-4
+Depends: libc, libssp, librt, libpthread, libnl, libopenssl
 Provides: wpa-supplicant-any
 Source: feeds/base/network/services/hostapd
 SourceName: hostapd
@@ -1066,14 +1358,14 @@ URL: https://w1.fi/wpa_supplicant/
 CPE-ID: cpe:/a:w1.fi:hostapd
 Essential: yes
 Architecture: armv7-softfp
-Installed-Size: 1064960
-Description:  WPA Supplicant with full feature set (internal TLS).
-Filename: wpa-supplicant_2025.08.26~ca266cc2-3_armv7-softfp.ipk
-Size: 514825
-MD5Sum: 339d18e06275c250cbe209bac5c2d929
+Installed-Size: 1044480
+Description:  WPA Supplicant with full feature set, built against OpenSSL and with SAE.
+Filename: wpa-supplicant_2025.08.26~ca266cc2-4_armv7-softfp.ipk
+Size: 496112
+MD5Sum: 389d2607e327d3f06996e994883471bd
 
 Package: zlib
-Version: 1.3.1-1
+Version: 1.3.2-1
 Depends: libc, libssp, librt, libpthread
 Provides: zlib-any
 Source: feeds/base/libs/zlib
@@ -1086,10 +1378,10 @@ URL: https://www.zlib.net/
 CPE-ID: cpe:/a:zlib:zlib
 Essential: yes
 Architecture: armv7-softfp
-Installed-Size: 71680
+Installed-Size: 81920
 Description:  zlib is a lossless data-compression library.
  This package includes the shared library.
-Filename: zlib_1.3.1-1_armv7-softfp.ipk
-Size: 38322
-MD5Sum: 70076aeef9254669ee88e05f41a58e7c
+Filename: zlib_1.3.2-1_armv7-softfp.ipk
+Size: 39386
+MD5Sum: 1078b744199f3e040c9c92749d91521f
 
