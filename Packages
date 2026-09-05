@@ -138,7 +138,7 @@ Size: 1390
 MD5Sum: 141d5b5684007085c9e2d70dc260d19d
 
 Package: ee71-charger-fix
-Version: 1.0.0-2
+Version: 1.0.0-3
 Depends: libc, libssp, librt, libpthread, busybox
 Provides: ee71-charger-fix-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-charger-fix
@@ -222,9 +222,9 @@ Description:  The stock firmware programs the BQ25601's input current limit to 1
  vendor driver reprograms the register on the next USB attach. The register is
  deliberately not restored on stop: putting 1500 mA back would re-create the
  fault on purpose.
-Filename: ee71-charger-fix_1.0.0-2_armv7-softfp.ipk
-Size: 7333
-MD5Sum: 104f5972dcc8cef5da835cea83235c8d
+Filename: ee71-charger-fix_1.0.0-3_armv7-softfp.ipk
+Size: 7582
+MD5Sum: b099bb8259c4697a70b4f3337e98804d
 
 Package: ee71-core-app-wifi-fix
 Version: 1.0.0-1
@@ -1249,7 +1249,7 @@ Size: 431710
 MD5Sum: 02a53859290053c6b1791d99a3cbc876
 
 Package: miniupnpd
-Version: 2.3.11-5
+Version: 2.3.11-6
 Depends: libc, libssp, librt, libpthread, iptables, libnfnetlink, libnetfilter-conntrack, libmnl
 Provides: miniupnpd-any, miniupnpd-iptables
 Source: feeds/rctphone//feeds/rctphone/net/miniupnpd
@@ -1261,9 +1261,9 @@ URL: http://miniupnp.free.fr/
 Architecture: armv7-softfp
 Installed-Size: 163840
 Description:  UPnP/NAT-PMP/PCP daemon
-Filename: miniupnpd_2.3.11-5_armv7-softfp.ipk
-Size: 72683
-MD5Sum: caa72ec41dbdcb6f530accb40f592c88
+Filename: miniupnpd_2.3.11-6_armv7-softfp.ipk
+Size: 72901
+MD5Sum: 83d1d82eec745f536024cd7d73e6a4c5
 
 Package: openssl-util
 Version: 1.1.1zh-5
