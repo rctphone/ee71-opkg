@@ -138,7 +138,7 @@ Size: 1390
 MD5Sum: 141d5b5684007085c9e2d70dc260d19d
 
 Package: ee71-charger-fix
-Version: 1.0.0-7
+Version: 1.0.0-8
 Depends: libc, libssp, librt, libpthread, busybox
 Provides: ee71-charger-fix-any
 Source: feeds/rctphone//feeds/rctphone/ee71/ee71-charger-fix
@@ -222,9 +222,9 @@ Description:  The stock firmware programs the BQ25601's input current limit to 1
  vendor driver reprograms the register on the next USB attach. The register is
  deliberately not restored on stop: putting 1500 mA back would re-create the
  fault on purpose.
-Filename: ee71-charger-fix_1.0.0-7_armv7-softfp.ipk
-Size: 11059
-MD5Sum: 865b38a66936b1f00eb78ab4227c5cd4
+Filename: ee71-charger-fix_1.0.0-8_armv7-softfp.ipk
+Size: 11208
+MD5Sum: 8692ba4db03fcee116efe83443f2fbf5
 
 Package: ee71-core-app-wifi-fix
 Version: 1.0.0-1
